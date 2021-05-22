@@ -16,47 +16,79 @@ const Firebase = (() => {
 
 	const database = firebase.firestore();
 
-	const productAttributes = [
-		'category',
-		'tags',
-		'pictures',
-		'price',
-		'publicationDate',
-		'description',
-	];
-
-	const getProductAttribute = async (productId, attribute) => {
-		return (await database.collection('products').doc(productId).get()).data()[
-			attribute
-		];
+	const databaseStructure = {
+		products: [
+			'category',
+			'tags',
+			'pictures',
+			'price',
+			'publicationDate',
+			'description',
+		],
 	};
 
-	const setProductAttribute = async (productId, attribute, newValue) => {
-		return await database
-			.collection('products')
-			.doc(productId)
-			.set({ [attribute]: newValue }, { merge: true });
+	const convertToCamelCase = (...names) => {
+		return (
+			names[0].toLowerCase() +
+			names
+				.slice(1)
+				.map((name) => name[0].toUpperCase() + name.slice(1))
+				.join('')
+		);
+	};
+
+	const generateGetMethodName = (collection, attribute) => {
+		return convertToCamelCase(
+			'get',
+			collection.slice(0, collection.length - 1),
+			attribute
+		);
+	};
+
+	const generateSetMethodName = (collection, attribute) => {
+		return convertToCamelCase(
+			'set',
+			collection.slice(0, collection.length - 1),
+			attribute
+		);
+	};
+
+	const generateGetMethod = (collection, attribute) => {
+		return async (documentId) => {
+			return (
+				await database.collection(collection).doc(documentId).get()
+			).data()[attribute];
+		};
+	};
+
+	const generateSetMethod = (collection, attribute) => {
+		return async (documentId, newValue) => {
+			return await database
+				.collection(collection)
+				.doc(documentId)
+				.set({ [attribute]: newValue }, { merge: true });
+		};
 	};
 
 	return {
 		...Object.fromEntries(
-			productAttributes.map((attribute) => {
-				return [
-					'getProduct' + attribute[0].toUpperCase() + attribute.slice(1),
-					async (productId) => {
-						return await getProductAttribute(productId, attribute);
-					},
-				];
+			...Object.keys(databaseStructure).map((collection) => {
+				return databaseStructure[collection].map((attribute) => {
+					return [
+						generateGetMethodName(collection, attribute),
+						generateGetMethod(collection, attribute),
+					];
+				});
 			})
 		),
 		...Object.fromEntries(
-			productAttributes.map((attribute) => {
-				return [
-					'setProduct' + attribute[0].toUpperCase() + attribute.slice(1),
-					async (productId, newValue) => {
-						return await setProductAttribute(productId, attribute, newValue);
-					},
-				];
+			...Object.keys(databaseStructure).map((collection) => {
+				return databaseStructure[collection].map((attribute) => {
+					return [
+						generateSetMethodName(collection, attribute),
+						generateSetMethod(collection, attribute),
+					];
+				});
 			})
 		),
 	};
