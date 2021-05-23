@@ -25,6 +25,20 @@ const Firebase = (() => {
 			'publicationDate',
 			'description',
 		],
+
+		users: [
+			'name',
+			'surname',
+			'nickname',
+			'profilePicture',
+			'email',
+			'password',
+			'cep',
+			'residenceNumber',
+			'complement',
+			'accountCreateDate',
+			'categoryClicks',
+		],
 	};
 
 	const convertToCamelCase = (...names) => {
