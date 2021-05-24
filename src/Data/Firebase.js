@@ -74,6 +74,13 @@ const Firebase = (() => {
 		);
 	};
 
+	const generateDeleteMethodName = (collection) => {
+		return convertToCamelCase(
+			'delete',
+			collection.slice(0, collection.length - 1)
+		);
+	};
+
 	const generateGetMethod = (collection, attribute) => {
 		return async (documentId) => {
 			return (
@@ -94,6 +101,12 @@ const Firebase = (() => {
 	const generateCreateMethod = (collection) => {
 		return () => {
 			return database.collection(collection).doc().id;
+		};
+	};
+
+	const generateDeleteMethod = (collection) => {
+		return async (documentId) => {
+			return await database.collection(collection).doc(documentId).delete();
 		};
 	};
 
@@ -123,6 +136,14 @@ const Firebase = (() => {
 				return [
 					generateCreateMethodName(collection),
 					generateCreateMethod(collection),
+				];
+			})
+		),
+		...Object.fromEntries(
+			Object.keys(databaseStructure).map((collection) => {
+				return [
+					generateDeleteMethodName(collection),
+					generateDeleteMethod(collection),
 				];
 			})
 		),
