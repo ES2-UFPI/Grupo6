@@ -67,6 +67,13 @@ const Firebase = (() => {
 		);
 	};
 
+	const generateCreateMethodName = (collection) => {
+		return convertToCamelCase(
+			'create',
+			collection.slice(0, collection.length - 1)
+		);
+	};
+
 	const generateGetMethod = (collection, attribute) => {
 		return async (documentId) => {
 			return (
@@ -81,6 +88,12 @@ const Firebase = (() => {
 				.collection(collection)
 				.doc(documentId)
 				.set({ [attribute]: newValue }, { merge: true });
+		};
+	};
+
+	const generateCreateMethod = (collection) => {
+		return () => {
+			return database.collection(collection).doc().id;
 		};
 	};
 
@@ -103,6 +116,14 @@ const Firebase = (() => {
 						generateSetMethod(collection, attribute),
 					];
 				});
+			})
+		),
+		...Object.fromEntries(
+			Object.keys(databaseStructure).map((collection) => {
+				return [
+					generateCreateMethodName(collection),
+					generateCreateMethod(collection),
+				];
 			})
 		),
 	};
