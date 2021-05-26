@@ -81,11 +81,7 @@ const Firebase = (() => {
 	};
 
 	const generateGetAllMethodName = (collection) => {
-		return convertToCamelCase(
-			'get',
-			'all',
-			collection
-		);
+		return convertToCamelCase('get', 'all', collection);
 	};
 
 	const generateGetMethod = (collection) => {
@@ -133,14 +129,16 @@ const Firebase = (() => {
 			})
 		),
 		...Object.fromEntries(
-			Object.keys(databaseStructure).map((collection) => {
-				return databaseStructure[collection].map((attribute) => {
-					return [
-						generateSetMethodName(collection, attribute),
-						generateSetMethod(collection, attribute),
-					];
-				});
-			}).reduce((previous, current) => [...previous, ...current], [])
+			Object.keys(databaseStructure)
+				.map((collection) => {
+					return databaseStructure[collection].map((attribute) => {
+						return [
+							generateSetMethodName(collection, attribute),
+							generateSetMethod(collection, attribute),
+						];
+					});
+				})
+				.reduce((previous, current) => [...previous, ...current], [])
 		),
 		...Object.fromEntries(
 			Object.keys(databaseStructure).map((collection) => {
@@ -164,7 +162,7 @@ const Firebase = (() => {
 					generateGetAllMethodName(collection),
 					generateGetAllMethod(collection),
 				];
-			})	
+			})
 		),
 	};
 })();
