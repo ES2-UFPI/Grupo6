@@ -7,6 +7,7 @@ import Firebase from '../Firebase';
 test('product set function names being assigned correctly', () => {
 	expect(Firebase).toEqual(
 		expect.objectContaining({
+			setProductName: expect.any(Function),
 			setProductCategory: expect.any(Function),
 			setProductTags: expect.any(Function),
 			setProductPictures: expect.any(Function),
@@ -74,11 +75,15 @@ test('get all function names being assigned correctly', () => {
 test('product functions working as intended', (done) => {
 	const getCallback = (productInfo) => {
 		try {
+			expect(productInfo.name).toBe('Cellphone');
 			expect(productInfo.category).toBe('Tech');
 			expect(productInfo.tags).toEqual(['gadget', 'latest']);
 			expect(productInfo.pictures).toEqual(['lorem', 'ipsum']);
 			expect(productInfo.price).toBe(2000.25);
 			expect(productInfo.description).toBe('Hello world');
+			expect(productInfo.publicationDate.toDate()).toEqual(
+				new Date(2020, 1, 1)
+			);
 			done();
 		} catch (error) {
 			done(error);
@@ -87,10 +92,12 @@ test('product functions working as intended', (done) => {
 
 	const createProduct = async () => {
 		const productId = await Firebase.createProduct();
+		await Firebase.setProductName(productId, 'Cellphone');
 		await Firebase.setProductCategory(productId, 'Tech');
 		await Firebase.setProductTags(productId, ['gadget', 'latest']);
 		await Firebase.setProductPictures(productId, ['lorem', 'ipsum']);
 		await Firebase.setProductPrice(productId, 2000.25);
+		await Firebase.setProductPublicationDate(productId, new Date(2020, 1, 1));
 		await Firebase.setProductDescription(productId, 'Hello world');
 
 		const productInfo = await Firebase.getProduct(productId);
