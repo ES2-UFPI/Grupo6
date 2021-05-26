@@ -18,6 +18,7 @@ const Firebase = (() => {
 
 	const databaseStructure = {
 		products: [
+			'name',
 			'category',
 			'tags',
 			'pictures',
