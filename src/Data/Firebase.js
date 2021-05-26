@@ -98,7 +98,15 @@ const Firebase = (() => {
 			return await database
 				.collection(collection)
 				.doc(documentId)
-				.set({ [attribute]: newValue }, { merge: true });
+				.set(
+					{
+						[attribute]:
+							newValue instanceof Date
+								? firebase.firestore.Timestamp.fromDate(newValue)
+								: newValue,
+					},
+					{ merge: true }
+				);
 		};
 	};
 
