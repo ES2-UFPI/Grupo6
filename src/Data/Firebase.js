@@ -51,11 +51,10 @@ const Firebase = (() => {
 		);
 	};
 
-	const generateGetMethodName = (collection, attribute) => {
+	const generateGetMethodName = (collection) => {
 		return convertToCamelCase(
 			'get',
-			collection.slice(0, collection.length - 1),
-			attribute
+			collection.slice(0, collection.length - 1)
 		);
 	};
 
@@ -81,11 +80,15 @@ const Firebase = (() => {
 		);
 	};
 
-	const generateGetMethod = (collection, attribute) => {
+	const generateGetAllMethodName = (collection) => {
+		return convertToCamelCase('get', 'all', collection);
+	};
+
+	const generateGetMethod = (collection) => {
 		return async (documentId) => {
 			return (
 				await database.collection(collection).doc(documentId).get()
-			).data()[attribute];
+			).data();
 		};
 	};
 
@@ -110,26 +113,32 @@ const Firebase = (() => {
 		};
 	};
 
+	const generateGetAllMethod = (collection) => {
+		return async () => {
+			return await database.collection(collection).get();
+		};
+	};
+
 	return {
 		...Object.fromEntries(
-			...Object.keys(databaseStructure).map((collection) => {
-				return databaseStructure[collection].map((attribute) => {
-					return [
-						generateGetMethodName(collection, attribute),
-						generateGetMethod(collection, attribute),
-					];
-				});
+			Object.keys(databaseStructure).map((collection) => {
+				return [
+					generateGetMethodName(collection),
+					generateGetMethod(collection),
+				];
 			})
 		),
 		...Object.fromEntries(
-			...Object.keys(databaseStructure).map((collection) => {
-				return databaseStructure[collection].map((attribute) => {
-					return [
-						generateSetMethodName(collection, attribute),
-						generateSetMethod(collection, attribute),
-					];
-				});
-			})
+			Object.keys(databaseStructure)
+				.map((collection) => {
+					return databaseStructure[collection].map((attribute) => {
+						return [
+							generateSetMethodName(collection, attribute),
+							generateSetMethod(collection, attribute),
+						];
+					});
+				})
+				.reduce((previous, current) => [...previous, ...current], [])
 		),
 		...Object.fromEntries(
 			Object.keys(databaseStructure).map((collection) => {
@@ -144,6 +153,14 @@ const Firebase = (() => {
 				return [
 					generateDeleteMethodName(collection),
 					generateDeleteMethod(collection),
+				];
+			})
+		),
+		...Object.fromEntries(
+			Object.keys(databaseStructure).map((collection) => {
+				return [
+					generateGetAllMethodName(collection),
+					generateGetAllMethod(collection),
 				];
 			})
 		),
