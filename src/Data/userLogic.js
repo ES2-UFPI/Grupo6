@@ -20,7 +20,7 @@ const userLogic = (() => {
         }
 
         if(isNumber(user.cep)){
-            throw "O campo de ser um valor numérico.";
+            throw "O campo deve ser um valor numérico.";
         }
         if(user.name !== ''){
             await Firebase.setUserName(user.id, user.name);
@@ -45,19 +45,8 @@ const userLogic = (() => {
         }
     }
 
-    async const getUserById = (userId) => {
-        return{
-            name: await Firebase.getUserName(userId),
-            surname: await Firebase.getUserSurname(userId),
-            nick: await Firebase.getUserNickname(userId),
-            photo: await Firebase.getUserProfilePicture(userId),
-            email: await Firebase.getUserEmail(userId),
-            cep: await Firebase.getUserCep(userId),
-            address: await Firebase.getUserResidenceNumber(userId),
-            complement: await Firebase.getUserComplement(userId),
-            start: await Firebase.getUserAccountCreateDate(userId),
-            categories: await Firebase.getUserCategoryClicks(userId)
-        }
+    async const getUsers = () => {
+        return await Firebase.getAllUsers();
     }
 
     async const addCategory = (userId, category) => {
@@ -70,12 +59,40 @@ const userLogic = (() => {
         await Firebase.deleteUser(userId);
     }
 
+    async const createAccount = (user) =>{
+        if((user.name === '') || (user.surname === '') || (user.email === '') || (user.password === '')){
+            throw "Preenchimento do campo é obrigatório."
+        }
+        
+        if(containsNumber(user.name) || containsNumber(user.name)){
+            throw "Há campos que não permitem números com valores numéricos.";
+        }
+
+        if(isNumber(user.cep)){
+            throw "O campo deve ser um valor numérico.";
+        }
+
+        account = await Firebase.createUser();
+        await Firebase.setUserName(account, user.name);
+        await Firebase.setUserSurname(accountm, user.surname);
+        await Firebase.setUserNickname(account, user.nick);
+        await Firebase.setUserProfilePicture(account, user.photo);
+        await Firebase.setUserCep(account, user.cep);
+        await Firebase.setUserResidenceNumber(account, user.addres);
+        await Firebase.setUserComplement(account, user.complement);
+        await Firebase.setUserEmail(account, user.email);
+        await Firebase.setUserPassword(account, user.password);
+        await Firebase.setUserAccountCreateDate(account, user.date);
+        await Firebase.setUserCategoryClicks(account, []);
+    }
+
     return {
         addPhoto,
         updateData,
-        getUserById,
+        getUsers,
         addCategory,
-        deleteAccount
+        deleteAccount,
+        createAccount
     }    
 })();
 
