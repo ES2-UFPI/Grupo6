@@ -10,11 +10,11 @@ const userLogic = (() => {
         return !isNaN(parseFloat(str)) && isFinite(str);
     }
 
-    async const addPhoto = (user) => {
+    const addPhoto = async (user) => {
         await Firebase.setUserProfilePicture(user.id, user.photo);
     }
 
-    async const updateData = (user) => {
+    const updateData = async (user) => {
         if(containsNumber(user.name) || containsNumber(user.name)){
             throw "Há campos que não permitem números com valores numéricos.";
         }
@@ -45,21 +45,21 @@ const userLogic = (() => {
         }
     }
 
-    async const getUsers = () => {
+    const getUsers = async () => {
         return await Firebase.getAllUsers();
     }
 
-    async const addCategory = (userId, category) => {
+    const addCategory = async (userId, category) => {
         let categories = await Firebase.getUserCategoryClicks(userId);
         categories.push(category);
         await Firebase.setUserCategoryClicks(userId, categories);
     }
 
-    async const deleteAccount = (userId) => {
+    const deleteAccount = async (userId) => {
         await Firebase.deleteUser(userId);
     }
 
-    async const createAccount = (user) =>{
+    const createAccount = async (user) =>{
         if((user.name === '') || (user.surname === '') || (user.email === '') || (user.password === '')){
             throw "Preenchimento do campo é obrigatório."
         }
@@ -72,9 +72,9 @@ const userLogic = (() => {
             throw "O campo deve ser um valor numérico.";
         }
 
-        account = await Firebase.createUser();
+        const account = await Firebase.createUser();
         await Firebase.setUserName(account, user.name);
-        await Firebase.setUserSurname(accountm, user.surname);
+        await Firebase.setUserSurname(account, user.surname);
         await Firebase.setUserNickname(account, user.nick);
         await Firebase.setUserProfilePicture(account, user.photo);
         await Firebase.setUserCep(account, user.cep);
