@@ -13,18 +13,18 @@ const HomePageMockup = () =>{
             </head>
 
             <body>
-                <header class = "header-homepage">
-                    <main class = "column-100">
-                        <div class = "header">
-                            <div class = "logo">
+                <header className = "header-homepage">
+                    <main className = "column-100">
+                        <div className = "header">
+                            <div className = "logo">
                                 <img src= "https://i.imgur.com/cXCcFKH.jpg" />
                             </div>
                         
-                            <div class = "busca">
+                            <div className = "busca">
                                 <input type="text" placeholder="Busque um produto" id="busca"/><button onClick =""></button>
                             </div>
-                            <div class = "dropdown">
-                                <div class = "profile">
+                            <div className = "dropdown">
+                                <div className = "profile">
                                     <ul>
                                         <li>
                                             <a href="https://www.youtube.com/watch?v=z9Uz1icjwrM">
@@ -32,7 +32,7 @@ const HomePageMockup = () =>{
                                                 </a>
                                         </li>
                                     </ul>
-                                    <div class = "profile-menu">
+                                    <div className = "profile-menu">
                                         <a href = ""> Visualizar Perfil </a>
                                         <a href = ""> Sair </a>
                                     </div>
@@ -44,11 +44,11 @@ const HomePageMockup = () =>{
             </body>
 
             <body>
-                <header class = "menu">
+                <header className = "menu">
                 </header>
-                <main class = "column-100 menu-categorys">
-                    <div class = "header2">
-                        <div class = "menu">
+                <main className = "column-100 menu-categorys">
+                    <div className = "header2">
+                        <div className = "menu">
                             <ul>
                                 <li>
                                     <a href = "/homepage">HOME</a>
