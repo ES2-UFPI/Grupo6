@@ -7,10 +7,10 @@ main {
 }
 
 ul {
-	padding: 0px!important;
+	padding: 0px !important;
 }
 
-.column-100{
+.column-100 {
 	width: 100%;
 	position: relative;
 }
@@ -23,14 +23,14 @@ body {
 
 .header-homepage {
 	width: 100%;
-	background-color: #7DD359 ;
+	background-color: #7dd359;
 	height: 87px;
 	margin-top: -10px;
 }
 
 .header {
 	width: 100%;
-	background-color: #000000 ;
+	background-color: #000000;
 	height: 83px;
 }
 
@@ -60,7 +60,7 @@ body {
 	padding: 3px;
 	width: 190px;
 	border-radius: 60px 0px 0px 60px;
-	border: 1px solid #7DD359;
+	border: 1px solid #7dd359;
 }
 
 .busca button {
@@ -71,7 +71,7 @@ body {
 	width: 45px;
 	position: absolute;
 	border-radius: 0px 60px 60px 0px;
-	border: 1px solid #7DD359;
+	border: 1px solid #7dd359;
 	margin-top: 20px;
 	/*background: transparent;*/
 }
@@ -96,15 +96,15 @@ body {
 }
 
 .profile-menu {
-	font-family: "Lucida Console", "Courier New", monospace;
+	font-family: 'Lucida Console', 'Courier New', monospace;
 	font-size: small;
 	display: none;
 	position: absolute;
 	right: 0;
 	background-color: #000000;
 	min-width: 160px;
-	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-	z-index: 1;	
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
 }
 
 .profile-menu a {
@@ -118,19 +118,18 @@ body {
 
 .profile-menu a:hover {
 	background-color: #000000;
-	
 }
 
-.dropdown:hover .profile-menu{
+.dropdown:hover .profile-menu {
 	display: block;
 	background-color: #000000;
-	border: 1px solid #7DD359;
+	border: 1px solid #7dd359;
 	margin-top: -18px;
 	margin-right: 15px;
 	border-radius: 10px;
 }
 
-.menu{
+.menu {
 	width: 55%;
 	margin-left: 220px;
 	margin-top: 10px;
@@ -138,7 +137,7 @@ body {
 }
 
 .menu ul li {
-	font-family: "Lucida Console", "Courier New", monospace;
+	font-family: 'Lucida Console', 'Courier New', monospace;
 	display: inline-block;
 	color: #ffffff;
 	margin-left: 25px;
@@ -147,14 +146,14 @@ body {
 
 .menu ul li :hover {
 	height: 50px;
-	border-top: 2px solid #7DD359;
-	border-bottom: 2px solid #7DD359;
+	border-top: 2px solid #7dd359;
+	border-bottom: 2px solid #7dd359;
 }
 
 .menu ul li a:hover {
-	color: #7DD359;
-	border-top: 1px solid #7DD359;
-	border-bottom: 1px solid #7DD359;
+	color: #7dd359;
+	border-top: 1px solid #7dd359;
+	border-bottom: 1px solid #7dd359;
 }
 
 .menu ul li a {
@@ -166,95 +165,95 @@ body {
 
 /*--------------------------------------------------------------------------------------------------------*/
 
-.page-title{
-    font-family: "Lucida Console", "Courier New", monospace;
+.page-title {
+	font-family: 'Lucida Console', 'Courier New', monospace;
 	width: 70%;
 	margin: auto;
 }
 
-.product{
-    border: 1px solid #000000;
-    border-radius: 30px;
-    background-color: #cacaca;
-    width: 70%;
-    height: 200px;
+.product {
+	border: 1px solid #000000;
+	border-radius: 30px;
+	background-color: #cacaca;
+	width: 70%;
+	height: 200px;
 	margin: auto;
 }
 
-.product h2{
-    font-family: "Lucida Console", "Courier New", monospace;
-    margin-left: 10px;
-    margin-top: 6px;
+.product h2 {
+	font-family: 'Lucida Console', 'Courier New', monospace;
+	margin-left: 10px;
+	margin-top: 6px;
 }
 
-.product img{
-    width: 85px;
-    height: auto;
-    margin-left: 25px;
+.product img {
+	width: 85px;
+	height: auto;
+	margin-left: 25px;
 }
 
-.product h3{
-    font-family: "Lucida Console", "Courier New", monospace;
-    margin-left: 125px;
-    margin-top: -100px;
+.product h3 {
+	font-family: 'Lucida Console', 'Courier New', monospace;
+	margin-left: 125px;
+	margin-top: -100px;
 }
 
-.product h4{
-    font-family: "Lucida Console", "Courier New", monospace;
-    font-size: larger;
-    margin-left: 125px;
-    margin-top: 0px;
+.product h4 {
+	font-family: 'Lucida Console', 'Courier New', monospace;
+	font-size: larger;
+	margin-left: 125px;
+	margin-top: 0px;
 }
 
-.item-removal{
-    margin-left: 850px;
-    margin-top: -100px;
-    height: 30px;
-    width: 350px;
+.item-removal {
+	margin-left: 850px;
+	margin-top: -100px;
+	height: 30px;
+	width: 350px;
 }
 
-.item-removal h3{
-    margin-left: 0px;
-    margin-top: 0px;
+.item-removal h3 {
+	margin-left: 0px;
+	margin-top: 0px;
 }
 
-.item-removal button{
-    margin-left: 180px;
+.item-removal button {
+	margin-left: 180px;
 }
 
-.subtotal{
-    font-family: "Lucida Console", "Courier New", monospace;
-    border: 1px solid #000000;
-    border-radius: 30px;
-    background-color: #cacaca;
-    width: 70%;
-    height: 140px;
+.subtotal {
+	font-family: 'Lucida Console', 'Courier New', monospace;
+	border: 1px solid #000000;
+	border-radius: 30px;
+	background-color: #cacaca;
+	width: 70%;
+	height: 140px;
 	margin: auto;
 }
 
-.subtotal h1{
-    margin-left: 50px;
+.subtotal h1 {
+	margin-left: 50px;
 }
 
-.confirm{
-    border: 1px solid #37ff7a;
-    background-color: #6aff9b;
-    border-radius: 10px 0px 0px 10px;
-    width: 110px;
-    height: 20px;
-    margin-left: 370px;
-    padding: 1%;
+.confirm {
+	border: 1px solid #37ff7a;
+	background-color: #6aff9b;
+	border-radius: 10px 0px 0px 10px;
+	width: 110px;
+	height: 20px;
+	margin-left: 370px;
+	padding: 1%;
 }
 
-.cancel{
-    border: 1px solid #ff2b2b;
-    background-color: #ff5050;
-    border-radius: 0px 10px 10px 0px;
-    width: 110px;
-    height: 20px;
-    margin-left: 509px;
-    margin-top: -48px;
-    text-decoration: none;
-    padding: 1%;
-    font-size: larger;
+.cancel {
+	border: 1px solid #ff2b2b;
+	background-color: #ff5050;
+	border-radius: 0px 10px 10px 0px;
+	width: 110px;
+	height: 20px;
+	margin-left: 509px;
+	margin-top: -48px;
+	text-decoration: none;
+	padding: 1%;
+	font-size: larger;
 }

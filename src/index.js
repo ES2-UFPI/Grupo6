@@ -7,8 +7,6 @@ import HomePageMockup from './Visualization/Components/HomePageMockup';
 import ProductPageMockup from './Visualization/Components/ProductPageMockup';
 import ShoppingCart from './Visualization/Components/ShoppingCart';
 
-
-
 ReactDOM.render(
 	<React.StrictMode>
 		<BrowserRouter>
