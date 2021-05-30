@@ -7,10 +7,10 @@ main {
 }
 
 ul {
-	padding: 0px!important;
+	padding: 0px !important;
 }
 
-.column-100{
+.column-100 {
 	width: 100%;
 	position: relative;
 }
@@ -23,13 +23,13 @@ body {
 
 .header-homepage {
 	width: 100%;
-	background-color: #7DD359 ;
+	background-color: #7dd359;
 	height: 87px;
 }
 
 .header {
 	width: 100%;
-	background-color: #000000 ;
+	background-color: #000000;
 	height: 83px;
 }
 
@@ -59,7 +59,7 @@ body {
 	padding: 3px;
 	width: 190px;
 	border-radius: 60px 0px 0px 60px;
-	border: 1px solid #7DD359;
+	border: 1px solid #7dd359;
 }
 
 .busca button {
@@ -70,7 +70,7 @@ body {
 	width: 45px;
 	position: absolute;
 	border-radius: 0px 60px 60px 0px;
-	border: 1px solid #7DD359;
+	border: 1px solid #7dd359;
 	margin-top: 20px;
 	/*background: transparent;*/
 }
@@ -95,15 +95,15 @@ body {
 }
 
 .profile-menu {
-	font-family: "Lucida Console", "Courier New", monospace;
+	font-family: 'Lucida Console', 'Courier New', monospace;
 	font-size: small;
 	display: none;
 	position: absolute;
 	right: 0;
 	background-color: #000000;
 	min-width: 160px;
-	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-	z-index: 1;	
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
 }
 
 .profile-menu a {
@@ -117,10 +117,9 @@ body {
 
 .profile-menu a:hover {
 	background-color: #000000;
-	
 }
 
-.dropdown:hover .profile-menu{
+.dropdown:hover .profile-menu {
 	display: block;
 	background-color: #000000;
 	margin-top: -18px;
@@ -128,14 +127,14 @@ body {
 	border-radius: 10px;
 }
 
-.menu{
+.menu {
 	width: 55%;
 	margin-left: 220px;
 	border: 1px solid #000000;
 }
 
 .menu ul li {
-	font-family: "Lucida Console", "Courier New", monospace;
+	font-family: 'Lucida Console', 'Courier New', monospace;
 	display: inline-block;
 	color: #ffffff;
 	margin-left: 25px;
@@ -144,14 +143,14 @@ body {
 
 .menu ul li :hover {
 	height: 50px;
-	border-top: 2px solid #7DD359;
-	border-bottom: 2px solid #7DD359;
+	border-top: 2px solid #7dd359;
+	border-bottom: 2px solid #7dd359;
 }
 
 .menu ul li a:hover {
-	color: #7DD359;
-	border-top: 1px solid #7DD359;
-	border-bottom: 1px solid #7DD359;
+	color: #7dd359;
+	border-top: 1px solid #7dd359;
+	border-bottom: 1px solid #7dd359;
 }
 
 .menu ul li a {
@@ -163,110 +162,110 @@ body {
 
 /*--------------------------------------------------------------------------------------------------------*/
 
-.title{
-    font-family: "Lucida Console", "Courier New", monospace;
+.title {
+	font-family: 'Lucida Console', 'Courier New', monospace;
 	width: 70%;
 	margin: auto;
 }
 
-.product-first-block{
-    width: 70%;
+.product-first-block {
+	width: 70%;
 	margin: auto;
 }
 
-.product-first-block img{
-    width: 400px;
-    height: 400px;
-    margin: auto;
+.product-first-block img {
+	width: 400px;
+	height: 400px;
+	margin: auto;
 }
 
-.product-first-block h2{
-    font-family: "Lucida Console", "Courier New", monospace;
-    font-size: 15px;
-    width: 400px;
-    height: 20px;
-    margin: auto;
-    margin-top: -360px;
+.product-first-block h2 {
+	font-family: 'Lucida Console', 'Courier New', monospace;
+	font-size: 15px;
+	width: 400px;
+	height: 20px;
+	margin: auto;
+	margin-top: -360px;
 }
 
-.product-first-block p{
-    font-family: "Lucida Console", "Courier New", monospace;
-    font-size: 13px;
-    width: 400px;
-    height: 400px;
-    margin: auto;
+.product-first-block p {
+	font-family: 'Lucida Console', 'Courier New', monospace;
+	font-size: 13px;
+	width: 400px;
+	height: 400px;
+	margin: auto;
 }
 
 .seller-box {
-    border: 1px solid #000000;
-    border-radius: 20px;
-    background-color: #cacaca;
-    width: 350px;
-    height: 515px;
-    margin: auto;
-    margin-left: 1000px;
-    margin-top: -460px;
+	border: 1px solid #000000;
+	border-radius: 20px;
+	background-color: #cacaca;
+	width: 350px;
+	height: 515px;
+	margin: auto;
+	margin-left: 1000px;
+	margin-top: -460px;
 }
 
 .seller-box img {
-    margin-left: 50px;
-    margin-top: 20px;
-    width: 250px;
-    height: 250px;
+	margin-left: 50px;
+	margin-top: 20px;
+	width: 250px;
+	height: 250px;
 }
 
-.message{
-    width: 30px;
-    height: 30px;
+.message {
+	width: 30px;
+	height: 30px;
 }
 
-.message img{
-    margin-left: 50px;
-    margin-top: 30px;
-    width: 30px;
-    height: 30px;
+.message img {
+	margin-left: 50px;
+	margin-top: 30px;
+	width: 30px;
+	height: 30px;
 }
 
-.message p{
-    font-family: "Lucida Console", "Courier New", monospace;
-    font-size: 12px;
-    margin-left: 90px;
-    margin-top: -26px;
+.message p {
+	font-family: 'Lucida Console', 'Courier New', monospace;
+	font-size: 12px;
+	margin-left: 90px;
+	margin-top: -26px;
 }
 
-.box-message button{
-    border: 2px solid #000000;
-    background-color: transparent;
-    width: 290px;
-    height: 35px;
-    border-radius: 20px;
-    margin-top: -60px;
-    margin-left: 40px;
+.box-message button {
+	border: 2px solid #000000;
+	background-color: transparent;
+	width: 290px;
+	height: 35px;
+	border-radius: 20px;
+	margin-top: -60px;
+	margin-left: 40px;
 }
 
-.seller-box h3{
-    font-family: "Lucida Console", "Courier New", monospace;
-    font-size: 13px;
-    font-size: medium;
-    margin-top: 20px;
-    margin-left: 30px;
+.seller-box h3 {
+	font-family: 'Lucida Console', 'Courier New', monospace;
+	font-size: 13px;
+	font-size: medium;
+	margin-top: 20px;
+	margin-left: 30px;
 }
 
 .value {
-    font-family: "Lucida Console", "Courier New", monospace;
-    font-size: 15px;
-    margin-top: -100px;
-    height: 35px;
-    width: 200px;
+	font-family: 'Lucida Console', 'Courier New', monospace;
+	font-size: 15px;
+	margin-top: -100px;
+	height: 35px;
+	width: 200px;
 }
 
-.cart{
-    font-family: "Lucida Console", "Courier New", monospace;
-    height: 30px;
-    width: 210px;
-    padding-left: 10%;
-    padding-top: 5%;
-    border: 4px solid #000000;
-    background-color: #7DD359;
-    border-radius: 40px;
+.cart {
+	font-family: 'Lucida Console', 'Courier New', monospace;
+	height: 30px;
+	width: 210px;
+	padding-left: 10%;
+	padding-top: 5%;
+	border: 4px solid #000000;
+	background-color: #7dd359;
+	border-radius: 40px;
 }

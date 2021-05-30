@@ -1,7 +1,7 @@
 /*
 import Firebase from './Firebase';
 
-const productLogic = (() => {
+const ProductLogic = (() => {
 
     function isNumber(str) {
         return !isNaN(parseFloat(str)) && isFinite(str);
@@ -33,5 +33,5 @@ const productLogic = (() => {
 //http://localhost:3000/product/
 //add?product-name=Celular&description=Samsung+j1+mini&price=10.00&category=Eletr%C3%B4nicos
 
-export default productLogic;
+export default ProductLogic;
 */
