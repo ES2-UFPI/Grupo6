@@ -13,29 +13,27 @@ const Reducer = (() => {
 				localStorage.setItem(
 					'userState',
 					JSON.stringify({
-						...state,
 						...action.data,
-						cart: state.cart,
+						...state,
 					})
 				);
 				return {
-					...state,
 					...action.data,
-					cart: state.cart,
+					...state,
 				};
 			case 'SIGN_OUT':
 				localStorage.setItem(
 					'userState',
 					JSON.stringify({
-						...state,
 						userId: null,
 						userInfo: {},
+						...state,
 					})
 				);
 				return {
-					...state,
 					userId: null,
 					userInfo: {},
+					...state,
 				};
 			default:
 				return state;
