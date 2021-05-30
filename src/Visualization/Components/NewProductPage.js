@@ -18,6 +18,7 @@ const NewProductPage = () => {
 	const [missingCategoryMessage, setMissingCategoryMessage] = useState('');
 	const [tagsInput, setTagsInput] = useState('');
 	const [tags, setTags] = useState([]);
+	const [pictures, setPictures] = useState([]);
 
 	useEffect(() => {
 		if (price.length === 0) {
@@ -47,6 +48,27 @@ const NewProductPage = () => {
 		<div className="new-product-page-main-content">
 			<h1>Cadastrar Produto</h1>
 			<form className="new-product-page-form">
+				<div className="pictures-section">
+					<label htmlFor="pictures">Faça o upload de fotos:</label>
+					<input
+						name="pictures"
+						type="file"
+						multiple
+						accept="image/*"
+						onChange={(e) => {
+							setPictures(
+								Array.from(e.target.files).map((file) =>
+									URL.createObjectURL(file)
+								)
+							);
+						}}
+					></input>
+					<div className="pictures-previews-section">
+						{pictures.map((picture, index) => {
+							return <img src={picture} key={index} alt={productName} />;
+						})}
+					</div>
+				</div>
 				<div className="product-name-section">
 					<label htmlFor="product-name">Nome do Produto * :</label>
 					<input
@@ -111,6 +133,7 @@ const NewProductPage = () => {
 							})}
 						</span>
 						<input
+							name="tags"
 							type="text"
 							value={tagsInput}
 							onChange={(e) => {
