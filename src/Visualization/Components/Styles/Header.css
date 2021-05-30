@@ -24,7 +24,7 @@ body {
 .header-homepage {
 	display: inline;
 	width: 100%;
-	background-color: #7DD359 ;
+	background-color: #7dd359;
 	height: 87px;
 }
 
@@ -32,7 +32,7 @@ body {
 	display: flex;
 	width: 100%;
 	align-items: center;
-	background-color: #000000 ;
+	background-color: #000000;
 	height: 83px;
 }
 
@@ -69,7 +69,7 @@ body {
 	width: 45px;
 	position: absolute;
 	border-radius: 0px 60px 60px 0px;
-	border: 1px solid #7DD359;
+	border: 1px solid #7dd359;
 	cursor: pointer;
 	/*background: transparent;*/
 }
@@ -83,7 +83,6 @@ body {
 	padding: auto;
 	width: 50px;
 	height: 30px;
-	
 }
 
 .dropdown {
@@ -93,19 +92,19 @@ body {
 }
 
 .profile-menu {
-	font-family: "Lucida Console", "Courier New", monospace;
+	font-family: 'Lucida Console', 'Courier New', monospace;
 	font-size: auto;
 	display: none;
 	position: absolute;
 	margin-left: -75px;
 	background-color: #000000;
 	min-width: 160px;
-	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 	z-index: 1;
 }
 
 .profile-menu a,
-.profile-menu Link{
+.profile-menu Link {
 	color: white;
 	padding: 12px 16px;
 	text-decoration: none;
@@ -121,13 +120,13 @@ body {
 .dropdown:hover .profile-menu {
 	display: block;
 	background-color: #000000;
-	border: 1px solid #7DD359;
+	border: 1px solid #7dd359;
 	margin-top: -18px;
 	margin-right: 15px;
 	border-radius: 10px;
 }
 
-.menu{
+.menu {
 	width: auto;
 	margin-left: 140px;
 	border: 1px solid #000000;
@@ -144,14 +143,14 @@ body {
 
 .menu ul li :hover {
 	height: auto;
-	border-top: 2px solid #7DD359;
-	border-bottom: 2px solid #7DD359;
+	border-top: 2px solid #7dd359;
+	border-bottom: 2px solid #7dd359;
 }
 
 .menu ul li a:hover {
-	color: #7DD359;
-	border-top: 1px solid #7DD359;
-	border-bottom: 1px solid #7DD359;
+	color: #7dd359;
+	border-top: 1px solid #7dd359;
+	border-bottom: 1px solid #7dd359;
 }
 
 .menu ul li a {
