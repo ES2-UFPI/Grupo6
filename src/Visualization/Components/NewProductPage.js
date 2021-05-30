@@ -1,13 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Styles/NewProductPage.css';
 
-/*
-TODO: {
-	Tags: comma, enter, selection, check for repeated ones,
-	Photos,
-}
-*/
-
 const NewProductPage = () => {
 	const [productName, setProductName] = useState('');
 	const [description, setDescription] = useState('');

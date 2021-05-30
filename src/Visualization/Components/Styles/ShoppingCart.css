@@ -7,7 +7,7 @@ main {
 }
 
 ul {
-	padding: 0px!important;
+	padding: 0px !important;
 }
 
 body {
@@ -18,96 +18,96 @@ body {
 
 /*--------------------------------------------------------------------------------------------------------*/
 
-.page-title{
-    font-family: "Lucida Console", "Courier New", monospace;
+.page-title {
+	font-family: 'Lucida Console', 'Courier New', monospace;
 	width: 70%;
 	margin: auto;
 }
 
-.product{
-    border: 1px solid #000000;
-    border-radius: 30px;
-    background-color: #cacaca;
-    width: 70%;
-    height: 200px;
+.product {
+	border: 1px solid #000000;
+	border-radius: 30px;
+	background-color: #cacaca;
+	width: 70%;
+	height: 200px;
 	margin: auto;
 }
 
-.product h2{
-    font-family: "Lucida Console", "Courier New", monospace;
-    margin-left: 10px;
-    margin-top: 6px;
+.product h2 {
+	font-family: 'Lucida Console', 'Courier New', monospace;
+	margin-left: 10px;
+	margin-top: 6px;
 }
 
-.product img{
-    width: 85px;
-    height: auto;
-    margin-left: 25px;
+.product img {
+	width: 85px;
+	height: auto;
+	margin-left: 25px;
 }
 
-.product h3{
-    font-family: "Lucida Console", "Courier New", monospace;
-    margin-left: 125px;
-    margin-top: -100px;
+.product h3 {
+	font-family: 'Lucida Console', 'Courier New', monospace;
+	margin-left: 125px;
+	margin-top: -100px;
 }
 
-.product h4{
-    font-family: "Lucida Console", "Courier New", monospace;
-    font-size: larger;
-    margin-left: 125px;
-    margin-top: 0px;
+.product h4 {
+	font-family: 'Lucida Console', 'Courier New', monospace;
+	font-size: larger;
+	margin-left: 125px;
+	margin-top: 0px;
 }
 
-.item-removal{
-    margin-left: 780px;
-    margin-top: -100px;
-    height: 30px;
-    width: 350px;
+.item-removal {
+	margin-left: 780px;
+	margin-top: -100px;
+	height: 30px;
+	width: 350px;
 }
 
-.item-removal h3{
-    margin-left: 0px;
-    margin-top: 0px;
+.item-removal h3 {
+	margin-left: 0px;
+	margin-top: 0px;
 }
 
-.item-removal button{
-    margin-left: 120px;
+.item-removal button {
+	margin-left: 120px;
 	cursor: pointer;
 }
 
-.subtotal{
-    font-family: "Lucida Console", "Courier New", monospace;
-    border: 1px solid #000000;
-    border-radius: 30px;
-    background-color: #cacaca;
-    width: 70%;
-    height: 140px;
+.subtotal {
+	font-family: 'Lucida Console', 'Courier New', monospace;
+	border: 1px solid #000000;
+	border-radius: 30px;
+	background-color: #cacaca;
+	width: 70%;
+	height: 140px;
 	margin: auto;
 }
 
-.subtotal h1{
-    margin-left: 50px;
+.subtotal h1 {
+	margin-left: 50px;
 }
 
-.confirm{
-    border: 1px solid #37ff7a;
-    background-color: #6aff9b;
-    border-radius: 10px 0px 0px 10px;
-    width: 110px;
-    height: 20px;
-    margin-left: 370px;
-    padding: 1%;
+.confirm {
+	border: 1px solid #37ff7a;
+	background-color: #6aff9b;
+	border-radius: 10px 0px 0px 10px;
+	width: 110px;
+	height: 20px;
+	margin-left: 370px;
+	padding: 1%;
 }
 
-.cancel{
-    border: 1px solid #ff2b2b;
-    background-color: #ff5050;
-    border-radius: 0px 10px 10px 0px;
-    width: 110px;
-    height: 20px;
-    margin-left: 509px;
-    margin-top: -48px;
-    text-decoration: none;
-    padding: 1%;
-    font-size: larger;
+.cancel {
+	border: 1px solid #ff2b2b;
+	background-color: #ff5050;
+	border-radius: 0px 10px 10px 0px;
+	width: 110px;
+	height: 20px;
+	margin-left: 509px;
+	margin-top: -48px;
+	text-decoration: none;
+	padding: 1%;
+	font-size: larger;
 }
