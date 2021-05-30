@@ -157,3 +157,18 @@ body,
 	font-size: 14px;
 	margin-right: 3px;
 }
+
+.new-product-page-main-content .pictures-section .pictures-previews-section {
+	margin-top: 15px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	max-width: 70%;
+}
+
+.new-product-page-main-content
+	.pictures-section
+	.pictures-previews-section
+	img {
+	max-width: 100%;
+}
