@@ -1,0 +1,17 @@
+.filtros {
+    background-color: #7DD359;
+}
+
+.filtros input{
+    width: 45px;
+}
+
+.filtros select option{
+    background-color: #7DD359;
+}
+
+.filtros button{
+    color: white;
+    background-color: black;
+    border-radius: 3px;
+}
