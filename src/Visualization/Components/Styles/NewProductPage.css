@@ -30,7 +30,6 @@ body,
 	border: 1px solid rgb(35, 216, 133);
 	margin: 0 150px 0 150px;
 	padding: 30px;
-	height: 450px;
 }
 
 .new-product-page-main-content label {
@@ -113,4 +112,63 @@ body,
 
 .new-product-page-main-content input[type='submit']:hover {
 	background-color: rgb(31, 175, 108);
+}
+
+.new-product-page-main-content .tags-section {
+	display: flex;
+	flex-direction: row;
+	margin-top: 30px;
+}
+
+.new-product-page-main-content .tags-section .tags-editor {
+	display: flex;
+	flex-direction: row;
+	border-radius: 5px;
+	font-size: 16px;
+	border: none;
+	padding: 5px;
+	background-color: rgb(255, 255, 255);
+}
+
+.new-product-page-main-content .tags-section .tags-editor input[type='text'] {
+	padding: 0 0 0 5px;
+	border: none;
+}
+
+.new-product-page-main-content
+	.tags-section
+	.tags-editor
+	input[type='text']:focus {
+	outline: none;
+}
+
+.new-product-page-main-content .tags-section .tags-span {
+	display: flex;
+	flex-direction: row;
+}
+
+.new-product-page-main-content .tags-section .tags-span .tag-element {
+	display: block;
+	font-family: 'IBM Plex Sans', sans-serif;
+	background-color: rgb(224, 251, 255);
+	padding: 3px;
+	border-radius: 5px;
+	color: rgb(15, 97, 221);
+	font-size: 14px;
+	margin-right: 3px;
+}
+
+.new-product-page-main-content .pictures-section .pictures-previews-section {
+	margin-top: 15px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	max-width: 70%;
+}
+
+.new-product-page-main-content
+	.pictures-section
+	.pictures-previews-section
+	img {
+	max-width: 100%;
 }

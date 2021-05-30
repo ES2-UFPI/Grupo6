@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './Styles/NewProductPage.css';
 
+/*
+TODO: {
+	Tags: comma, enter, selection, check for repeated ones,
+	Photos,
+}
+*/
+
 const NewProductPage = () => {
 	const [productName, setProductName] = useState('');
 	const [description, setDescription] = useState('');
@@ -9,6 +16,9 @@ const NewProductPage = () => {
 	const [missingNameMessage, setMissingNameMessage] = useState('');
 	const [priceInvalidMessage, setPriceInvalidMessage] = useState('');
 	const [missingCategoryMessage, setMissingCategoryMessage] = useState('');
+	const [tagsInput, setTagsInput] = useState('');
+	const [tags, setTags] = useState([]);
+	const [pictures, setPictures] = useState([]);
 
 	useEffect(() => {
 		if (price.length === 0) {
@@ -38,6 +48,27 @@ const NewProductPage = () => {
 		<div className="new-product-page-main-content">
 			<h1>Cadastrar Produto</h1>
 			<form className="new-product-page-form">
+				<div className="pictures-section">
+					<label htmlFor="pictures">Faça o upload de fotos:</label>
+					<input
+						name="pictures"
+						type="file"
+						multiple
+						accept="image/*"
+						onChange={(e) => {
+							setPictures(
+								Array.from(e.target.files).map((file) =>
+									URL.createObjectURL(file)
+								)
+							);
+						}}
+					></input>
+					<div className="pictures-previews-section">
+						{pictures.map((picture, index) => {
+							return <img src={picture} key={index} alt={productName} />;
+						})}
+					</div>
+				</div>
 				<div className="product-name-section">
 					<label htmlFor="product-name">Nome do Produto * :</label>
 					<input
@@ -88,6 +119,56 @@ const NewProductPage = () => {
 					<span className="missing-category-span">
 						{missingCategoryMessage}
 					</span>
+				</div>
+				<div className="tags-section">
+					<label htmlFor="tags">Tags:</label>
+					<div className="tags-editor">
+						<span className="tags-span">
+							{tags.map((tag, index) => {
+								return (
+									<span className="tag-element" key={index}>
+										{tag}
+									</span>
+								);
+							})}
+						</span>
+						<input
+							name="tags"
+							type="text"
+							value={tagsInput}
+							onChange={(e) => {
+								const newValue = e.target.value;
+								if (
+									newValue[newValue.length - 1] === ',' &&
+									!tags.includes(newValue.slice(0, newValue.length - 1))
+								) {
+									const newTag = newValue.startsWith('#')
+										? newValue.slice(0, newValue.length - 1)
+										: '#' + newValue.slice(0, newValue.length - 1);
+									setTags((previous) => previous.concat(newTag));
+									setTagsInput('');
+								} else {
+									setTagsInput(newValue);
+								}
+							}}
+							onKeyDown={(e) => {
+								console.log(e.key, tagsInput.length);
+								if (e.key === 'Enter' && !tags.includes(tagsInput)) {
+									e.preventDefault();
+									const newTag = tagsInput.startsWith('#')
+										? tagsInput
+										: '#' + tagsInput;
+									setTags((previous) => previous.concat(newTag));
+									setTagsInput('');
+								} else if (e.key === 'Backspace' && tagsInput.length === 0) {
+									setTags((previous) => previous.slice(0, previous.length - 1));
+								}
+							}}
+						></input>
+						<div className="tags-suggestions-area">
+							{/* Depends on logic layer methods */}
+						</div>
+					</div>
 				</div>
 				<span className="required-asterisk-span">* Obrigatório</span>
 				<input
