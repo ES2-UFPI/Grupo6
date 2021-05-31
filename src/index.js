@@ -10,6 +10,7 @@ import NewProductPage from './Visualization/Components/NewProductPage';
 import HomePageMockup from './Visualization/Components/HomePageMockup';
 import ProductPageMockup from './Visualization/Components/ProductPageMockup';
 import ShoppingCart from './Visualization/Components/ShoppingCart';
+import Header from './Visualization/Components/Header';
 
 const store = createStore(
 	combineReducers({ user: Reducer.userReducer, cart: Reducer.cartReducer })
@@ -19,6 +20,7 @@ ReactDOM.render(
 	<React.StrictMode>
 		<Provider store={store}>
 			<BrowserRouter>
+				<Header />
 				<Switch>
 					<Route path="/product/add" component={NewProductPage} />
 					<Route path="/homepage" component={HomePageMockup} />

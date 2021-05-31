@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useLocation} from 'react-router-dom';
 
 import Results from './Results';
 
@@ -7,6 +7,7 @@ import './Styles/Header.css';
 
 const Header = () => {
     const [category, setCategory] = useState('');
+    let rota = useLocation();
 
     const mainContent = (
         <div>
@@ -76,7 +77,7 @@ const Header = () => {
         </div>
     )
 
-    if(category !== ''){
+    if(category !== '' && rota.pathname === '/'){
         return(
             <div className="home-page-mockup">
                 {mainContent}
