@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import './Styles/NewProductPage.css';
+import ProductLogic from '../../../Logic/ProductLogic';
+import '../Styles/RegisterProductPage.css';
 
 const NewProductPage = () => {
 	const [productName, setProductName] = useState('');
@@ -168,25 +169,37 @@ const NewProductPage = () => {
 					type="submit"
 					value="Cadastrar"
 					className="submit-button"
-					onClick={(e) => {
+					onClick={async (e) => {
+						e.preventDefault();
+						if (
+							productName.length > 0 &&
+							price.length > 0 &&
+							category.length > 0 &&
+							missingNameMessage.length === 0 &&
+							priceInvalidMessage.length === 0 &&
+							missingCategoryMessage.length === 0
+						) {
+							await ProductLogic.addNewProduct({
+								name: productName,
+								description,
+								price,
+								category,
+								tags: tags.map((tag) => tag.slice(1)),
+								pictures,
+							});
+						}
 						if (productName.length === 0) {
 							setMissingNameMessage('Digite um nome para o produto');
-							e.preventDefault();
 						} else {
 							setMissingNameMessage('');
 						}
 						if (price.length === 0) {
 							setPriceInvalidMessage('Digite um valor para o produto');
-							e.preventDefault();
 						}
 						if (category.length === 0) {
 							setMissingCategoryMessage('Selecione uma categoria');
-							e.preventDefault();
 						} else {
 							setMissingCategoryMessage('');
-						}
-						if (priceInvalidMessage.length > 0) {
-							e.preventDefault();
 						}
 					}}
 				></input>

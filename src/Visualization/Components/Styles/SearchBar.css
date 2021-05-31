@@ -11,6 +11,7 @@
 .top-search-bar .input-and-button-section {
 	position: relative;
 	margin-right: 130px;
+	z-index: 2;
 }
 
 .top-search-bar .search-anchor {
@@ -37,19 +38,22 @@
 .top-search-bar .results-previews {
 	position: absolute;
 	top: 30px;
-	background-color: rgba(255, 255, 255, 0.733);
+	background-color: rgb(255, 255, 255);
 	width: 600px;
 	margin: 0 5px;
+	z-index: 1;
+	box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 2px 0px;
 }
 
 .top-search-bar .results-previews .result-preview {
 	padding: 15px;
 	display: flex;
 	flex-direction: row;
+	text-decoration: none;
 }
 
 .top-search-bar .results-previews .result-preview:hover {
-	background-color: rgb(255, 255, 255);
+	background-color: rgb(182, 182, 182);
 }
 
 .top-search-bar .results-previews .result-preview img {

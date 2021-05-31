@@ -1,11 +1,5 @@
-import FootBar from './Visualization/Components/FootBar';
-
 const App = () => {
-	return (
-		<div className="App">
-			<FootBar />
-		</div>
-	);
+	return <div className="App"></div>;
 };
 
 export default App;

@@ -17,11 +17,11 @@ const UserLogic = (() => {
 
 	const updateData = async (user) => {
 		if (containsNumber(user.name) || containsNumber(user.name)) {
-			throw 'Há campos que não permitem números com valores numéricos.';
+			throw Error('Há campos que não permitem números com valores numéricos.');
 		}
 
 		if (isNumber(user.cep)) {
-			throw 'O campo deve ser um valor numérico.';
+			throw Error('O campo deve ser um valor numérico.');
 		}
 		if (user.name !== '') {
 			await Firebase.setUserName(user.id, user.name);
@@ -67,15 +67,15 @@ const UserLogic = (() => {
 			user.email === '' ||
 			user.password === ''
 		) {
-			throw 'Preenchimento do campo é obrigatório.';
+			throw Error('Preenchimento do campo é obrigatório.');
 		}
 
 		if (containsNumber(user.name) || containsNumber(user.name)) {
-			throw 'Há campos que não permitem números com valores numéricos.';
+			throw Error('Há campos que não permitem números com valores numéricos.');
 		}
 
 		if (isNumber(user.cep)) {
-			throw 'O campo deve ser um valor numérico.';
+			throw Error('O campo deve ser um valor numérico.');
 		}
 
 		const account = await Firebase.createUser();

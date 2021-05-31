@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import magnifyingGlass from './Images/lupa.png';
-import './Styles/SearchBar.css';
+import React, { useState, useEffect } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import magnifyingGlass from '../Images/lupa.png';
+import ProductLogic from '../../../Logic/ProductLogic';
+import '../Styles/SearchBar.css';
 
 const SearchBar = () => {
 	const history = useHistory();
@@ -18,6 +19,24 @@ const SearchBar = () => {
     */
 	const genericProductPicture = '';
 
+	useEffect(() => {
+		const updateResults = async () => {
+			if (inputText.length === 0) {
+				setResults([]);
+			} else {
+				setIsLoading(true);
+				setResults(
+					await ProductLogic.filterProducts((product) =>
+						product.name.toLowerCase().includes(inputText.toLowerCase())
+					)
+				);
+				setIsLoading(false);
+			}
+		};
+
+		updateResults();
+	}, [inputText]);
+
 	return (
 		<div className="top-search-bar">
 			<div
@@ -33,31 +52,6 @@ const SearchBar = () => {
 					value={inputText}
 					onChange={(e) => {
 						setInputText(e.target.value);
-						setIsLoading(true);
-						setResults([
-							{
-								id: '123',
-								picture:
-									'https://www.cnet.com/a/img/1ZFV0MY_3OoN2lOrNg3shcgG8Cs=/470x836/2016/10/27/a11c03cc-bc86-427c-b200-fa5c9f4e2f20/lginstaviewproductphotos-8.jpg',
-								name: 'Geladeira',
-								price: 10450.75,
-							},
-							{
-								id: '123',
-								picture:
-									'https://www.cnet.com/a/img/1ZFV0MY_3OoN2lOrNg3shcgG8Cs=/470x836/2016/10/27/a11c03cc-bc86-427c-b200-fa5c9f4e2f20/lginstaviewproductphotos-8.jpg',
-								name: 'Geladeira',
-								price: 10450.75,
-							},
-							{
-								id: '123',
-								picture:
-									'https://www.cnet.com/a/img/1ZFV0MY_3OoN2lOrNg3shcgG8Cs=/470x836/2016/10/27/a11c03cc-bc86-427c-b200-fa5c9f4e2f20/lginstaviewproductphotos-8.jpg',
-								name: 'Geladeira',
-								price: 10450.75,
-							},
-						]);
-						setIsLoading(false);
 					}}
 				></input>
 				<a className="search-anchor" href={`/product/search/${inputText}`}>
@@ -67,16 +61,17 @@ const SearchBar = () => {
 			<div className="results-previews">
 				{!isLoading ? (
 					results.map((result, index) => {
+						console.log(result);
 						return (
-							<a
+							<Link
 								className="result-preview"
-								href={`/product/${result.id}`}
+								to={`/product/${result.id}`}
 								key={index}
 							>
 								<img
 									src={
-										result.picture !== null
-											? result.picture
+										result.pictures.length > 0
+											? result.pictures[0]
 											: genericProductPicture
 									}
 									alt={result.name}
@@ -87,7 +82,7 @@ const SearchBar = () => {
 										{'R$ ' + result.price.toFixed(2).toString()}
 									</span>
 								</div>
-							</a>
+							</Link>
 						);
 					})
 				) : (

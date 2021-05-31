@@ -3,7 +3,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useState, useEffect } from 'react';
-import './Styles/ProductPageMockup.css';
+import '../Styles/ProductPageMockup.css';
 
 const ProductPageMockup = () => {
 	const mainContent = (

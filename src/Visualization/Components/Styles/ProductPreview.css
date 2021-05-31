@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Merriweather+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap');
+
+.product-preview {
+	text-decoration: none;
+	background-color: rgb(231, 231, 231);
+	padding: 20px;
+	border-radius: 4px;
+	border: 2px solid green;
+	color: rgb(0, 0, 0);
+	max-height: 300px;
+}
+
+.product-preview:hover {
+	background-color: rgb(189, 189, 189);
+}
+
+.product-preview img {
+	max-width: 200px;
+}
+
+.product-preview .info-section {
+	margin-top: 15px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.product-preview .info-section span {
+	display: block;
+	font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.product-preview .info-section .product-name-span {
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.product-preview .bottom-section {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+}
+
+.product-preview .bottom-section .tag-span {
+	display: block;
+	font-family: 'IBM Plex Sans', sans-serif;
+	font-size: 12px;
+	background-color: rgb(224, 251, 255);
+	padding: 3px;
+	border-radius: 5px;
+	color: rgb(15, 97, 221);
+	margin-left: 3px;
+}

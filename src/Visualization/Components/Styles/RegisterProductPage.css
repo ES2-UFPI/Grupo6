@@ -4,7 +4,7 @@ html,
 body,
 #root,
 .new-product-page {
-	height: 100%;
+	min-height: 100%;
 	width: 100%;
 	margin: 0;
 }
@@ -19,7 +19,7 @@ body,
 .new-product-page-main-content {
 	height: 100%;
 	width: 100%;
-	background-color: rgb(0, 0, 0);
+	background-color: rgb(44, 44, 44);
 	padding-top: 100px;
 }
 
@@ -28,7 +28,7 @@ body,
 	flex-direction: column;
 	border-radius: 5px;
 	border: 1px solid rgb(35, 216, 133);
-	margin: 0 150px 0 150px;
+	margin: 0 150px 150px 150px;
 	padding: 30px;
 }
 
