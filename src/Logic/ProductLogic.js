@@ -30,10 +30,13 @@ const ProductLogic = (() => {
 	const addNewProduct = async (product) => {
 		const productId = await Firebase.createProduct();
 		await Firebase.setProductName(productId, product.name);
-		await Firebase.setProductCategory(productId, product.category);
+		await Firebase.setProductCategory(
+			productId,
+			product.category.toLowerCase()
+		);
 		await Firebase.setProductTags(productId, product.tags);
 		await Firebase.setProductPictures(productId, product.pictures);
-		await Firebase.setProductPrice(productId, product.price);
+		await Firebase.setProductPrice(productId, parseFloat(product.price));
 		await Firebase.setProductPublicationDate(productId, new Date());
 		await Firebase.setProductDescription(productId, product.description);
 	};
