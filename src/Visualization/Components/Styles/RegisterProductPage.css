@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Merriweather+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap');
+
+html,
+body,
+#root,
+.new-product-page {
+	min-height: 100%;
+	width: 100%;
+	margin: 0;
+}
+
+.new-product-page-main-content h1 {
+	font-family: 'Merriweather Sans', sans-serif;
+	font-size: 35px;
+	color: rgb(35, 216, 133);
+	margin: 0 150px 30px 150px;
+}
+
+.new-product-page-main-content {
+	height: 100%;
+	width: 100%;
+	background-color: rgb(44, 44, 44);
+	padding-top: 100px;
+}
+
+.new-product-page-form {
+	display: flex;
+	flex-direction: column;
+	border-radius: 5px;
+	border: 1px solid rgb(35, 216, 133);
+	margin: 0 150px 150px 150px;
+	padding: 30px;
+}
+
+.new-product-page-main-content label {
+	color: rgb(255, 255, 255);
+	font-family: 'Merriweather Sans', sans-serif;
+	font-weight: 700;
+	font-size: 23px;
+	margin-right: 15px;
+}
+
+.new-product-page-main-content input[type='text'] {
+	border-radius: 5px;
+	font-size: 16px;
+	border: none;
+	padding: 5px;
+}
+
+.new-product-page-main-content .product-name-section {
+	margin-bottom: 30px;
+}
+
+.new-product-page-main-content .product-name-section input[type='text'] {
+	width: 350px;
+}
+
+.new-product-page-main-content .description-section {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-bottom: 30px;
+}
+
+.new-product-page-main-content .description-section textarea {
+	border-radius: 5px;
+	font-size: 16px;
+	border: none;
+	padding: 5px;
+	height: 100px;
+	width: 350px;
+}
+
+.new-product-page-main-content .price-section {
+	margin-bottom: 30px;
+}
+
+.new-product-page-main-content .price-section input[type='text'] {
+	width: 90px;
+}
+
+.new-product-page-main-content .categories-section select {
+	font-size: 16px;
+}
+
+.new-product-page-main-content .missing-name-span,
+.new-product-page-main-content .price-invalid-span,
+.new-product-page-main-content .missing-category-span {
+	color: rgb(247, 34, 19);
+	font-family: 'IBM Plex Sans', sans-serif;
+	margin-left: 15px;
+}
+
+.new-product-page-main-content .required-asterisk-span {
+	color: rgb(255, 255, 255);
+	font-family: 'IBM Plex Sans', sans-serif;
+	margin-top: 60px;
+}
+
+.new-product-page-main-content input[type='submit'] {
+	margin-top: 20px;
+	cursor: pointer;
+	font-family: 'Merriweather Sans', sans-serif;
+	padding: 8px;
+	border-radius: 3px;
+	background-color: rgb(35, 216, 133);
+	border: 1px solid transparent;
+	font-size: 25px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.new-product-page-main-content input[type='submit']:hover {
+	background-color: rgb(31, 175, 108);
+}
+
+.new-product-page-main-content .tags-section {
+	display: flex;
+	flex-direction: row;
+	margin-top: 30px;
+}
+
+.new-product-page-main-content .tags-section .tags-editor {
+	display: flex;
+	flex-direction: row;
+	border-radius: 5px;
+	font-size: 16px;
+	border: none;
+	padding: 5px;
+	background-color: rgb(255, 255, 255);
+}
+
+.new-product-page-main-content .tags-section .tags-editor input[type='text'] {
+	padding: 0 0 0 5px;
+	border: none;
+}
+
+.new-product-page-main-content
+	.tags-section
+	.tags-editor
+	input[type='text']:focus {
+	outline: none;
+}
+
+.new-product-page-main-content .tags-section .tags-span {
+	display: flex;
+	flex-direction: row;
+}
+
+.new-product-page-main-content .tags-section .tags-span .tag-element {
+	display: block;
+	font-family: 'IBM Plex Sans', sans-serif;
+	background-color: rgb(224, 251, 255);
+	padding: 3px;
+	border-radius: 5px;
+	color: rgb(15, 97, 221);
+	font-size: 14px;
+	margin-right: 3px;
+}
+
+.new-product-page-main-content .pictures-section .pictures-previews-section {
+	margin-top: 15px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	max-width: 70%;
+}
+
+.new-product-page-main-content
+	.pictures-section
+	.pictures-previews-section
+	img {
+	max-width: 100%;
+}
