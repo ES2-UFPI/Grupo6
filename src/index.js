@@ -13,6 +13,7 @@ import CartPage from './Visualization/Components/Products/CartPage';
 import Header from './Visualization/Components/Main/Header';
 import FootBar from './Visualization/Components/Main/FootBar';
 import CategoryPage from './Visualization/Components/Navigation/CategoryPage';
+import ProductPage from './Visualization/Components/Products/ProductPage';
 
 const store = createStore(
 	combineReducers({ user: Reducer.userReducer, cart: Reducer.cartReducer })
@@ -26,6 +27,7 @@ ReactDOM.render(
 				<Switch>
 					<Route path="/product/category/:category" component={CategoryPage} />
 					<Route path="/product/add" component={RegisterProductPage} />
+					<Route path="/product/:productId" component={ProductPage} />
 					<Route path="/homepage" component={HomePageMockup} />
 					<Route path="/productMockup" component={ProductPageMockup} />
 					<Route path="/shoppingCart" component={CartPage} />

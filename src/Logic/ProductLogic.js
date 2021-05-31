@@ -52,9 +52,14 @@ const ProductLogic = (() => {
 			.filter(condition);
 	};
 
+	const getProductInfo = async (productId) => {
+		return await Firebase.getProduct(productId);
+	};
+
 	return {
 		addNewProduct,
 		filterProducts,
+		getProductInfo,
 	};
 })();
 

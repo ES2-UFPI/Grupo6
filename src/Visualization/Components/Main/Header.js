@@ -1,5 +1,5 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 //import Results from '../Results';
 import SearchBar from './SearchBar';
@@ -7,6 +7,10 @@ import SearchBar from './SearchBar';
 import '../Styles/Header.css';
 
 const Header = () => {
+	const numberOfItemsInCartSelector = useSelector(
+		(state) => state.cart.cart.products.length
+	);
+
 	const mainContent = (
 		<div className="header">
 			<div className="logo">
@@ -54,7 +58,7 @@ const Header = () => {
 					</ul>
 					<div className="profile-menu">
 						<a href="/"> Gerenciar Perfil </a>
-						<Link to="/shoppingCart"> Carrinho (0) </Link>
+						<Link to="/shoppingCart">{`Carrinho (${numberOfItemsInCartSelector})`}</Link>
 						<Link to="/product/add"> Cadastrar Produto </Link>
 						<a href="/"> Sair </a>
 					</div>

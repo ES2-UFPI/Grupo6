@@ -34,8 +34,8 @@ const CartPage = () => {
 			<div className="items-list">
 				{items.map((item, index) => {
 					return (
-						<Link className="item-link" to={`/product/${item.id}`}>
-							<div className="cart-item" key={index}>
+						<Link className="item-link" to={`/product/${item.id}`} key={index}>
+							<div className="cart-item">
 								<div className="left-section">
 									<img src={item.picture} alt={item.name} />
 									<div className="item-info">
@@ -55,7 +55,8 @@ const CartPage = () => {
 								<div className="right-section">
 									<button
 										className="remove-item-button"
-										onClick={(_e) => {
+										onClick={(e) => {
+											e.stopPropagation();
 											dispatch(Reducer.removeItem(item.id));
 										}}
 									></button>
