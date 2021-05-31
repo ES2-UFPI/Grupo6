@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Merriweather+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap');
+
+.shopping-cart-main-content {
+	min-height: 70vh;
+	margin-left: 150px;
+}
+
+.shopping-cart-main-content .item-link {
+	text-decoration: none;
+}
+
+.shopping-cart-main-content .page-title {
+	font-family: 'Lucida Console', 'Courier New', monospace;
+	width: 70%;
+	text-transform: uppercase;
+}
+
+.shopping-cart-main-content .product {
+	border: 1px solid #000000;
+	border-radius: 30px;
+	background-color: #cacaca;
+	width: 70%;
+	height: 200px;
+	margin: auto;
+}
+
+.shopping-cart-main-content .product h2 {
+	font-family: 'Lucida Console', 'Courier New', monospace;
+	margin-left: 10px;
+	margin-top: 6px;
+}
+
+.shopping-cart-main-content .product img {
+	width: 85px;
+	height: auto;
+	margin-left: 25px;
+}
+
+.shopping-cart-main-content .product h3 {
+	font-family: 'Lucida Console', 'Courier New', monospace;
+	margin-left: 125px;
+	margin-top: -100px;
+}
+
+.shopping-cart-main-content .product h4 {
+	font-family: 'Lucida Console', 'Courier New', monospace;
+	font-size: larger;
+	margin-left: 125px;
+	margin-top: 0px;
+}
+
+.shopping-cart-main-content .item-removal {
+	margin-left: 780px;
+	margin-top: -100px;
+	height: 30px;
+	width: 350px;
+}
+
+.shopping-cart-main-content .item-removal h3 {
+	margin-left: 0px;
+	margin-top: 0px;
+}
+
+.shopping-cart-main-content .item-removal button {
+	margin-left: 120px;
+	cursor: pointer;
+}
+
+.shopping-cart-main-content .subtotal {
+	font-family: 'Lucida Console', 'Courier New', monospace;
+}
+
+.shopping-cart-main-content .subtotal h1 {
+	display: block;
+	margin-left: 50px;
+}
+
+.shopping-cart-main-content .subtotal-value-section {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.shopping-cart-main-content .subtotal-value-section span {
+	margin-left: 15px;
+	font-size: 17px;
+}
+
+.shopping-cart-main-content .confirm {
+	border: 1px solid #37ff7a;
+	background-color: #6aff9b;
+	border-radius: 10px 0px 0px 10px;
+	width: 110px;
+	height: 20px;
+	margin-left: 370px;
+	padding: 1%;
+}
+
+.shopping-cart-main-content .cancel {
+	border: 1px solid #ff2b2b;
+	background-color: #ff5050;
+	border-radius: 0px 10px 10px 0px;
+	width: 110px;
+	height: 20px;
+	margin-left: 509px;
+	margin-top: -48px;
+	text-decoration: none;
+	padding: 1%;
+	font-size: larger;
+}
+
+.shopping-cart-main-content .cart-item {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding: 10px 15px;
+	background-color: #cacaca;
+	margin-bottom: 10px;
+	width: 80%;
+	border-radius: 5px;
+}
+
+.shopping-cart-main-content .cart-item:hover {
+	background-color: #9e9d9d;
+}
+
+.shopping-cart-main-content .cart-item .left-section {
+	display: flex;
+	flex-direction: row;
+}
+
+.shopping-cart-main-content .cart-item .left-section img {
+	max-width: 70px;
+	margin-right: 10px;
+}
+
+.shopping-cart-main-content .cart-item .left-section .item-info h2 {
+	font-family: 'Lucida Console', 'Courier New', monospace;
+	margin: 0 0 15px 0;
+	color: rgb(0, 0, 0);
+}
+
+.shopping-cart-main-content .cart-item .left-section .item-info span {
+	display: block;
+	text-decoration: none;
+	color: rgb(0, 0, 0);
+}
+
+.shopping-cart-main-content .cart-item .left-section .item-info label {
+	font-weight: bold;
+	color: rgb(0, 0, 0);
+	margin-right: 5px;
+}
+
+.shopping-cart-main-content
+	.cart-item
+	.left-section
+	.item-info
+	.item-price-section,
+.shopping-cart-main-content
+	.cart-item
+	.left-section
+	.item-info
+	.item-seller-section {
+	display: flex;
+	flex-direction: row;
+}
+
+.shopping-cart-main-content .cart-item .right-section {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.shopping-cart-main-content .cart-item .right-section button {
+	cursor: pointer;
+	background-image: url('https://cdn2.iconfinder.com/data/icons/media-controls-5/100/close-512.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 25px 25px;
+	border: none;
+	background-color: transparent;
+	width: 25px;
+	height: 25px;
+}
+
+.shopping-cart-main-content .cart-item .right-section button:hover {
+	background-size: 28px 28px;
+}
+
+.shopping-cart-main-content .confirm-button {
+	cursor: pointer;
+	border: 1px solid #37ff7a;
+	background-color: #6aff9b;
+	border-radius: 5px;
+	font-size: 20px;
+	font-weight: bold;
+	padding: 7px;
+}
+
+.shopping-cart-main-content .confirm-button:hover {
+	background-color: #53c278;
+}

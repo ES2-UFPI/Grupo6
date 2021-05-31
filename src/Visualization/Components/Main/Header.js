@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-import Results from './Results';
+import Results from '../Results';
 import SearchBar from './SearchBar';
 
-import './Styles/Header.css';
+import '../Styles/Header.css';
 
 const Header = () => {
 	const [category, setCategory] = useState('');

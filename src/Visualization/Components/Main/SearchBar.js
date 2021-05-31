@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import magnifyingGlass from './Images/lupa.png';
-import './Styles/SearchBar.css';
+import magnifyingGlass from '../Images/lupa.png';
+import '../Styles/SearchBar.css';
 
 const SearchBar = () => {
 	const history = useHistory();

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './Styles/NewProductPage.css';
+import '../Styles/RegisterProductPage.css';
 
 const NewProductPage = () => {
 	const [productName, setProductName] = useState('');
