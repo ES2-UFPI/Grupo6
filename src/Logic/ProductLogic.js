@@ -38,8 +38,20 @@ const ProductLogic = (() => {
 		await Firebase.setProductDescription(productId, product.description);
 	};
 
+	const filterProducts = async (condition) => {
+		return (await Firebase.getAllProducts()).docs
+			.map((doc) => {
+				return {
+					id: doc.id,
+					...doc.data(),
+				};
+			})
+			.filter(condition);
+	};
+
 	return {
 		addNewProduct,
+		filterProducts,
 	};
 })();
 

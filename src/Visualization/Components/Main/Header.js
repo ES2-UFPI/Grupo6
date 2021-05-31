@@ -1,15 +1,12 @@
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-import Results from '../Results';
+//import Results from '../Results';
 import SearchBar from './SearchBar';
 
 import '../Styles/Header.css';
 
 const Header = () => {
-	const [category, setCategory] = useState('');
-	const rota = useLocation();
-
 	const mainContent = (
 		<div className="header">
 			<div className="logo">
@@ -18,84 +15,30 @@ const Header = () => {
 			<div className="menu">
 				<ul>
 					<li>
-						<Link
-							to="/"
-							onClick={() => {
-								setCategory('');
-							}}
-						>
-							HOME
-						</Link>
+						<Link to="/product">HOME</Link>
 					</li>
-					<li /*onClick={async ()=>{await userLogic.addCategory(props.user.id, 'Vestuario')}}*/
-					>
-						<Link
-							onClick={() => {
-								setCategory('Vestuario');
-							}}
-						>
-							VESTUÁRIO
-						</Link>
+					<li>
+						<Link to="/product/category/vestuario">VESTUÁRIO</Link>
 					</li>
-					<li /*onClick={async ()=>{await userLogic.addCategory(props.user.id, 'Eletronicos')}}*/
-					>
-						<Link
-							onClick={() => {
-								setCategory('Eletronicos');
-							}}
-						>
-							ELETRÔNICOS
-						</Link>
+					<li>
+						<Link to="/product/category/eletronicos">ELETRÔNICOS</Link>
 					</li>
-					<li /*onClick={async ()=>{await userLogic.addCategory(props.user.id, 'Livros')}}*/
-					>
-						<Link
-							onClick={() => {
-								setCategory('Livros');
-							}}
-						>
-							LIVROS
-						</Link>
+					<li>
+						<Link to="/product/category/livros">LIVROS</Link>
 					</li>
-					<li /*onClick={async ()=>{await userLogic.addCategory(props.user.id, 'Eletrodomesticos')}}*/
-					>
-						<Link
-							onClick={() => {
-								setCategory('Eletrodomesticos');
-							}}
-						>
+					<li>
+						<Link to="/product/category/eletrodomesticos">
 							ELETRODOMÉSTICOS
 						</Link>
 					</li>
-					<li /*onClick={async ()=>{await userLogic.addCategory(props.user.id, 'Beleza')}}*/
-					>
-						<Link
-							onClick={() => {
-								setCategory('Beleza');
-							}}
-						>
-							COSMÉTICO
-						</Link>
+					<li>
+						<Link to="/product/category/beleza">COSMÉTICO</Link>
 					</li>
-					<li /*onClick={async ()=>{await userLogic.addCategory(props.user.id, 'Esporte')}}*/
-					>
-						<Link
-							onClick={() => {
-								setCategory('Esporte');
-							}}
-						>
-							ESPORTIVO
-						</Link>
+					<li>
+						<Link to="/product/category/esportivo">ESPORTIVO</Link>
 					</li>
-					<li /*onClick={async ()=>{await userLogic.addCategory(props.user.id, 'Jogos')}}*/
-					>
-						<Link
-							onClick={() => {
-								setCategory('Jogos');
-							}}
-						>
-							JOGOS
-						</Link>
+					<li>
+						<Link to="/product/category/esportivo">JOGOS</Link>
 					</li>
 				</ul>
 			</div>
@@ -120,14 +63,14 @@ const Header = () => {
 		</div>
 	);
 
-	if (category !== '' && rota.pathname === '/') {
+	/*if (category !== '' && rota.pathname === '/') {
 		return (
 			<div className="home-page-mockup">
 				{mainContent}
 				<Results category={category} />
 			</div>
 		);
-	}
+	}*/
 	return <div className="home-page-mockup">{mainContent}</div>;
 };
 
