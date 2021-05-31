@@ -6,66 +6,7 @@ import React, { useState, useEffect } from 'react';
 const HomePageMockup = () => {
 	//const [productName]
 
-	const mainContent = (
-		<div className="home-page-mockup-main-content">
-			<div className="header">
-				<div className="logo">
-					<img src="https://i.imgur.com/cXCcFKH.jpg" />
-				</div>
-				<div className="menu">
-					<ul>
-						<li>
-							<a href="/homepage">HOME</a>
-						</li>
-						<li>
-							<a href="">VESTUÁRIO</a>
-						</li>
-						<li>
-							<a href="">ELETRÔNICO</a>
-						</li>
-						<li>
-							<a href="">LIVROS</a>
-						</li>
-						<li>
-							<a href="">ELETRODOMÉSTICOS</a>
-						</li>
-						<li>
-							<a href="">COSMÉTICO</a>
-						</li>
-						<li>
-							<a href="">ESPORTIVO</a>
-						</li>
-						<li>
-							<a href="">JOGOS</a>
-						</li>
-					</ul>
-				</div>
-				<div className="busca">
-					<input type="text" placeholder="Busque um produto" id="busca" />
-					<a href="/product/add">
-						<span></span>
-					</a>
-				</div>
-				<div className="dropdown">
-					<div className="profile">
-						<ul>
-							<li>
-								<a href="">
-									<img src="https://i.imgur.com/15AJNre.png" />
-								</a>
-							</li>
-						</ul>
-						<div className="profile-menu">
-							<a href=""> Gerenciar Perfil </a>
-							<a href="/shoppingCart"> Carrinho (0) </a>
-							<a href="/product/add"> Cadastrar Produto </a>
-							<a href=""> Sair </a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	);
+	const mainContent = <div className="home-page-mockup-main-content"></div>;
 
 	return <div className="home-page-mockup">{mainContent}</div>;
 };
