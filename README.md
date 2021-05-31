@@ -10,8 +10,8 @@ Repositório do Brechonline para o Grupo 6, cujos integrantes são Bruno Felipe 
   - A funcionalidade de adicionar e retirar os produtos de um carrinho de compras foi implementada.
 
 ## Fixes:
-  - Correções realizadas a parte lógica do usuário.
-  - Correções realizadas em relação a interface do site no geral.
-  - Realizada correções na parte de conversão de data.
+  - Correções realizadas na parte lógica do usuário.
+  - Correções realizadas em relação à interface do site no geral.
+  - Realizado correções na parte de conversão de data.
 
 
