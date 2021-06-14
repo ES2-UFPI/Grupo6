@@ -59,6 +59,7 @@ const Header = () => {
 					<div className="profile-menu">
 						<a href="/"> Gerenciar Perfil </a>
 						<Link to="/shoppingCart">{`Carrinho (${numberOfItemsInCartSelector})`}</Link>
+						<Link to="/historic"> Histórico </Link>
 						<Link to="/product/add"> Cadastrar Produto </Link>
 						<a href="/"> Sair </a>
 					</div>

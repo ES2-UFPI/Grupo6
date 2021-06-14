@@ -14,6 +14,7 @@ import Header from './Visualization/Components/Main/Header';
 import FootBar from './Visualization/Components/Main/FootBar';
 import CategoryPage from './Visualization/Components/Navigation/CategoryPage';
 import ProductPage from './Visualization/Components/Products/ProductPage';
+import Historic from './Visualization/Components/Historic';
 
 const store = createStore(
 	combineReducers({ user: Reducer.userReducer, cart: Reducer.cartReducer })
@@ -31,6 +32,7 @@ ReactDOM.render(
 					<Route path="/homepage" component={HomePageMockup} />
 					<Route path="/productMockup" component={ProductPageMockup} />
 					<Route path="/shoppingCart" component={CartPage} />
+					<Route path="/historic" component={Historic} />
 					<Route path="/" component={App} />
 				</Switch>
 				<FootBar />
