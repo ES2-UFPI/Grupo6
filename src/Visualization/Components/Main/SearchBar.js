@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import magnifyingGlass from '../Images/lupa.png';
 import ProductLogic from '../../../Logic/ProductLogic';
 import '../Styles/SearchBar.css';
@@ -37,6 +37,30 @@ const SearchBar = () => {
 		updateResults();
 	}, [inputText]);
 
+	let location = useLocation()
+	useEffect(()=>{
+		setInputText('')
+	}, [location])
+
+	function useOutsideAlerter(ref) {
+		useEffect(() => {
+			
+			function handleClickOutside(event) {
+				if (ref.current && !ref.current.contains(event.target)) {
+					setResults([]);
+				}
+			}
+	
+			document.addEventListener("mousedown", handleClickOutside);
+			return () => {
+				document.removeEventListener("mousedown", handleClickOutside);
+			};
+		}, [ref]);
+	}
+	
+	const wrapperRef = useRef(null);
+	useOutsideAlerter(wrapperRef);
+
 	return (
 		<div className="top-search-bar">
 			<div
@@ -48,6 +72,7 @@ const SearchBar = () => {
 				}}
 			>
 				<input
+					ref={wrapperRef}
 					type="text"
 					value={inputText}
 					onChange={(e) => {
