@@ -19,18 +19,24 @@
 .main .notification-list .example1 img{
     height: 47px;
 	width: 50px;
+    background-color: #9b9b9b;
+    border-radius: 30px;
     border: 2px solid #7dd359;
 }
 
 .main .notification-list .example2 img{
     height:50px;
 	width: 50px;
+    background-color: #9b9b9b;
+    border-radius: 30px;
     border: 2px solid #7dd359;
 }
 
 .main .notification-list .example3 img{
     height: 46px;
 	width: 57px;
+    background-color: #9b9b9b;
+    border-radius: 30px;
     border: 2px solid #7dd359;
 }
 
