@@ -14,7 +14,7 @@ import Header from './Visualization/Components/Main/Header';
 import FootBar from './Visualization/Components/Main/FootBar';
 import CategoryPage from './Visualization/Components/Navigation/CategoryPage';
 import ProductPage from './Visualization/Components/Products/ProductPage';
-import History from './Visualization/Components/History';
+import History from './Visualization/Components/Accounts/History';
 
 const store = createStore(
 	combineReducers({ user: Reducer.userReducer, cart: Reducer.cartReducer })

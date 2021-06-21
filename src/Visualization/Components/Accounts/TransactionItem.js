@@ -1,30 +1,25 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import '../Styles/TransactionItem.css';
 
 const TransactionItem = (props) => {
-	const [selectedRating, setSelectedRating] = useState(props.rating);
+	// const [selectedRating, setSelectedRating] = useState(props.rating);
+    const [isDetailsHidden, setIsDetailsHidden] = useState(true);
 
 	const details = (
-		<div id="dMain" className="details-main">
-			<div className="details-close">
-				<button
-					onClick={() => {
-						document.getElementById('dMain').style.visibility = 'hidden';
-					}}
-				></button>
+		<div id="dMain" className={isDetailsHidden ? 'details-main hidden' : 'details-main'}>
+			<div className="info-row">
+				<label>cod:</label>
+                <span>{props.id}</span>
 			</div>
-			<div className="details-img">
-				<img src={props.productPicture} alt="product" />
+			<div className="info-row">
+				<label>Faria negócios novamente? </label>
+                <span>{props.wouldBarterAgain}</span>
 			</div>
-			<div>
-				<label>cod: {props.id}</label>
-			</div>
-			<div>
-				<label>would barter again? {props.wouldBarterAgain}</label>
-			</div>
-			<div>
-				<label>Avaliação: {props.rating}</label>
+			<div className="info-row">
+				<label>Avaliação: </label>
+                <span>{props.rating}</span>
 			</div>
 		</div>
 	);
@@ -39,27 +34,25 @@ const TransactionItem = (props) => {
 				<Link
 					to={`/account/${props.sellerId}`}
 					className="seller-name-link"
-				>{`Vendedor: ${props.sellerName}`}</Link>
+				>{`${props.sellerName}`}</Link>
 				<div className="transation-item-info">
 					<div className="left">
-						<h2>{props.productName}</h2>
-						<div>
-							<label>Vendedor: {props.sellerName}</label>
+						<div className="info-row">
+							<label>Localizar: </label>
+                            <span>{props.localizationCode}</span>
 						</div>
-						<div>
-							<label>Localizar: {props.localizationCode}</label>
-						</div>
-						<div>
-							<label>Status: {props.status}</label>
+						<div className="info-row">
+							<label>Status: </label>
+                            <span>{props.status}</span>
 						</div>
 					</div>
 					<div className="right">
 						<button
 							onClick={() => {
-								document.getElementById('dMain').style.visibility = 'visible';
+								setIsDetailsHidden((previous) => !previous);
 							}}
 						>
-							Inspecionar
+							{isDetailsHidden ? 'Inspecionar' : 'Ocultar'}
 						</button>
 					</div>
 					{details}

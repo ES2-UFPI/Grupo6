@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import '../Styles/History.css';
 import TransactionItem from './TransactionItem';
@@ -22,8 +22,8 @@ const History = () => {
 		<div className="history-main">
 			<h2 className="history-title">Histórico de Transações</h2>
 			<div className="transation-items">
-				{items.map((i, index) => {
-					return <TransactionItem {...i} />;
+				{items.map((i,index) => {
+					return <TransactionItem key={index} {...i} />;
 				})}
 			</div>
 		</div>
