@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Merriweather+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap');
+
+.main {
+	min-height: 70vh;
+	margin-left: 150px;
+    margin-right: 150px;
+}
+
+.main .page-title {
+	font-family: 'Lucida Console', 'Courier New', monospace;
+	width: 70%;
+	text-transform: uppercase;
+}
+
+.main .notification-list{
+    border: 2px solid #ff0000;
+}
+
+.main .notification-list .example1 img{
+    height: 47px;
+	width: 50px;
+    border: 2px solid #7dd359;
+}
+
+.main .notification-list .example2 img{
+    height:50px;
+	width: 50px;
+    border: 2px solid #7dd359;
+}
+
+.main .notification-list .example3 img{
+    height: 46px;
+	width: 57px;
+    border: 2px solid #7dd359;
+}
+
+.main .body {
+    margin-left: 150px;
+    margin-right: 150px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    height: 30px;
+    width: 1400px;
+    background-color: #9b9b9b;
+    border-radius: 15px;
+    border: 2px solid #7dd359;
+}
+
+.main .body a{
+    font-family: 'Lucida Console', 'Courier New', monospace;
+    color: black;
+    border: 2px solid #7dd359;
+}
+
+
