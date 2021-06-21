@@ -7,7 +7,10 @@ const MessageLogic = (() => {
 
     const sendMessage = async (chatId, userId, str) => {
         let messages = await Firebase.getChatMessages(chatId)
-        const message = str
+        const message = {
+            sender: userId,
+            text: str
+        }
         messages.push(message)
         await Firebase.setChatMessages(chatId, messages)
     }
