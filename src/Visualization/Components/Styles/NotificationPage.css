@@ -11,19 +11,22 @@
 	width: 70%;
 	text-transform: uppercase;
 }
-
+/*
 .main .notification-list{
-    border: 2px solid #ff0000;
+    border: 2px solid red;
 }
-
-.main .notification-list .example1 img{
+*/
+.main .notification-list img{
+    position: relative; 
+    left: 40px;
+    top: 62px;
     height: 47px;
 	width: 50px;
-    background-color: #9b9b9b;
     border-radius: 30px;
-    border: 2px solid #7dd359;
+    border: 1px solid #7dd359;
 }
 
+/*
 .main .notification-list .example2 img{
     height:50px;
 	width: 50px;
@@ -31,16 +34,37 @@
     border-radius: 30px;
     border: 2px solid #7dd359;
 }
-
-.main .notification-list .example3 img{
+*/
+.main .notification-list .message img{
+    position: relative;
+    top: 7px;
+    left: -10px;
+    border-right: 200px;
     height: 46px;
-	width: 57px;
-    background-color: #9b9b9b;
+	width: 50px;
     border-radius: 30px;
-    border: 2px solid #7dd359;
+    border: 1px solid #7dd359;
 }
 
-.main .body {
+.main .notification-list .example1{
+    position: relative;
+    top: -10px;
+    left: 0px;
+}
+
+.main .notification-list .example2{
+    position: relative;
+    top: -15px;
+    left: 0px;
+}
+
+.main .notification-list .example3{
+    position: relative;
+    top: -3px;
+    left: 0px;
+}
+
+.main .content {
     margin-left: 150px;
     margin-right: 150px;
     padding-top: 15px;
@@ -50,13 +74,23 @@
     width: 1400px;
     background-color: #9b9b9b;
     border-radius: 15px;
-    border: 2px solid #7dd359;
+    border: 1px solid #7dd359;
 }
 
-.main .body a{
+.main .content a{
     font-family: 'Lucida Console', 'Courier New', monospace;
     color: black;
-    border: 2px solid #7dd359;
 }
 
+.main .content h1{
+    font-family: 'Lucida Console', 'Courier New', monospace;
+    color: black;
+    font-size: small;
+    max-width: 46px;
+    position: relative;
+    left: 1300px;
+    top: -3px;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+}
 

@@ -49,9 +49,9 @@ const Header = () => {
 			<SearchBar />
 			<div className = "notification">
 				<div className="icon">
-					<a href="/">
+					<Link to="/notification">
 						<img src="https://i.imgur.com/pAPOaav.png" alt="Notification Icon" />
-					</a>
+					</Link>
 				</div>
 				<div className="notification-dropdown">
 					<a href="/"> Este é um exemplo de notificação ! </a>
