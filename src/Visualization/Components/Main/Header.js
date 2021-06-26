@@ -64,49 +64,63 @@ const Header = () => {
 						<a href="/"> Você tem uma nova mensagem de Fulano. </a>
 						<a href="/">
 							{' '}
-							O seu produto está a caminho, acompanhe com o código XSAI-ASXD-ASJD
+							O seu produto está a caminho, acompanhe com o código
+							XSAI-ASXD-ASJD
 						</a>
 						<Link to="/notification"> Mais notificações (3) </Link>
 					</div>
 				</div>
-				<MessagesTab isOpen={isMessagesTabOpen} toggleIsOpen={() => setIsMessagesTabOpen((previous) => !previous)} users={[
-					{
-						id: '1',
-						name: 'Usuário 1',
-						profilePicture: 'https://thiscatdoesnotexist.com/',
-						messages: Array(15).fill(0).map((_v, index) => {
-							return {
-								id: `${index}`,
-								content: `Mensagem ${index}`,
-								date: new Date(2020, 5, 26, 15, index),
-							};
-						}),
-					},
-					{
-						id: '2',
-						name: 'Usuário 2',
-						profilePicture: 'https://thispersondoesnotexist.com/image',
-						messages: Array(15).fill(0).map((_v, index) => {
-							return {
-								id: `${index}`,
-								content: `Mensagem ${index}`,
-								date: new Date(2020, 5, 25, 15, index),
-							};
-						}),
-					},
-					{
-						id: '3',
-						name: 'Usuário 3',
-						profilePicture: 'https://thishorsedoesnotexist.com/',
-						messages: Array(15).fill(0).map((_v, index) => {
-							return {
-								id: `${index}`,
-								content: `Mensagem ${index}`,
-								date: new Date(2020, 5, 24, 15, index),
-							};
-						}),
-					},
-				]} />
+				<MessagesTab
+					isOpen={isMessagesTabOpen}
+					toggleIsOpen={() => setIsMessagesTabOpen((previous) => !previous)}
+					users={[
+						{
+							id: '1',
+							name: 'Usuário 1',
+							profilePicture: 'https://thiscatdoesnotexist.com/',
+							messages: Array(15)
+								.fill(0)
+								.map((_v, index) => {
+									return {
+										id: `${index}`,
+										content: `Mensagem ${index}`,
+										date: new Date(2020, 5, 26, 15, index),
+										isSentByLoggedInUser: index % 2 === 0,
+									};
+								}),
+						},
+						{
+							id: '2',
+							name: 'Usuário 2',
+							profilePicture: 'https://thispersondoesnotexist.com/image',
+							messages: Array(15)
+								.fill(0)
+								.map((_v, index) => {
+									return {
+										id: `${index}`,
+										content: `Mensagem ${index}`,
+										date: new Date(2020, 5, 25, 15, index),
+										isSentByLoggedInUser: index % 2 === 0,
+									};
+								}),
+						},
+						{
+							id: '3',
+							name: 'Usuário 3',
+							profilePicture: 'https://thishorsedoesnotexist.com/',
+							messages: Array(15)
+								.fill(0)
+								.map((_v, index) => {
+									return {
+										id: `${index}`,
+										content: `Mensagem ${index}`,
+										date: new Date(2020, 5, 24, 15, index),
+										isSentByLoggedInUser: index % 2 === 0,
+									};
+								}),
+						},
+					]}
+				/>
 			</div>
 			<div className="dropdown">
 				<div className="profile">
