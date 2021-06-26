@@ -42,6 +42,7 @@ const Firebase = (() => {
 		],
 
 		chats: ['messages'],
+
 		transactions: [
 			'date',
 			'valuePaid',
@@ -51,11 +52,8 @@ const Firebase = (() => {
 			'comment',
 			'wouldBuyAgain',
 		],
-		notifications: [
-			'type',
-			'content',
-			'isRead',
-		],
+
+		notifications: ['type', 'content', 'isRead'],
 	};
 
 	const convertToCamelCase = (...names) => {
