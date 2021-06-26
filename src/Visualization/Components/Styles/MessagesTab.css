@@ -1,0 +1,36 @@
+.message-tab-icon {
+    position: relative;
+    cursor: pointer;
+    display: block;
+    width: 25px;
+    height: 25px;
+    color: white;
+    font-size: 25px;
+    margin: 0 20px;
+}
+
+.message-tab-icon.hidden > div {
+    display: none;
+}
+
+.message-tab-icon .overflow-content {
+    position: absolute;
+    right: 0;
+    background-color: rgb(255, 255, 255);
+    top: 55px;
+    width: 350px;
+}
+
+.message-tab-icon .overflow-content .message-tab-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: rgb(207, 207, 207);
+    border-bottom: 1px solid rgb(146, 146, 146);
+    color: black;
+    font-family: 'Merriweather', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px 0;
+    text-transform: uppercase;
+}

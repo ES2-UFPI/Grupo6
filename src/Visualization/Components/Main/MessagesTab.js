@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import Chat from './Chat';
 import PropTypes from 'prop-types';
+import '../Styles/MessagesTab.css';
 
 const MessagesTab = (props) => {
     const [openChat, setOpenChat] = useState(null);
@@ -28,12 +30,14 @@ const MessagesTab = (props) => {
     );
 
     return (
-        <div className={props.isOpen ? 'message-tab-icon' : 'message-tab-icon hidden'} onClick={() => props.toggleIsOpen()}>
-            <div className="message-tab-header">
-                {openChat !== null ? <button className="back-button" onClick={() => setOpenChat(null)}></button> : null}
-                <span>{openChat === null ? 'Mensagens' : openChat.name}</span>
+        <div className={props.isOpen ? 'message-tab-icon fa fa-envelope' : 'message-tab-icon fa fa-envelope hidden'} onClick={() => props.toggleIsOpen()}>
+            <div className="overflow-content">
+                <div className="message-tab-header">
+                    {openChat !== null ? <button className="back-button" onClick={() => setOpenChat(null)}></button> : null}
+                    <span>{openChat === null ? 'Mensagens' : openChat.name}</span>
+                </div>
+                {openChat === null ? chatNavigation : <Chat messages={openChat.messages} />}
             </div>
-            {openChat === null ? chatNavigation : null}
         </div>
     );
 };
@@ -46,6 +50,7 @@ MessagesTab.propTypes = {
         name: PropTypes.string,
         profilePicture: PropTypes.string,
         messages: PropTypes.arrayOf(PropTypes.shape({
+            id: PropTypes.string,
             date: PropTypes.instanceOf(Date),
             content: PropTypes.string
         })),

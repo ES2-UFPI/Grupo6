@@ -1,12 +1,14 @@
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-
-//import Results from '../Results';
 import SearchBar from './SearchBar';
-
 import '../Styles/Header.css';
+import MessagesTab from './MessagesTab';
+import { from } from 'form-data';
 
 const Header = () => {
+	const [isMessagesTabOpen, setIsMessagesTabOpen] = useState(false);
+
 	const numberOfItemsInCartSelector = useSelector(
 		(state) => state.cart.cart.products.length
 	);
@@ -47,24 +49,64 @@ const Header = () => {
 				</ul>
 			</div>
 			<SearchBar />
-			<div className="notification">
-				<div className="icon">
-					<Link to="/notification">
-						<img
-							src="https://i.imgur.com/pAPOaav.png"
-							alt="Notification Icon"
-						/>
-					</Link>
+			<div className="header-tabs">
+				<div className="notification">
+					<div className="icon">
+						<Link to="/notification">
+							<img
+								src="https://i.imgur.com/pAPOaav.png"
+								alt="Notification Icon"
+							/>
+						</Link>
+					</div>
+					<div className="notification-dropdown">
+						<a href="/"> Este é um exemplo de notificação ! </a>
+						<a href="/"> Você tem uma nova mensagem de Fulano. </a>
+						<a href="/">
+							{' '}
+							O seu produto está a caminho, acompanhe com o código XSAI-ASXD-ASJD
+						</a>
+						<Link to="/notification"> Mais notificações (3) </Link>
+					</div>
 				</div>
-				<div className="notification-dropdown">
-					<a href="/"> Este é um exemplo de notificação ! </a>
-					<a href="/"> Você tem uma nova mensagem de Fulano. </a>
-					<a href="/">
-						{' '}
-						O seu produto está a caminho, acompanhe com o código XSAI-ASXD-ASJD
-					</a>
-					<Link to="/notification"> Mais notificações (3) </Link>
-				</div>
+				<MessagesTab isOpen={isMessagesTabOpen} toggleIsOpen={() => setIsMessagesTabOpen((previous) => !previous)} users={[
+					{
+						id: '1',
+						name: 'Usuário 1',
+						profilePicture: 'https://thiscatdoesnotexist.com/',
+						messages: Array(15).fill(0).map((_v, index) => {
+							return {
+								id: `${index}`,
+								content: `Mensagem ${index}`,
+								date: new Date(2020, 5, 26, 15, index),
+							};
+						}),
+					},
+					{
+						id: '2',
+						name: 'Usuário 2',
+						profilePicture: 'https://thispersondoesnotexist.com/image',
+						messages: Array(15).fill(0).map((_v, index) => {
+							return {
+								id: `${index}`,
+								content: `Mensagem ${index}`,
+								date: new Date(2020, 5, 25, 15, index),
+							};
+						}),
+					},
+					{
+						id: '3',
+						name: 'Usuário 3',
+						profilePicture: 'https://thishorsedoesnotexist.com/',
+						messages: Array(15).fill(0).map((_v, index) => {
+							return {
+								id: `${index}`,
+								content: `Mensagem ${index}`,
+								date: new Date(2020, 5, 24, 15, index),
+							};
+						}),
+					},
+				]} />
 			</div>
 			<div className="dropdown">
 				<div className="profile">

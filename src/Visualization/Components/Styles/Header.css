@@ -186,3 +186,9 @@
 	background-color: #7dd359;
 	color: black;
 }
+
+.header-tabs {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}

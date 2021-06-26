@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Message from './Message';
 import PropTypes from 'prop-types';
 
 const Chat = (props) => {
@@ -9,7 +10,7 @@ const Chat = (props) => {
             <div className="message-log">
                 {props.messages.map((message, index) => {
                     return (
-                        <div></div>
+                        <Message key={index} content={message.content} date={message.date} delete={() => props.deleteMessage(message.id)} />
                     );
                 })}
             </div>
@@ -23,6 +24,7 @@ const Chat = (props) => {
 
 Chat.propTypes = {
     messages: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.string,
         date: PropTypes.instanceOf(Date),
         content: PropTypes.string
     })),
