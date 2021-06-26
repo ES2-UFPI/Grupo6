@@ -1,28 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import Rating from './Rating';
 import PropTypes from 'prop-types';
 import '../Styles/TransactionItem.css';
 
 const TransactionItem = (props) => {
-	// const [selectedRating, setSelectedRating] = useState(props.rating);
-    const [isDetailsHidden, setIsDetailsHidden] = useState(true);
-
-	const details = (
-		<div id="dMain" className={isDetailsHidden ? 'details-main hidden' : 'details-main'}>
-			<div className="info-row">
-				<label>cod:</label>
-                <span>{props.id}</span>
-			</div>
-			<div className="info-row">
-				<label>Faria negócios novamente? </label>
-                <span>{props.wouldBarterAgain}</span>
-			</div>
-			<div className="info-row">
-				<label>Avaliação: </label>
-                <span>{props.rating}</span>
-			</div>
-		</div>
-	);
 
 	return (
 		<div className="transaction-item">
@@ -46,16 +28,7 @@ const TransactionItem = (props) => {
                             <span>{props.status}</span>
 						</div>
 					</div>
-					<div className="right">
-						<button
-							onClick={() => {
-								setIsDetailsHidden((previous) => !previous);
-							}}
-						>
-							{isDetailsHidden ? 'Inspecionar' : 'Ocultar'}
-						</button>
-					</div>
-					{details}
+					{<Rating rating={props.rating} wouldBarterAgain={props.wouldBarterAgain} update={props.update} />}
 				</div>
 			</div>
 		</div>
@@ -73,6 +46,7 @@ TransactionItem.propTypes = {
 	status: PropTypes.string,
 	rating: PropTypes.number,
 	wouldBarterAgain: PropTypes.bool,
+	update: PropTypes.func,
 };
 
 export default TransactionItem;

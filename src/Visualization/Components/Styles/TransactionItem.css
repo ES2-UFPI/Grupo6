@@ -43,3 +43,8 @@
 .transaction-item .hidden {
     visibility: hidden;
 }
+
+.transaction-item label {
+    font-weight: bold;
+    margin-right: 5px;
+}

@@ -41,7 +41,16 @@ const Firebase = (() => {
 			'categoryClicks',
 		],
 
-		chats: ['messages',]
+		chats: ['messages',],
+		transactions: [
+			'date',
+			'valuePaid',
+			'status',
+			'localizationCode',
+			'rating',
+			'comment',
+			'wouldBuyAgain',
+		],
 	};
 
 	const convertToCamelCase = (...names) => {
