@@ -1,19 +1,18 @@
-import MessageLogic from "../../Logic/messagesLogic";
+import MessageLogic from '../../Logic/messagesLogic';
 
 test('pegando mensagens', () => {
+	const getMsg = async () => {
+		const chatId = await MessageLogic.createChat();
 
-    const getMsg = async () => {
-        const chatId = await MessageLogic.createChat()
+		await MessageLogic.sendMessage(chatId, '1', 'Olá');
+		await MessageLogic.sendMessage(chatId, '1', '?');
 
-        await MessageLogic.sendMessage(chatId, '1', 'Olá')
-        await MessageLogic.sendMessage(chatId, '1', '?')
+		const messages = await MessageLogic.getMessages(chatId);
 
-        const messages = await MessageLogic.getMessages(chatId)
+		messages.map((m) => {
+			expect(typeof m.text).toBe('string');
+		});
+	};
 
-       messages.map((m)=>{
-           expect(typeof m.text).toBe('string')
-       })
-    }
-
-    getMsg()
-})
+	getMsg();
+});

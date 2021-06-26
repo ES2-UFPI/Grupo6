@@ -1,39 +1,39 @@
 .rating-area .interactive-stars {
-    cursor: pointer;
-    display: flex;
-    flex-direction: row;
-    margin: 10px 0;
+	cursor: pointer;
+	display: flex;
+	flex-direction: row;
+	margin: 10px 0;
 }
 
 .rating-area .interactive-star {
-    text-shadow: 0 0 1px rgb(0, 0, 0);
-    font-size: 30px;
-    margin: 0 5px;
+	text-shadow: 0 0 1px rgb(0, 0, 0);
+	font-size: 30px;
+	margin: 0 5px;
 }
 
 .rating-area .interactive-stars .checked {
-    color: rgb(243, 219, 0);
+	color: rgb(243, 219, 0);
 }
 
 .rating-area .would-barter-again button {
-    cursor: pointer;
-    border: none;
-    background-color: transparent;
-    color: rgb(153, 153, 153);
-    font-size: 30px;
+	cursor: pointer;
+	border: none;
+	background-color: transparent;
+	color: rgb(153, 153, 153);
+	font-size: 30px;
 }
 
 .rating-area .would-barter-again-section {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin: 10px 0;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin: 10px 0;
 }
 
 .rating-area .would-barter-again button.thumbs-up-button.selected {
-    color: rgb(1, 124, 1);
+	color: rgb(1, 124, 1);
 }
 
 .rating-area .would-barter-again button.thumbs-down-button.selected {
-    color: rgb(212, 0, 0);
+	color: rgb(212, 0, 0);
 }

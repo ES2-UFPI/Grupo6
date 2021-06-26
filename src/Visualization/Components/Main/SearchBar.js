@@ -37,27 +37,26 @@ const SearchBar = () => {
 		updateResults();
 	}, [inputText]);
 
-	let location = useLocation()
-	useEffect(()=>{
-		setInputText('')
-	}, [location])
+	let location = useLocation();
+	useEffect(() => {
+		setInputText('');
+	}, [location]);
 
 	function useOutsideAlerter(ref) {
 		useEffect(() => {
-			
 			function handleClickOutside(event) {
 				if (ref.current && !ref.current.contains(event.target)) {
 					setResults([]);
 				}
 			}
-	
-			document.addEventListener("mousedown", handleClickOutside);
+
+			document.addEventListener('mousedown', handleClickOutside);
 			return () => {
-				document.removeEventListener("mousedown", handleClickOutside);
+				document.removeEventListener('mousedown', handleClickOutside);
 			};
 		}, [ref]);
 	}
-	
+
 	const wrapperRef = useRef(null);
 	useOutsideAlerter(wrapperRef);
 

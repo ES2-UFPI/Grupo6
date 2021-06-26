@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import '../Styles/TransactionItem.css';
 
 const TransactionItem = (props) => {
-
 	return (
 		<div className="transaction-item">
 			<div className="transaction-item-left-section">
@@ -21,14 +20,20 @@ const TransactionItem = (props) => {
 					<div className="left">
 						<div className="info-row">
 							<label>Localizar: </label>
-                            <span>{props.localizationCode}</span>
+							<span>{props.localizationCode}</span>
 						</div>
 						<div className="info-row">
 							<label>Status: </label>
-                            <span>{props.status}</span>
+							<span>{props.status}</span>
 						</div>
 					</div>
-					{<Rating rating={props.rating} wouldBarterAgain={props.wouldBarterAgain} update={props.update} />}
+					{
+						<Rating
+							rating={props.rating}
+							wouldBarterAgain={props.wouldBarterAgain}
+							update={props.update}
+						/>
+					}
 				</div>
 			</div>
 		</div>

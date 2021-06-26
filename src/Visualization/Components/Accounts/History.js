@@ -4,10 +4,12 @@ import '../Styles/History.css';
 import TransactionItem from './TransactionItem';
 
 const History = () => {
-
 	const updateTransaction = async (transactionId, rating, wouldBarterAgain) => {
 		await TransactionLogic.rateProduct(transactionId, rating);
-		await TransactionLogic.answerWouldBuyFromSellerAgain(transactionId, wouldBarterAgain);
+		await TransactionLogic.answerWouldBuyFromSellerAgain(
+			transactionId,
+			wouldBarterAgain
+		);
 	};
 
 	const items = Array(5).fill({
@@ -22,16 +24,16 @@ const History = () => {
 		status: '¯|_(ツ)_/¯',
 		rating: 3.5,
 		wouldBarterAgain: true,
-		update: (rating, wouldBarterAgain) => { updateTransaction('1234', rating, wouldBarterAgain) },
+		update: (rating, wouldBarterAgain) => {
+			updateTransaction('1234', rating, wouldBarterAgain);
+		},
 	});
-
-
 
 	return (
 		<div className="history-main">
 			<h2 className="history-title">Histórico de Transações</h2>
 			<div className="transation-items">
-				{items.map((i,index) => {
+				{items.map((i, index) => {
 					return <TransactionItem key={index} {...i} />;
 				})}
 			</div>
