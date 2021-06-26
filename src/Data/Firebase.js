@@ -40,6 +40,8 @@ const Firebase = (() => {
 			'accountCreateDate',
 			'categoryClicks',
 		],
+
+		chats: ['messages',]
 	};
 
 	const convertToCamelCase = (...names) => {
