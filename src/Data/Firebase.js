@@ -51,6 +51,11 @@ const Firebase = (() => {
 			'comment',
 			'wouldBuyAgain',
 		],
+		notifications: [
+			'type',
+			'content',
+			'isRead',
+		],
 	};
 
 	const convertToCamelCase = (...names) => {
