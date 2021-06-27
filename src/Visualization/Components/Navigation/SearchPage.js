@@ -5,6 +5,7 @@ import { useLocation } from 'react-router-dom';
 import PageNavigation from '../Main/PageNavigation';
 import '../Styles/SearchPage.css';
 import Component_PageNavigationAdapter from '../Main/Adapters/Component_PageNavigationAdapter';
+import Logic_ProductPreviewAdapter from './Adapters/Logic_ProductPreviewAdapter';
 
 const SearchPage = () => {
 	const query = new URLSearchParams(useLocation().search);
@@ -34,8 +35,7 @@ const SearchPage = () => {
 					.map((result, index) => {
 						return (
 							<ProductPreview
-								picture={result.pictures[0]}
-								{...result}
+								{...Logic_ProductPreviewAdapter(result)}
 								key={index}
 							/>
 						);

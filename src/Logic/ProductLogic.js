@@ -42,10 +42,6 @@ const ProductLogic = (() => {
 		await Firebase.setProductCreatorId(productId, product.creatorId);
 	};
 
-	const filterProducts = async (condition) => {
-		return (await Firebase.getAllProducts()).filter(condition);
-	};
-
 	const getProductInfo = async (productId) => {
 		return await Firebase.getProduct(productId);
 	};
@@ -91,7 +87,6 @@ const ProductLogic = (() => {
 
 	return {
 		addNewProduct,
-		filterProducts,
 		getProductInfo,
 		getProducts,
 	};

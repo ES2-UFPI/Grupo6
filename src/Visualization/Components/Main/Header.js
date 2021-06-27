@@ -131,15 +131,7 @@ const Header = () => {
 		</div>
 	);
 
-	/*if (category !== '' && rota.pathname === '/') {
-		return (
-			<div className="home-page-mockup">
-				{mainContent}
-				<Results category={category} />
-			</div>
-		);
-	}*/
-	return <div className="home-page-mockup">{mainContent}</div>;
+	return mainContent;
 };
 
 export default Header;

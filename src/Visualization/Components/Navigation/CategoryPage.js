@@ -6,6 +6,7 @@ import '../Styles/CategoryPage.css';
 import FiltersBar from './FiltersBar';
 import PageNavigation from '../Main/PageNavigation';
 import Component_PageNavigationAdapter from '../Main/Adapters/Component_PageNavigationAdapter';
+import Logic_ProductPreviewAdapter from './Adapters/Logic_ProductPreviewAdapter';
 
 const CategoryPage = ({ match }) => {
 	const {
@@ -50,8 +51,7 @@ const CategoryPage = ({ match }) => {
 						.map((product, index) => {
 							return (
 								<ProductPreview
-									picture={product.pictures[0]}
-									{...product}
+									{...Logic_ProductPreviewAdapter(product)}
 									key={index}
 								/>
 							);
