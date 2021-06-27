@@ -1,8 +1,9 @@
 import firebase from 'firebase/app';
 import 'firebase/database';
+import Firebase from './Firebase';
 
 const RealTimeDatabase = (() => {
-	const database = firebase.database();
+	const database = Firebase.realTimeDatabase;
 
 	const databaseFields = ['messages'];
 
@@ -43,9 +44,14 @@ const RealTimeDatabase = (() => {
 			const newReference = reference.push();
 			newReference.set(
 				Object.fromEntries(
-					...Object.keys(newItem).map((key) => {
-						return [key, newItem[key] instanceof Date ? firebase.firestore.Timestamp.fromDate(newItem[key]) : newItem[key]]; 
-					}),
+					Object.keys(newItem).map((key) => {
+						return [
+							key,
+							newItem[key] instanceof Date
+								? firebase.firestore.Timestamp.fromDate(newItem[key])
+								: newItem[key],
+						];
+					})
 				)
 			);
 			return newReference.key;
@@ -61,31 +67,21 @@ const RealTimeDatabase = (() => {
 
 	return {
 		...Object.fromEntries(
-			Object.keys(databaseFields).map((field) => {
-				return [
-					generateListenMethodName(field),
-					generateListenMethod(field),
-				];
+			databaseFields.map((field) => {
+				return [generateListenMethodName(field), generateListenMethod(field)];
 			})
 		),
 		...Object.fromEntries(
-			Object.keys(databaseFields).map((field) => {
-				return [
-					generatePushMethodName(field),
-					generatePushMethod(field),
-				];
+			databaseFields.map((field) => {
+				return [generatePushMethodName(field), generatePushMethod(field)];
 			})
 		),
 		...Object.fromEntries(
-			Object.keys(databaseFields).map((field) => {
-				return [
-					generateDeleteMethodName(field),
-					generateDeleteMethod(field),
-				];
+			databaseFields.map((field) => {
+				return [generateDeleteMethodName(field), generateDeleteMethod(field)];
 			})
 		),
 	};
-
 })();
 
 export default RealTimeDatabase;

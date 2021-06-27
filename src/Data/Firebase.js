@@ -1,5 +1,6 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
+import 'firebase/database';
 
 const Firebase = (() => {
 	const firebaseConfig = {
@@ -16,6 +17,7 @@ const Firebase = (() => {
 	firebase.initializeApp(firebaseConfig);
 
 	const database = firebase.firestore();
+	const realTimeDatabase = firebase.database();
 
 	const databaseStructure = {
 		products: [
@@ -188,6 +190,7 @@ const Firebase = (() => {
 				];
 			})
 		),
+		realTimeDatabase,
 	};
 })();
 
