@@ -35,7 +35,8 @@
 }
 
 .product-page .add-to-cart-button,
-.product-page .remove-from-cart-button {
+.product-page .remove-from-cart-button,
+.product-page .talk-to-seller-button {
 	margin-top: 15px;
 	cursor: pointer;
 	width: 140px;
@@ -43,6 +44,8 @@
 	font-size: 16px;
 	border: 1px solid black;
 	border-radius: 2px;
+	margin-left: 2px;
+	margin-right: 2px;
 }
 
 .product-page .add-to-cart-button {
@@ -59,4 +62,12 @@
 
 .product-page .remove-from-cart-button:hover {
 	background-color: rgb(255, 93, 93);
+}
+
+.product-page .talk-to-seller-button {
+	background-color: rgb(146, 226, 27);
+}
+
+.product-page .talk-to-seller-button:hover {
+	background-color: rgb(106, 163, 19);
 }

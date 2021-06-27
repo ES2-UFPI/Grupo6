@@ -17,6 +17,7 @@ const Header = () => {
 
 	const userSelector = useSelector((state) => state.user.userId);
 	const userInfoSelector = useSelector((state) => state.user.userInfo);
+	const openChatSelector = useSelector((state) => state.chat.talkingToSeller);
 
 	useEffect(() => {
 		const handleClickOutside = (e) => {
@@ -25,11 +26,12 @@ const Header = () => {
 				!messagesTab.current.contains(e.target)
 			) {
 				setIsMessagesTabOpen(false);
+				dispatch(Reducer.closeChat());
 			}
 		};
 
 		window.addEventListener('click', handleClickOutside, { capture: true });
-	}, []);
+	}, [dispatch]);
 
 	useEffect(() => {
 		dispatch(
@@ -101,9 +103,15 @@ const Header = () => {
 				</div>
 				<div className="messages-tab-container" ref={messagesTab}>
 					<MessagesTab
+						newChat={openChatSelector}
 						loggedInUser={userSelector}
 						isOpen={isMessagesTabOpen}
-						toggleIsOpen={() => setIsMessagesTabOpen((previous) => !previous)}
+						toggleIsOpen={() => {
+							setIsMessagesTabOpen((previous) => !previous);
+							if (openChatSelector !== null) {
+								dispatch(Reducer.closeChat());
+							}
+						}}
 					/>
 				</div>
 			</div>

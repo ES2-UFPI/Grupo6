@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import ProductLogic from '../../../Logic/ProductLogic';
+import UserLogic from '../../../Logic/UserLogic';
 import Reducer from '../../../Reducers/Reducer';
 import '../Styles/ProductPage.css';
 
@@ -18,7 +19,17 @@ const ProductPage = ({ match }) => {
 
 	useEffect(() => {
 		const fetchProductInfo = async () => {
-			setProductInfo(await ProductLogic.getProductInfo(productId));
+			const productInfo = {
+				...(await ProductLogic.getProductInfo(productId)),
+				sellerName: (
+					await UserLogic.getUser(
+						(
+							await ProductLogic.getProductInfo(productId)
+						).sellerId
+					)
+				).name,
+			};
+			setProductInfo(productInfo);
 			setIsLoaded(true);
 		};
 		fetchProductInfo();
@@ -65,6 +76,16 @@ const ProductPage = ({ match }) => {
 						Remover do carrinho
 					</button>
 				)}
+				<button
+					className="talk-to-seller-button"
+					onClick={(_e) =>
+						dispatch(
+							Reducer.openChat(productInfo.sellerId, productInfo.sellerName)
+						)
+					}
+				>
+					Falar com o vendedor
+				</button>
 			</div>
 		</div>
 	) : null;

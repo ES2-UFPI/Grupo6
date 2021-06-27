@@ -93,12 +93,25 @@ const MessagesTab = (props) => {
 	}, [props.loggedInUser]);
 
 	useEffect(() => {
-		setOpenChat((previous) =>
-			previous !== null
-				? users.filter((user) => user.id === previous.id)[0]
-				: previous
-		);
-	}, [users]);
+		if (
+			props.newChat !== null &&
+			!users.map((user) => user.id).includes(props.newChat.id)
+		) {
+			setOpenChat({
+				id: props.newChat.id,
+				name: props.newChat.name,
+				messages: [],
+			});
+		} else if (props.newChat !== null) {
+			setOpenChat(users.filter((user) => user.id === props.newChat.id)[0]);
+		} else {
+			setOpenChat((previous) =>
+				previous !== null
+					? users.filter((user) => user.id === previous.id)[0]
+					: previous
+			);
+		}
+	}, [users, props.newChat]);
 
 	const chatNavigation = (
 		<div className="chat-navigation">
@@ -122,7 +135,7 @@ const MessagesTab = (props) => {
 	return (
 		<div
 			className={
-				props.isOpen
+				props.isOpen || props.newChat
 					? 'message-tab-icon fa fa-envelope'
 					: 'message-tab-icon fa fa-envelope hidden'
 			}
@@ -167,6 +180,10 @@ const MessagesTab = (props) => {
 };
 
 MessagesTab.propTypes = {
+	newChat: PropTypes.shape({
+		id: PropTypes.string,
+		name: PropTypes.string,
+	}),
 	isOpen: PropTypes.bool,
 	toggleIsOpen: PropTypes.func,
 	loggedInUser: PropTypes.string,

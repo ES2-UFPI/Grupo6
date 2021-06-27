@@ -18,7 +18,11 @@ import NotificationPage from './Visualization/Components/Navigation/Notification
 import SearchPage from './Visualization/Components/Navigation/SearchPage';
 
 const store = createStore(
-	combineReducers({ user: Reducer.userReducer, cart: Reducer.cartReducer })
+	combineReducers({
+		user: Reducer.userReducer,
+		cart: Reducer.cartReducer,
+		chat: Reducer.chatReducer,
+	})
 );
 
 ReactDOM.render(

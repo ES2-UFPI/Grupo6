@@ -5,6 +5,7 @@ const Reducer = (() => {
 		cart: {
 			products: [],
 		},
+		talkingToSeller: null,
 	};
 
 	const userReducer = (state = initialState, action) => {
@@ -83,6 +84,22 @@ const Reducer = (() => {
 		return state;
 	};
 
+	const chatReducer = (state = initialState, action) => {
+		if (action.type === 'OPEN_CHAT') {
+			return {
+				...state,
+				talkingToSeller: action.data,
+			};
+		}
+		if (action.type === 'CLOSE_CHAT') {
+			return {
+				...state,
+				talkingToSeller: null,
+			};
+		}
+		return state;
+	};
+
 	const addItem = (item) => {
 		return {
 			type: 'ADD',
@@ -115,13 +132,32 @@ const Reducer = (() => {
 		};
 	};
 
+	const openChat = (sellerId, sellerName) => {
+		return {
+			type: 'OPEN_CHAT',
+			data: {
+				id: sellerId,
+				name: sellerName,
+			},
+		};
+	};
+
+	const closeChat = () => {
+		return {
+			type: 'CLOSE_CHAT',
+		};
+	};
+
 	return {
 		userReducer,
 		cartReducer,
+		chatReducer,
 		login,
 		signOut,
 		addItem,
 		removeItem,
+		openChat,
+		closeChat,
 	};
 })();
 
