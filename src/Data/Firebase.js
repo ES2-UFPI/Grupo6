@@ -28,6 +28,7 @@ const Firebase = (() => {
 			'price',
 			'publicationDate',
 			'description',
+			'creatorId',
 		],
 
 		users: [
@@ -57,7 +58,7 @@ const Firebase = (() => {
 			'buyerId',
 		],
 
-		notifications: ['type', 'content', 'isRead'],
+		notifications: ['type', 'content', 'isRead', 'userId'],
 	};
 
 	const convertToCamelCase = (...names) => {

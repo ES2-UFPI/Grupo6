@@ -39,6 +39,7 @@ const ProductLogic = (() => {
 		await Firebase.setProductPrice(productId, parseFloat(product.price));
 		await Firebase.setProductPublicationDate(productId, new Date());
 		await Firebase.setProductDescription(productId, product.description);
+		await Firebase.setProductCreatorId(productId, product.creatorId);
 	};
 
 	const filterProducts = async (condition) => {
