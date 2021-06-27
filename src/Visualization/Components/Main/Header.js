@@ -1,17 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import SearchBar from './SearchBar';
 import '../Styles/Header.css';
 import MessagesTab from './MessagesTab';
-import { from } from 'form-data';
 
 const Header = () => {
+	const messagesTab = useRef();
 	const [isMessagesTabOpen, setIsMessagesTabOpen] = useState(false);
 
 	const numberOfItemsInCartSelector = useSelector(
 		(state) => state.cart.cart.products.length
 	);
+
+	useEffect(() => {
+		const handleClickOutside = (e) => {
+			if (
+				messagesTab.current !== undefined &&
+				!messagesTab.current.contains(e.target)
+			) {
+				setIsMessagesTabOpen(false);
+			}
+		};
+
+		window.addEventListener('click', handleClickOutside, { capture: true });
+	}, []);
 
 	const mainContent = (
 		<div className="header">
@@ -70,57 +83,59 @@ const Header = () => {
 						<Link to="/notification"> Mais notificações (3) </Link>
 					</div>
 				</div>
-				<MessagesTab
-					isOpen={isMessagesTabOpen}
-					toggleIsOpen={() => setIsMessagesTabOpen((previous) => !previous)}
-					users={[
-						{
-							id: '1',
-							name: 'Usuário 1',
-							profilePicture: 'https://thiscatdoesnotexist.com/',
-							messages: Array(15)
-								.fill(0)
-								.map((_v, index) => {
-									return {
-										id: `${index}`,
-										content: `Mensagem ${index}`,
-										date: new Date(2020, 5, 26, 15, index),
-										isSentByLoggedInUser: index % 2 === 0,
-									};
-								}),
-						},
-						{
-							id: '2',
-							name: 'Usuário 2',
-							profilePicture: 'https://thispersondoesnotexist.com/image',
-							messages: Array(15)
-								.fill(0)
-								.map((_v, index) => {
-									return {
-										id: `${index}`,
-										content: `Mensagem ${index}`,
-										date: new Date(2020, 5, 25, 15, index),
-										isSentByLoggedInUser: index % 2 === 0,
-									};
-								}),
-						},
-						{
-							id: '3',
-							name: 'Usuário 3',
-							profilePicture: 'https://thishorsedoesnotexist.com/',
-							messages: Array(15)
-								.fill(0)
-								.map((_v, index) => {
-									return {
-										id: `${index}`,
-										content: `Mensagem ${index}`,
-										date: new Date(2020, 5, 24, 15, index),
-										isSentByLoggedInUser: index % 2 === 0,
-									};
-								}),
-						},
-					]}
-				/>
+				<div className="messages-tab-container" ref={messagesTab}>
+					<MessagesTab
+						isOpen={isMessagesTabOpen}
+						toggleIsOpen={() => setIsMessagesTabOpen((previous) => !previous)}
+						users={[
+							{
+								id: '1',
+								name: 'Usuário 1',
+								profilePicture: 'https://thiscatdoesnotexist.com/',
+								messages: Array(15)
+									.fill(0)
+									.map((_v, index) => {
+										return {
+											id: `${index}`,
+											content: `Mensagem ${index}`,
+											date: new Date(2020, 5, 26, 15, index),
+											isSentByLoggedInUser: index % 2 === 0,
+										};
+									}),
+							},
+							{
+								id: '2',
+								name: 'Usuário 2',
+								profilePicture: 'https://thispersondoesnotexist.com/image',
+								messages: Array(15)
+									.fill(0)
+									.map((_v, index) => {
+										return {
+											id: `${index}`,
+											content: `Mensagem ${index}`,
+											date: new Date(2020, 5, 25, 15, index),
+											isSentByLoggedInUser: index % 2 === 0,
+										};
+									}),
+							},
+							{
+								id: '3',
+								name: 'Usuário 3',
+								profilePicture: 'https://thishorsedoesnotexist.com/',
+								messages: Array(15)
+									.fill(0)
+									.map((_v, index) => {
+										return {
+											id: `${index}`,
+											content: `Mensagem ${index}`,
+											date: new Date(2020, 5, 24, 15, index),
+											isSentByLoggedInUser: index % 2 === 0,
+										};
+									}),
+							},
+						]}
+					/>
+				</div>
 			</div>
 			<div className="dropdown">
 				<div className="profile">

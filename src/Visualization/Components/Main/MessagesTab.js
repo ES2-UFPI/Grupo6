@@ -69,20 +69,22 @@ const MessagesTab = (props) => {
 
 MessagesTab.propTypes = {
 	isOpen: PropTypes.bool,
-	toggleIsOpen: PropTypes.bool,
-	users: PropTypes.shape({
-		id: PropTypes.string,
-		name: PropTypes.string,
-		profilePicture: PropTypes.string,
-		messages: PropTypes.arrayOf(
-			PropTypes.shape({
-				isSentByLoggedInUser: PropTypes.bool,
-				id: PropTypes.string,
-				date: PropTypes.instanceOf(Date),
-				content: PropTypes.string,
-			})
-		),
-	}),
+	toggleIsOpen: PropTypes.func,
+	users: PropTypes.arrayOf(
+		PropTypes.shape({
+			id: PropTypes.string,
+			name: PropTypes.string,
+			profilePicture: PropTypes.string,
+			messages: PropTypes.arrayOf(
+				PropTypes.shape({
+					isSentByLoggedInUser: PropTypes.bool,
+					id: PropTypes.string,
+					date: PropTypes.instanceOf(Date),
+					content: PropTypes.string,
+				})
+			),
+		})
+	),
 };
 
 export default MessagesTab;
