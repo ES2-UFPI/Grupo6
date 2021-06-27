@@ -43,14 +43,7 @@ const ProductLogic = (() => {
 	};
 
 	const filterProducts = async (condition) => {
-		return (await Firebase.getAllProducts()).docs
-			.map((doc) => {
-				return {
-					id: doc.id,
-					...doc.data(),
-				};
-			})
-			.filter(condition);
+		return (await Firebase.getAllProducts()).filter(condition);
 	};
 
 	const getProductInfo = async (productId) => {
@@ -71,18 +64,28 @@ const ProductLogic = (() => {
 				};
 			} else if (filter.type === 'price_range') {
 				return (product) => {
-					return product.price <= filter.value[1] && product.price >= filter.value[0];
+					return (
+						product.price <= filter.value[1] && product.price >= filter.value[0]
+					);
 				};
 			} else if (filter.type === 'category') {
 				return (product) => product.category === filter.value;
 			}
 			return (_product) => true;
 		});
-		return await getFilteredProducts(conditions);
+		return await getFilteredProducts(...conditions);
 	};
 
-	const getProducts = async (searchTerm = null, priceRange = null, category = null) => {
-		const argumentArray = [{ type: 'search', value: searchTerm }, { type: 'price_range', value: priceRange }, { type: 'category', value: category }].filter((argument) => argument.value !== null);
+	const getProducts = async (
+		searchTerm = null,
+		priceRange = null,
+		category = null
+	) => {
+		const argumentArray = [
+			{ type: 'search', value: searchTerm },
+			{ type: 'price_range', value: priceRange },
+			{ type: 'category', value: category },
+		].filter((argument) => argument.value !== null);
 		return await getProductsWithParameters(argumentArray);
 	};
 

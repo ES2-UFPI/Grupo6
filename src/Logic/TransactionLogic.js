@@ -22,12 +22,21 @@ const TransactionLogic = (() => {
 	const generateTransaction = async (transaction) => {
 		const transactionId = Firebase.createTransaction();
 		await Firebase.setTransactionDate(transactionId, new Date());
-		await Firebase.setTransactionValuePaid(transactionId, transaction.valuePaid);
+		await Firebase.setTransactionValuePaid(
+			transactionId,
+			transaction.valuePaid
+		);
 		await Firebase.setTransactionStatus(transactionId, transaction.status);
 		await Firebase.setTransactionRating(transactionId, transaction.rating);
 		await Firebase.setTransactionComment(transactionId, transaction.comment);
-		await Firebase.setTransactionWouldBuyAgain(transactionId, transaction.wouldBuyAgain);
-		await Firebase.setTransactionProductId(transactionId, transaction.productId);
+		await Firebase.setTransactionWouldBuyAgain(
+			transactionId,
+			transaction.wouldBuyAgain
+		);
+		await Firebase.setTransactionProductId(
+			transactionId,
+			transaction.productId
+		);
 		await Firebase.setTransactionSellerId(transactionId, transaction.sellerId);
 		await Firebase.setTransactionBuyerId(transactionId, transaction.buyerId);
 	};

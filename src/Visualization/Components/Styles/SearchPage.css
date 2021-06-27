@@ -1,0 +1,11 @@
+.search-page .product-grid {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	min-height: 60vh;
+	padding: 60px;
+}
+
+.search-page .product-grid .product-preview {
+	margin: 0 10px 10px 10px;
+}

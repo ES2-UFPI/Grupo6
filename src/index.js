@@ -16,6 +16,7 @@ import CategoryPage from './Visualization/Components/Navigation/CategoryPage';
 import ProductPage from './Visualization/Components/Products/ProductPage';
 import History from './Visualization/Components/Accounts/History';
 import NotificationPage from './Visualization/Components/Navigation/NotificationPage';
+import SearchPage from './Visualization/Components/Navigation/SearchPage';
 
 const store = createStore(
 	combineReducers({ user: Reducer.userReducer, cart: Reducer.cartReducer })
@@ -27,6 +28,7 @@ ReactDOM.render(
 			<BrowserRouter>
 				<Header />
 				<Switch>
+					<Route path="/product/search" component={SearchPage} />
 					<Route path="/product/category/:category" component={CategoryPage} />
 					<Route path="/product/add" component={RegisterProductPage} />
 					<Route path="/product/:productId" component={ProductPage} />
