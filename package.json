@@ -1,5 +1,6 @@
 {
 	"name": "brechonline",
+	"homepage": "http://es2-ufpi.github.io/Grupo6/",
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
