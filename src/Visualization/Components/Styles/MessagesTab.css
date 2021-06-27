@@ -40,6 +40,7 @@
 
 .message-tab-icon .chat-navigation {
 	box-shadow: 0px 0px 3px rgb(129, 129, 129);
+	min-height: 20px;
 }
 
 .message-tab-icon .chat-navigation .chat-preview {

@@ -26,10 +26,19 @@ const Chat = (props) => {
 					type="text"
 					value={messageInput}
 					onChange={(e) => setMessageInput(e.target.value)}
+					onKeyDown={(e) => {
+						if (e.key === 'Enter') {
+							props.sendMessage(messageInput);
+							setMessageInput('');
+						}
+					}}
 				></input>
 				<button
 					className="send-button fa fa-paper-plane"
-					onClick={() => props.sendMessage(messageInput)}
+					onClick={() => {
+						props.sendMessage(messageInput);
+						setMessageInput('');
+					}}
 				></button>
 			</div>
 		</div>

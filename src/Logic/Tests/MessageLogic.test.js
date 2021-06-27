@@ -1,4 +1,4 @@
-import MessageLogic from '../../Logic/messagesLogic';
+import MessageLogic from '../MessageLogic';
 
 test('pegando mensagens', () => {
 	const getMsg = async () => {

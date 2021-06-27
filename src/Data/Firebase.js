@@ -44,8 +44,6 @@ const Firebase = (() => {
 			'categoryClicks',
 		],
 
-		chats: ['messages'],
-
 		transactions: [
 			'date',
 			'valuePaid',

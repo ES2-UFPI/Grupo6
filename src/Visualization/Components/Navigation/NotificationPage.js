@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import '../Styles/NotificationPage.css';
 
@@ -15,7 +14,7 @@ const NotificationPage = (props) => {
 						<img src="https://i.imgur.com/Np5JaD8.png" alt="Brechonline" />
 					</div>
 					<div className="content">
-						<a>• Notificação do site.</a>
+						<Link>• Notificação do site.</Link>
 						<h1>13:20</h1>
 					</div>
 				</div>
@@ -24,10 +23,10 @@ const NotificationPage = (props) => {
 						<img src="https://i.imgur.com/1T9L1rV.png" alt="Brechonline" />
 					</div>
 					<div className="content">
-						<a>
+						<Link>
 							• O seu produto está a caminho, acompanhe com o código
 							XSAI-ASXD-ASJD.
-						</a>
+						</Link>
 						<h1>10:43</h1>
 					</div>
 				</div>
@@ -36,7 +35,7 @@ const NotificationPage = (props) => {
 						<img src="https://i.imgur.com/bPxZOaN.png" alt="Brechonline" />
 					</div>
 					<div className="content">
-						<a>• Você tem uma nova mensagem de Fulano.</a>
+						<Link>• Você tem uma nova mensagem de Fulano.</Link>
 						<h1>08:19</h1>
 					</div>
 				</div>

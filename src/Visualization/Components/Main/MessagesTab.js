@@ -1,23 +1,108 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Chat from './Chat';
+import MessageLogic from '../../../Logic/MessageLogic';
+import UserLogic from '../../../Logic/UserLogic';
 import PropTypes from 'prop-types';
 import '../Styles/MessagesTab.css';
 
 const MessagesTab = (props) => {
 	const overflowContent = useRef();
 	const [openChat, setOpenChat] = useState(null);
+	const [users, setUsers] = useState([]);
 
-	const openNewChat = (userId) => {
-		// ...
-		return {
-			name: '',
-			profilePicture: '',
+	useEffect(() => {
+		const updateUsers = async (messagesObject) => {
+			const messages = Object.keys(messagesObject).map((key) => {
+				return {
+					id: key,
+					sender: messagesObject[key].sender,
+					receiver: messagesObject[key].receiver,
+					content: messagesObject[key].content,
+					date: new Date(messagesObject[key].date.seconds * 1000),
+				};
+			});
+
+			const preliminaryUsers = messages
+				.sort((a, b) => a.date - b.date)
+				.reduce((userArray, message) => {
+					if (
+						message.sender !== props.loggedInUser &&
+						userArray.filter((user) => user.id === message.sender).length === 0
+					) {
+						return userArray.concat({
+							id: message.sender,
+							messages: messages
+								.filter(
+									(m) =>
+										m.sender === message.sender || m.receiver === message.sender
+								)
+								.sort((a, b) => a.date - b.date)
+								.map((m) => {
+									return {
+										id: m.id,
+										content: m.content,
+										date: m.date,
+										isSentByLoggedInUser: m.receiver !== props.loggedInUser,
+									};
+								}),
+						});
+					}
+					if (
+						message.receiver !== props.loggedInUser &&
+						userArray.filter((user) => user.id === message.receiver).length ===
+							0
+					) {
+						return userArray.concat({
+							id: message.receiver,
+							messages: messages
+								.filter(
+									(m) =>
+										m.receiver === message.receiver ||
+										m.sender === message.receiver
+								)
+								.sort((a, b) => a.date - b.date)
+								.map((m) => {
+									return {
+										id: m.id,
+										content: m.content,
+										date: m.date,
+										isSentByLoggedInUser: m.receiver !== props.loggedInUser,
+									};
+								}),
+						});
+					}
+					return userArray;
+				}, []);
+			setUsers(
+				await Promise.all(
+					preliminaryUsers.map(async (user) => {
+						const userInfo = await UserLogic.getUser(user.id);
+						return {
+							...user,
+							name: userInfo.name + ' ' + userInfo.surname,
+							profilePicture: userInfo.profilePicture,
+						};
+					})
+				)
+			);
 		};
-	};
+
+		if (props.loggedInUser !== null) {
+			MessageLogic.getMessagesForUser(props.loggedInUser, updateUsers);
+		}
+	}, [props.loggedInUser]);
+
+	useEffect(() => {
+		setOpenChat((previous) =>
+			previous !== null
+				? users.filter((user) => user.id === previous.id)[0]
+				: previous
+		);
+	}, [users]);
 
 	const chatNavigation = (
 		<div className="chat-navigation">
-			{props.users.map((user, index) => {
+			{users.map((user, index) => {
 				return (
 					<div
 						className="chat-preview"
@@ -49,18 +134,32 @@ const MessagesTab = (props) => {
 		>
 			<div className="overflow-content" ref={overflowContent}>
 				<div className="message-tab-header">
-					{openChat !== null ? (
+					{openChat !== null && openChat !== undefined ? (
 						<button
 							className="back-button fa fa-arrow-left"
 							onClick={() => setOpenChat(null)}
 						></button>
 					) : null}
-					<span>{openChat === null ? 'Mensagens' : openChat.name}</span>
+					<span>
+						{openChat === null || openChat === undefined
+							? 'Mensagens'
+							: openChat.name}
+					</span>
 				</div>
-				{openChat === null ? (
+				{openChat === null || openChat === undefined ? (
 					chatNavigation
 				) : (
-					<Chat messages={openChat.messages} />
+					<Chat
+						messages={openChat.messages}
+						sendMessage={(newMessage) =>
+							MessageLogic.sendMessage(
+								props.loggedInUser,
+								openChat.id,
+								newMessage
+							)
+						}
+						deleteMessage={(messageId) => MessageLogic.deleteMessage(messageId)}
+					/>
 				)}
 			</div>
 		</div>
@@ -70,21 +169,7 @@ const MessagesTab = (props) => {
 MessagesTab.propTypes = {
 	isOpen: PropTypes.bool,
 	toggleIsOpen: PropTypes.func,
-	users: PropTypes.arrayOf(
-		PropTypes.shape({
-			id: PropTypes.string,
-			name: PropTypes.string,
-			profilePicture: PropTypes.string,
-			messages: PropTypes.arrayOf(
-				PropTypes.shape({
-					isSentByLoggedInUser: PropTypes.bool,
-					id: PropTypes.string,
-					date: PropTypes.instanceOf(Date),
-					content: PropTypes.string,
-				})
-			),
-		})
-	),
+	loggedInUser: PropTypes.string,
 };
 
 export default MessagesTab;

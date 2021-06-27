@@ -50,6 +50,10 @@ const UserLogic = (() => {
 		return await Firebase.getAllUsers();
 	};
 
+	const getUser = async (userId) => {
+		return await Firebase.getUser(userId);
+	};
+
 	const addCategory = async (userId, category) => {
 		let categories = await Firebase.getUserCategoryClicks(userId);
 		categories.push(category);
@@ -96,6 +100,7 @@ const UserLogic = (() => {
 		addPhoto,
 		updateData,
 		getUsers,
+		getUser,
 		addCategory,
 		deleteAccount,
 		createAccount,
