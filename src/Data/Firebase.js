@@ -7,6 +7,7 @@ const Firebase = (() => {
 		authDomain: 'brechonline-6119d.firebaseapp.com',
 		projectId: 'brechonline-6119d',
 		storageBucket: 'brechonline-6119d.appspot.com',
+		databaseURL: 'https://brechonline-6119d-default-rtdb.firebaseio.com/',
 		messagingSenderId: '1014908798356',
 		appId: '1:1014908798356:web:ceb80e1a5175ed49bb3b81',
 		measurementId: 'G-8GFNB7354C',

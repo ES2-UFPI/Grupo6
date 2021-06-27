@@ -7,13 +7,13 @@ const NotificationLogic = (() => {
 			.sort((a, b) => a.date.toDate() - b.date.toDate());
 	};
 
-    const setNotificationAsRead = async (notificationId) => {
-        await Firebase.setNotificationIsRead(true);
-    };
+	const setNotificationAsRead = async (notificationId) => {
+		await Firebase.setNotificationIsRead(true);
+	};
 
 	return {
 		fetchUserNotifications,
-        setNotificationAsRead,
+		setNotificationAsRead,
 	};
 })();
 
