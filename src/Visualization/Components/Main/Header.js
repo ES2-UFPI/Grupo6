@@ -81,7 +81,7 @@ const Header = () => {
 			<div className="header-tabs">
 				<div className="notification">
 					<div className="icon">
-						<Link to="/notification">
+						<Link to="/notifications">
 							<img
 								src="https://i.imgur.com/pAPOaav.png"
 								alt="Notification Icon"

@@ -36,7 +36,7 @@ ReactDOM.render(
 					<Route path="/productMockup" component={ProductPageMockup} />
 					<Route path="/shoppingCart" component={CartPage} />
 					<Route path="/history" component={History} />
-					<Route path="/notification" component={NotificationPage} />
+					<Route path="/notifications" component={NotificationPage} />
 					<Route path="/" component={App} />
 				</Switch>
 				<FootBar />

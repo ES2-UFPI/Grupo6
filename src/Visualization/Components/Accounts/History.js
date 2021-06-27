@@ -5,8 +5,14 @@ import ProductLogic from '../../../Logic/ProductLogic';
 import UserLogic from '../../../Logic/UserLogic';
 import '../Styles/History.css';
 import TransactionItem from './TransactionItem';
+import { useLocation } from 'react-router-dom';
+import PageNavigation from '../Main/PageNavigation';
+import Component_PageNavigationAdapter from '../Main/Adapters/Component_PageNavigationAdapter';
 
 const History = () => {
+	const query = new URLSearchParams(useLocation().search);
+	const page = query.get('page') !== null ? query.get('page') : '1';
+	const perPage = 10;
 	const [items, setItems] = useState([]);
 	const userSelector = useSelector((state) => state.user.userId);
 
@@ -48,12 +54,28 @@ const History = () => {
 		<div className="history-main">
 			<h2 className="history-title">Histórico de Transações</h2>
 			<div className="transation-items">
-				{items.map((i, index) => {
-					return (
-						<TransactionItem key={index} {...i} update={updateTransaction} />
-					);
-				})}
+				{items
+					.filter((_transaction, index) => {
+						return (
+							index >= (Number.parseInt(page) - 1) * perPage &&
+							index <= Number.parseInt(page) * perPage - 1
+						);
+					})
+					.map((i, index) => {
+						return (
+							<TransactionItem key={index} {...i} update={updateTransaction} />
+						);
+					})}
 			</div>
+			{items.length > perPage ? (
+				<PageNavigation
+					{...Component_PageNavigationAdapter({
+						currentPage: page,
+						numberOfPages: Math.ceil(items.length / perPage),
+						newPageLink: '/history?page=',
+					})}
+				/>
+			) : null}
 		</div>
 	);
 };
