@@ -23,6 +23,7 @@ const MessageLogic = (() => {
 			receiver: receiverId,
 			content: str,
 			date: new Date(),
+			isRead: false,
 		});
 	};
 

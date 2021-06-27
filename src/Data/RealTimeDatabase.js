@@ -25,6 +25,10 @@ const RealTimeDatabase = (() => {
 		return convertToCamelCase('push', 'to', field);
 	};
 
+	const generateUpdateMethodName = (field) => {
+		return convertToCamelCase('update', field.slice(field.length - 1));
+	};
+
 	const generateDeleteMethodName = (field) => {
 		return convertToCamelCase('delete', 'from', field);
 	};
@@ -58,6 +62,13 @@ const RealTimeDatabase = (() => {
 		};
 	};
 
+	const generateUpdateMethod = (field) => {
+		return (itemId, newValue) => {
+			const reference = database.ref(field + '/' + itemId);
+			reference.set(newValue);
+		};
+	};
+
 	const generateDeleteMethod = (field) => {
 		return (itemId) => {
 			const reference = database.ref(field + '/' + itemId);
@@ -74,6 +85,11 @@ const RealTimeDatabase = (() => {
 		...Object.fromEntries(
 			databaseFields.map((field) => {
 				return [generatePushMethodName(field), generatePushMethod(field)];
+			})
+		),
+		...Object.fromEntries(
+			databaseFields.map((field) => {
+				return [generateUpdateMethodName(field), generateUpdateMethod(field)];
 			})
 		),
 		...Object.fromEntries(
