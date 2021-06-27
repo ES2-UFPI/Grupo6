@@ -124,4 +124,65 @@
 
 .header .profile-menu a:hover {
 	background-color: #7dd359;
+	color: black;
+}
+
+.header .notification {
+	margin-right: 10px;
+}
+
+.header .notification img{
+	height: 40px;
+	width: 40px;
+}
+
+.header .notification-dropdown {
+	font-family: 'Lucida Console', 'Courier New', monospace;
+	font-size: smaller;
+	display: none;
+	position: absolute;
+	left: 1313px;
+	top: 60px;
+	height: 75px;
+	width: 510px;
+	background-color: #000000;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
+}
+
+.header .notification-dropdown a,
+.header .notification-dropdown Link {
+	color: white;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+	background-color: #000000;
+	border-radius: 5px;
+}
+
+.header .notification-dropdown a:hover {
+	background-color: #000000;
+}
+
+.header .notification:hover .notification-dropdown,
+.header .notification-dropdown:hover {
+	display: block;
+	background-color: #000000;
+	border-left: 1px solid #7dd359;
+	border-right: 1px solid #7dd359;
+	border-bottom: 1px solid #7dd359;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.header .notification-dropdown a,
+.header .notification-dropdown Link {
+	border-radius: 0;
+	border: 1px solid #7dd359;
+}
+
+.header .notification-dropdown a:hover {
+	background-color: #7dd359;
+	color: black;
 }

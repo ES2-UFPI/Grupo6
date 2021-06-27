@@ -47,6 +47,19 @@ const Header = () => {
 				</ul>
 			</div>
 			<SearchBar />
+			<div className = "notification">
+				<div className="icon">
+					<Link to="/notification">
+						<img src="https://i.imgur.com/pAPOaav.png" alt="Notification Icon" />
+					</Link>
+				</div>
+				<div className="notification-dropdown">
+					<a href="/"> Este é um exemplo de notificação ! </a>
+					<a href="/"> Você tem uma nova mensagem de Fulano. </a>
+					<a href="/"> O seu produto está a caminho, acompanhe com o código XSAI-ASXD-ASJD</a>
+					<Link to="/notification"> Mais notificações (3) </Link>
+				</div>
+			</div>
 			<div className="dropdown">
 				<div className="profile">
 					<ul>
