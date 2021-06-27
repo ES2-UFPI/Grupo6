@@ -9,7 +9,7 @@ import Component_PageNavigationAdapter from '../Main/Adapters/Component_PageNavi
 const SearchPage = () => {
 	const query = new URLSearchParams(useLocation().search);
 	const searchTerm = query.get('search_term');
-	const page = query.get('page') !== null ? query.get('page') : 1;
+	const page = query.get('page') !== null ? query.get('page') : '1';
 	const perPage = 28;
 	const [results, setResults] = useState([]);
 
@@ -26,7 +26,10 @@ const SearchPage = () => {
 			<div className="product-grid">
 				{results
 					.filter((_result, index) => {
-						return index >= (page - 1) * perPage && index <= page * perPage - 1;
+						return (
+							index >= (Number.parseInt(page) - 1) * perPage &&
+							index <= Number.parseInt(page) * perPage - 1
+						);
 					})
 					.map((result, index) => {
 						return (
