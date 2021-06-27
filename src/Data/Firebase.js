@@ -52,6 +52,9 @@ const Firebase = (() => {
 			'rating',
 			'comment',
 			'wouldBuyAgain',
+			'productId',
+			'sellerId',
+			'buyerId',
 		],
 
 		notifications: ['type', 'content', 'isRead'],
@@ -139,7 +142,12 @@ const Firebase = (() => {
 
 	const generateGetAllMethod = (collection) => {
 		return async () => {
-			return await database.collection(collection).get();
+			return (await database.collection(collection).get()).docs.map((doc) => {
+				return {
+					id: doc.id,
+					...doc.data(),
+				};
+			});
 		};
 	};
 

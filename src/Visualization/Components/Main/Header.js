@@ -16,6 +16,7 @@ const Header = () => {
 	);
 
 	const userSelector = useSelector((state) => state.user.userId);
+	const userInfoSelector = useSelector((state) => state.user.userInfo);
 
 	useEffect(() => {
 		const handleClickOutside = (e) => {
@@ -111,7 +112,10 @@ const Header = () => {
 					<ul>
 						<li>
 							<a href="/">
-								<img src="https://i.imgur.com/15AJNre.png" alt="User Profile" />
+								<img
+									src={userInfoSelector.profilePicture}
+									alt={userInfoSelector.name}
+								/>
 							</a>
 						</li>
 					</ul>

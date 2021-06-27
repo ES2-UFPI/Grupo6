@@ -37,6 +37,12 @@
 	height: 30px;
 }
 
+.header .profile li img {
+	width: 45px;
+	height: 45px;
+	border-radius: 100%;
+}
+
 .header .dropdown {
 	position: relative;
 	display: table;

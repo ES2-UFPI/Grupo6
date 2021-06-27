@@ -14,7 +14,8 @@ const TransactionLogic = (() => {
 
 	const getUserTransactions = async (userId) => {
 		return (await Firebase.getAllTransactions()).filter(
-			(transaction) => transaction.id.split('-')[0] === userId
+			(transaction) =>
+				transaction.sellerId === userId || transaction.buyerId === userId
 		);
 	};
 
