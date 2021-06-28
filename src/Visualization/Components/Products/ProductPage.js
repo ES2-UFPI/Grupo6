@@ -92,7 +92,9 @@ const ProductPage = ({ match }) => {
 						<img src={sellerInfo.profilePicture} alt={sellerInfo.name} />
 					</div>
 					<div className="seller-area-bottom-section">
-						<span className="seller-name-span">{sellerInfo.name + ' ' + sellerInfo.surname}</span>
+						<span className="seller-name-span">
+							{sellerInfo.name + ' ' + sellerInfo.surname}
+						</span>
 						<div className="seller-total-sales-area">
 							<label htmlFor="total-sales">Total de vendas: </label>
 							<span name="total-sales">{sellerInfo.numberOfSales}</span>
@@ -102,7 +104,9 @@ const ProductPage = ({ match }) => {
 							<span name="rating">{sellerInfo.averageRating.toFixed(1)}</span>
 						</div>
 						<div className="seller-would-barter-again-area">
-							<span className="seller-would-barter-again-span">{`${sellerInfo.percentageWouldBarterAgain * 100}% dos compradores fariam negócio novamente`}</span>
+							<span className="seller-would-barter-again-span">{`${
+								sellerInfo.percentageWouldBarterAgain * 100
+							}% dos compradores fariam negócio novamente`}</span>
 						</div>
 					</div>
 					<button

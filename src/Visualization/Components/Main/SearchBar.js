@@ -46,9 +46,13 @@ const SearchBar = () => {
 			}
 		}
 
-		document.addEventListener('mousedown', handleClickOutside, { capture: true });
+		document.addEventListener('mousedown', handleClickOutside, {
+			capture: true,
+		});
 		return () => {
-			document.removeEventListener('mousedown', handleClickOutside, { capture: true });
+			document.removeEventListener('mousedown', handleClickOutside, {
+				capture: true,
+			});
 		};
 	}, []);
 

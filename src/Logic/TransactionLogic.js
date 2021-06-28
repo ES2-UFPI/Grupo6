@@ -19,17 +19,20 @@ const TransactionLogic = (() => {
 	};
 
 	const getUserTransactions = async (userId, forProduct = false) => {
-		return (await Promise.all(
-			(
-				await Firebase.getAllTransactions()
-			)
-				.map(async (transaction) => {
+		return (
+			await Promise.all(
+				(
+					await Firebase.getAllTransactions()
+				).map(async (transaction) => {
 					return {
 						...transaction,
-						sellerId: !forProduct ? await getSellerId(transaction.id) : undefined,
+						sellerId: !forProduct
+							? await getSellerId(transaction.id)
+							: undefined,
 					};
 				})
-		)).filter(
+			)
+		).filter(
 			(transaction) =>
 				transaction.sellerId === userId || transaction.buyerId === userId
 		);

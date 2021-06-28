@@ -12,7 +12,10 @@ import Logic_TransactionItemAdapter from './Adapters/Logic_TransactionItemAdapte
 
 const History = () => {
 	const query = new URLSearchParams(useLocation().search);
-	const page = query.get('page') !== null && query.get('page') !== undefined ? query.get('page') : '1';
+	const page =
+		query.get('page') !== null && query.get('page') !== undefined
+			? query.get('page')
+			: '1';
 	const perPage = 10;
 	const [items, setItems] = useState([]);
 	const userSelector = useSelector((state) => state.user.userId);
@@ -64,7 +67,12 @@ const History = () => {
 					})
 					.map((i, index) => {
 						return (
-							<TransactionItem key={index} {...Logic_TransactionItemAdapter(i)} update={updateTransaction} isBuyer={userSelector === i.buyerId} />
+							<TransactionItem
+								key={index}
+								{...Logic_TransactionItemAdapter(i)}
+								update={updateTransaction}
+								isBuyer={userSelector === i.buyerId}
+							/>
 						);
 					})}
 			</div>

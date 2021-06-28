@@ -13,7 +13,9 @@ const TransactionItem = (props) => {
 			<div className="transaction-item-right-section">
 				<span className="transaction-item-name">{props.productName}</span>
 				<div className="seller-buyer-name">
-					<label htmlFor="seller-buyer-name">{props.isBuyer ? 'Comprado de ' : 'Vendido para'}</label>
+					<label htmlFor="seller-buyer-name">
+						{props.isBuyer ? 'Comprado de ' : 'Vendido para'}
+					</label>
 					<Link
 						to={`/account/${props.sellerId}`}
 						className="seller-name-link"
@@ -26,22 +28,24 @@ const TransactionItem = (props) => {
 							<label>Valor pago: </label>
 							<span>{`R$ ${props.valuePaid.toFixed(2)}`}</span>
 						</div>
-						{props.status !== 'Finalizada' ? <div className="info-row">
-							<label>Localizar: </label>
-							<span>{props.localizationCode}</span>
-						</div> : null}
+						{props.status !== 'Finalizada' ? (
+							<div className="info-row">
+								<label>Localizar: </label>
+								<span>{props.localizationCode}</span>
+							</div>
+						) : null}
 						<div className="info-row">
 							<label>Status: </label>
 							<span>{props.status}</span>
 						</div>
 					</div>
-					{props.status === 'Finalizada' && props.isBuyer ?
+					{props.status === 'Finalizada' && props.isBuyer ? (
 						<Rating
 							rating={props.rating}
 							wouldBarterAgain={props.wouldBarterAgain}
 							update={props.update}
 						/>
-					: null}
+					) : null}
 				</div>
 			</div>
 		</div>

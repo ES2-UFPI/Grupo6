@@ -53,11 +53,19 @@ const UserLogic = (() => {
 
 	const getUser = async (userId, forProduct = false) => {
 		const user = await Firebase.getUser(userId);
-		const userTransactions = (await TransactionLogic.getUserTransactions(userId)).filter((transaction) => transaction.sellerId === userId);
+		const userTransactions = (
+			await TransactionLogic.getUserTransactions(userId)
+		).filter((transaction) => transaction.sellerId === userId);
 		return {
 			...user,
-			averageRating: userTransactions.reduce((previous, current) => previous + current.rating / userTransactions.length, 0),
-			percentageWouldBarterAgain: userTransactions.filter((transaction) => transaction.wouldBuyAgain).length / userTransactions.length,
+			averageRating: userTransactions.reduce(
+				(previous, current) =>
+					previous + current.rating / userTransactions.length,
+				0
+			),
+			percentageWouldBarterAgain:
+				userTransactions.filter((transaction) => transaction.wouldBuyAgain)
+					.length / userTransactions.length,
 			numberOfSales: userTransactions.length,
 		};
 	};
