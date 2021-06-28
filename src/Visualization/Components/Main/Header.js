@@ -98,7 +98,7 @@ const Header = () => {
 							O seu produto está a caminho, acompanhe com o código
 							XSAI-ASXD-ASJD
 						</a>
-						<Link to="/notification"> Mais notificações (3) </Link>
+						<Link to="/notifications"> Mais notificações (3) </Link>
 					</div>
 				</div>
 				<div className="messages-tab-container" ref={messagesTab}>

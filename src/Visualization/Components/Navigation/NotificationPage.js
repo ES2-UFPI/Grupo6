@@ -43,12 +43,12 @@ const NotificationPage = () => {
 					})
 					.map((notification, index) => {
 						return (
-							<div className={`example${index + 1}`}>
+							<div className="notification" key={index}>
 								<div className="alert">
 									<img src={notification.image} alt="Brechonline" />
 								</div>
 								<div className="content">
-									<Link>{notification.content}</Link>
+									<Link to="/">{notification.content}</Link>
 									<h1>{notification.time}</h1>
 								</div>
 							</div>

@@ -11,15 +11,9 @@
 	width: 70%;
 	text-transform: uppercase;
 }
-/*
-.main .notification-list{
-    border: 2px solid red;
-}
-*/
+
 .main .notification-list img {
 	position: relative;
-	left: 40px;
-	top: 62px;
 	height: 47px;
 	width: 50px;
 	border-radius: 30px;
@@ -35,6 +29,7 @@
     border: 2px solid #7dd359;
 }
 */
+
 .main .notification-list .message img {
 	position: relative;
 	top: 7px;
@@ -46,32 +41,18 @@
 	border: 1px solid #7dd359;
 }
 
-.main .notification-list .example1 {
-	position: relative;
-	top: -10px;
-	left: 0px;
+.main .notification-list .notification {
+	display: flex;
+	flex-direction: row;
+	margin: 10px 0;
 }
 
-.main .notification-list .example2 {
-	position: relative;
-	top: -15px;
-	left: 0px;
-}
-
-.main .notification-list .example3 {
-	position: relative;
-	top: -3px;
-	left: 0px;
-}
 
 .main .content {
-	margin-left: 150px;
-	margin-right: 150px;
-	padding-top: 15px;
-	padding-bottom: 15px;
-	padding-left: 15px;
+	padding: 10px;
 	height: 30px;
 	width: 1400px;
+	margin: 0 10px;
 	background-color: #9b9b9b;
 	border-radius: 15px;
 	border: 1px solid #7dd359;
