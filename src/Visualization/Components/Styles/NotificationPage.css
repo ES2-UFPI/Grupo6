@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Merriweather+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap');
+
+.main {
+	min-height: 70vh;
+	margin-left: 150px;
+	margin-right: 150px;
+}
+
+.main .page-title {
+	font-family: 'Lucida Console', 'Courier New', monospace;
+	width: 70%;
+	text-transform: uppercase;
+}
+
+.main .notification-list img {
+	position: relative;
+	height: 47px;
+	width: 50px;
+	border-radius: 30px;
+	border: 1px solid #7dd359;
+}
+
+/*
+.main .notification-list .example2 img{
+    height:50px;
+	width: 50px;
+    background-color: #9b9b9b;
+    border-radius: 30px;
+    border: 2px solid #7dd359;
+}
+*/
+
+.main .notification-list .message img {
+	position: relative;
+	top: 7px;
+	left: -10px;
+	border-right: 200px;
+	height: 46px;
+	width: 50px;
+	border-radius: 30px;
+	border: 1px solid #7dd359;
+}
+
+.main .notification-list .notification {
+	display: flex;
+	flex-direction: row;
+	margin: 10px 0;
+}
+
+.main .content {
+	padding: 10px;
+	height: 30px;
+	width: 1400px;
+	margin: 0 10px;
+	background-color: #9b9b9b;
+	border-radius: 15px;
+	border: 1px solid #7dd359;
+}
+
+.main .content a {
+	font-family: 'Lucida Console', 'Courier New', monospace;
+	color: black;
+}
+
+.main .content h1 {
+	font-family: 'Lucida Console', 'Courier New', monospace;
+	color: black;
+	font-size: small;
+	max-width: 46px;
+	position: relative;
+	left: 1300px;
+	top: -3px;
+	border-bottom: 1px solid black;
+	border-right: 1px solid black;
+}

@@ -39,27 +39,61 @@ const ProductLogic = (() => {
 		await Firebase.setProductPrice(productId, parseFloat(product.price));
 		await Firebase.setProductPublicationDate(productId, new Date());
 		await Firebase.setProductDescription(productId, product.description);
-	};
-
-	const filterProducts = async (condition) => {
-		return (await Firebase.getAllProducts()).docs
-			.map((doc) => {
-				return {
-					id: doc.id,
-					...doc.data(),
-				};
-			})
-			.filter(condition);
+		await Firebase.setProductCreatorId(productId, product.creatorId);
 	};
 
 	const getProductInfo = async (productId) => {
 		return await Firebase.getProduct(productId);
 	};
 
+	const getFilteredProducts = async (...conditions) => {
+		return (await Firebase.getAllProducts()).filter((product) => {
+			return conditions.every((condition) => condition(product));
+		});
+	};
+
+	const getProductsWithParameters = async (filterArray) => {
+		const conditions = filterArray.map((filter) => {
+			if (filter.type === 'search') {
+				return (product) => {
+					return product.name.toLowerCase().includes(filter.value);
+				};
+			} else if (filter.type === 'price_range') {
+				return (product) => {
+					return (
+						product.price <= filter.value[1] && product.price >= filter.value[0]
+					);
+				};
+			} else if (filter.type === 'category') {
+				return (product) => product.category === filter.value;
+			}
+			return (_product) => true;
+		});
+		return await getFilteredProducts(...conditions);
+	};
+
+	const getProductsForUser = async (userId) => {
+		return await getFilteredProducts((product) => product.creatorId === userId);
+	};
+
+	const getProducts = async (
+		searchTerm = null,
+		priceRange = null,
+		category = null
+	) => {
+		const argumentArray = [
+			{ type: 'search', value: searchTerm },
+			{ type: 'price_range', value: priceRange },
+			{ type: 'category', value: category },
+		].filter((argument) => argument.value !== null);
+		return await getProductsWithParameters(argumentArray);
+	};
+
 	return {
 		addNewProduct,
-		filterProducts,
 		getProductInfo,
+		getProducts,
+		getProductsForUser,
 	};
 })();
 
