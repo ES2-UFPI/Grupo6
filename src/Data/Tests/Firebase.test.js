@@ -81,7 +81,7 @@ test('get all function names being assigned correctly', () => {
 });
 
 test('product functions working as intended', (done) => {
-	const getCallback = (productInfo) => {
+	const getCallback = async (productInfo) => {
 		try {
 			expect(productInfo.name).toBe('Cellphone');
 			expect(productInfo.category).toBe('Tech');
@@ -92,6 +92,7 @@ test('product functions working as intended', (done) => {
 			expect(productInfo.publicationDate.toDate()).toEqual(
 				new Date(2020, 1, 1)
 			);
+			await Firebase.deleteProduct(productInfo.id);
 			done();
 		} catch (error) {
 			done(error);
