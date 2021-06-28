@@ -25,9 +25,7 @@ const SearchBar = () => {
 				setResults([]);
 			} else {
 				setIsLoading(true);
-				setResults(
-					await ProductLogic.getProducts(inputText)
-				);
+				setResults(await ProductLogic.getProducts(inputText));
 				setIsLoading(false);
 			}
 		};
