@@ -46,9 +46,9 @@ const Header = () => {
 
 	const mainContent = (
 		<div className="header">
-			<div className="logo">
+			<Link to="/" className="logo">
 				<img src="https://i.imgur.com/cXCcFKH.jpg" alt="Brechonline" />
-			</div>
+			</Link>
 			<div className="menu">
 				<ul>
 					<li>
