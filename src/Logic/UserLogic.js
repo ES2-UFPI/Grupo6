@@ -64,8 +64,10 @@ const UserLogic = (() => {
 				0
 			),
 			percentageWouldBarterAgain:
-				userTransactions.filter((transaction) => transaction.wouldBuyAgain)
-					.length / userTransactions.length,
+				userTransactions.length === 0
+					? 0
+					: userTransactions.filter((transaction) => transaction.wouldBuyAgain)
+							.length / userTransactions.length,
 			numberOfSales: userTransactions.length,
 		};
 	};

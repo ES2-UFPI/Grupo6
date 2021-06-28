@@ -72,6 +72,10 @@ const ProductLogic = (() => {
 		return await getFilteredProducts(...conditions);
 	};
 
+	const getProductsForUser = async (userId) => {
+		return await getFilteredProducts((product) => product.creatorId === userId);
+	};
+
 	const getProducts = async (
 		searchTerm = null,
 		priceRange = null,
@@ -89,6 +93,7 @@ const ProductLogic = (() => {
 		addNewProduct,
 		getProductInfo,
 		getProducts,
+		getProductsForUser,
 	};
 })();
 

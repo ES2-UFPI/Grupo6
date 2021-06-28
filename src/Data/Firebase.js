@@ -58,6 +58,8 @@ const Firebase = (() => {
 		],
 
 		notifications: ['type', 'content', 'isRead', 'userId'],
+
+		coupons: ['productId', 'userId', 'reduction'],
 	};
 
 	const convertToCamelCase = (...names) => {

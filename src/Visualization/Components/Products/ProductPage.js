@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import CouponsLogic from '../../../Logic/CouponsLogic';
 import ProductLogic from '../../../Logic/ProductLogic';
 import UserLogic from '../../../Logic/UserLogic';
 import Reducer from '../../../Reducers/Reducer';
@@ -12,10 +13,13 @@ const ProductPage = ({ match }) => {
 	const [isLoaded, setIsLoaded] = useState(false);
 	const [productInfo, setProductInfo] = useState({});
 	const [sellerInfo, setSellerInfo] = useState({});
+	const [couponInput, setCouponInput] = useState('');
+	const [validCoupon, setValidCoupon] = useState(null);
 
 	const isItemInCartSelector = useSelector((state) =>
 		state.cart.cart.products.some((product) => product.id === productId)
 	);
+	const userSelector = useSelector((state) => state.user.id);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
@@ -44,6 +48,28 @@ const ProductPage = ({ match }) => {
 		fetchSellerInfo();
 	}, [productId, productInfo.creatorId]);
 
+	useEffect(() => {
+		const lookForCoupon = async () => {
+			if (couponInput.length > 0) {
+				const coupon = await CouponsLogic.findCoupon(couponInput);
+				setValidCoupon(
+					coupon !== null &&
+						coupon !== undefined &&
+						coupon.userId === userSelector &&
+						coupon.productId === productId
+						? coupon
+						: null
+				);
+			}
+		};
+		lookForCoupon();
+	}, [couponInput, userSelector, productId]);
+
+	const price =
+		validCoupon === null
+			? productInfo.price
+			: productInfo.price + productInfo.price * validCoupon.reduction;
+
 	return isLoaded ? (
 		<div className="product-page">
 			<div className="left-section">
@@ -60,9 +86,7 @@ const ProductPage = ({ match }) => {
 				<div className="buying-area">
 					<div className="product-price-area">
 						<label htmlFor="product-price">Valor:</label>
-						<span className="product-price">
-							{'R$ ' + productInfo.price.toFixed(2).toString()}
-						</span>
+						<span className="product-price">{'R$ ' + price.toFixed(2)}</span>
 					</div>
 					{!isItemInCartSelector ? (
 						<button
@@ -87,6 +111,12 @@ const ProductPage = ({ match }) => {
 						</button>
 					)}
 				</div>
+				<input
+					type="text"
+					value={couponInput}
+					onChange={(e) => setCouponInput(e.target.value)}
+					placeholder="Cupom de desconto"
+				></input>
 				<div className="seller-area">
 					<div className="seller-area-top-section">
 						<img src={sellerInfo.profilePicture} alt={sellerInfo.name} />
@@ -99,15 +129,19 @@ const ProductPage = ({ match }) => {
 							<label htmlFor="total-sales">Total de vendas: </label>
 							<span name="total-sales">{sellerInfo.numberOfSales}</span>
 						</div>
-						<div className="seller-rating-area">
-							<label htmlFor="rating">Avaliação média: </label>
-							<span name="rating">{sellerInfo.averageRating.toFixed(1)}</span>
-						</div>
-						<div className="seller-would-barter-again-area">
-							<span className="seller-would-barter-again-span">{`${
-								sellerInfo.percentageWouldBarterAgain * 100
-							}% dos compradores fariam negócio novamente`}</span>
-						</div>
+						{sellerInfo.numberOfSales > 0 ? (
+							<div className="seller-rating-area">
+								<label htmlFor="rating">Avaliação média: </label>
+								<span name="rating">{sellerInfo.averageRating.toFixed(1)}</span>
+							</div>
+						) : null}
+						{sellerInfo.numberOfSales > 0 ? (
+							<div className="seller-would-barter-again-area">
+								<span className="seller-would-barter-again-span">{`${
+									sellerInfo.percentageWouldBarterAgain * 100
+								}% dos compradores fariam negócio novamente`}</span>
+							</div>
+						) : null}
 					</div>
 					<button
 						className="talk-to-seller-button"

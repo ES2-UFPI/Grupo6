@@ -4,11 +4,30 @@ import MessageLogic from '../../../Logic/MessageLogic';
 import UserLogic from '../../../Logic/UserLogic';
 import PropTypes from 'prop-types';
 import '../Styles/MessagesTab.css';
+import ProductLogic from '../../../Logic/ProductLogic';
+import CouponsLogic from '../../../Logic/CouponsLogic';
 
 const MessagesTab = (props) => {
 	const overflowContent = useRef();
+	const couponModal = useRef();
 	const [openChat, setOpenChat] = useState(null);
 	const [users, setUsers] = useState([]);
+	const [userProducts, setUserProducts] = useState([]);
+	const [isCouponModalOpen, setIsCouponModalOpen] = useState(false);
+	const [couponValueInput, setCouponValueInput] = useState(0);
+	const [selectedProduct, setSelectedProduct] = useState('');
+
+	useEffect(() => {
+		window.addEventListener('click', (e) => {
+			if (
+				couponModal.current !== undefined &&
+				couponModal.current !== null &&
+				!couponModal.current.contains(e.target)
+			) {
+				setIsCouponModalOpen(false);
+			}
+		});
+	}, []);
 
 	useEffect(() => {
 		const updateUsers = async (messagesObject) => {
@@ -93,6 +112,15 @@ const MessagesTab = (props) => {
 	}, [props.loggedInUser]);
 
 	useEffect(() => {
+		const fetchUserProducts = async () => {
+			setUserProducts(
+				await ProductLogic.getProductsForUser(props.loggedInUser)
+			);
+		};
+		fetchUserProducts();
+	}, [props.loggedInUser]);
+
+	useEffect(() => {
 		if (
 			props.newChat !== null &&
 			!users.map((user) => user.id).includes(props.newChat.id)
@@ -113,6 +141,18 @@ const MessagesTab = (props) => {
 		}
 	}, [users, props.newChat]);
 
+	const createAndSendCoupon = async () => {
+		if (selectedProduct.length > 0 && couponValueInput > 0) {
+			const couponId = await CouponsLogic.createCoupon(
+				selectedProduct,
+				couponValueInput,
+				openChat.id
+			);
+			MessageLogic.sendMessage(props.loggedInUser, openChat.id, couponId);
+			setIsCouponModalOpen(false);
+		}
+	};
+
 	const chatNavigation = (
 		<div className="chat-navigation">
 			{users.map((user, index) => {
@@ -129,6 +169,49 @@ const MessagesTab = (props) => {
 					</div>
 				);
 			})}
+		</div>
+	);
+
+	const generateCouponModal = (
+		<div
+			className={
+				isCouponModalOpen
+					? 'generate-coupon-modal'
+					: 'generate-coupon-modal hidden'
+			}
+		>
+			<span>Gerar cupom</span>
+			<div className="value-row">
+				<label htmlFor="coupon-value">Novo preço: </label>
+				<input
+					type="number"
+					name="coupon-value"
+					value={couponValueInput}
+					onChange={(e) => setCouponValueInput(e.target.value)}
+				></input>
+			</div>
+			<div className="product-row">
+				<label htmlFor="product">Produto: </label>
+				<select
+					value={selectedProduct}
+					onChange={(e) => setSelectedProduct(e.target.value)}
+				>
+					<option value=""></option>
+					{userProducts.map((product, index) => {
+						return (
+							<option key={index} value={product.id}>
+								{product.name}
+							</option>
+						);
+					})}
+				</select>
+			</div>
+			<button
+				className="generate-new-coupon-button"
+				onClick={createAndSendCoupon}
+			>
+				Gerar e enviar
+			</button>
 		</div>
 	);
 
@@ -158,6 +241,15 @@ const MessagesTab = (props) => {
 							? 'Mensagens'
 							: openChat.name}
 					</span>
+					{openChat !== null && openChat !== undefined ? (
+						<span
+							ref={couponModal}
+							className="coupon-span fa fa-money"
+							onClick={() => setIsCouponModalOpen(true)}
+						>
+							{generateCouponModal}
+						</span>
+					) : null}
 				</div>
 				{openChat === null || openChat === undefined ? (
 					chatNavigation
