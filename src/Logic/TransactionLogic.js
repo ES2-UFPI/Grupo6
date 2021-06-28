@@ -1,6 +1,12 @@
 import Firebase from '../Data/Firebase';
+import ProductLogic from './ProductLogic';
 
 const TransactionLogic = (() => {
+	const getSellerId = async (transactionId) => {
+		const transaction = await Firebase.getTransaction(transactionId);
+		return (await ProductLogic.getProductInfo(transaction.productId)).creatorId;
+	};
+
 	const rateProduct = async (transactionId, rating) => {
 		await Firebase.setTransactionRating(transactionId, rating);
 	};
@@ -13,10 +19,15 @@ const TransactionLogic = (() => {
 	};
 
 	const getUserTransactions = async (userId) => {
-		return (await Firebase.getAllTransactions()).filter(
+		return await Promise.all((await Firebase.getAllTransactions()).filter(
 			(transaction) =>
 				transaction.sellerId === userId || transaction.buyerId === userId
-		);
+		).map(async (transaction) => {
+			return {
+				...transaction,
+				sellerId: await getSellerId(transaction),
+			};
+		}));
 	};
 
 	const generateTransaction = async (transaction) => {

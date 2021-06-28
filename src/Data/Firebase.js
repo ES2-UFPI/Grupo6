@@ -54,7 +54,6 @@ const Firebase = (() => {
 			'comment',
 			'wouldBuyAgain',
 			'productId',
-			'sellerId',
 			'buyerId',
 		],
 
