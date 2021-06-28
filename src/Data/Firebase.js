@@ -54,11 +54,12 @@ const Firebase = (() => {
 			'comment',
 			'wouldBuyAgain',
 			'productId',
-			'sellerId',
 			'buyerId',
 		],
 
 		notifications: ['type', 'content', 'isRead', 'userId'],
+
+		coupons: ['productId', 'userId', 'reduction'],
 	};
 
 	const convertToCamelCase = (...names) => {

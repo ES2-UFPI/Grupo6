@@ -1,0 +1,21 @@
+.page-navigation {
+	margin: 20px 40px;
+}
+
+.page-navigation-link {
+	font-family: 'IBM Plex Sans', sans-serif;
+	color: rgb(3, 139, 3);
+	font-size: 17px;
+	margin: 0 2px;
+	text-decoration: none;
+}
+
+.page-navigation .disabled {
+	pointer-events: none;
+	cursor: default;
+	color: rgb(139, 139, 139);
+}
+
+.page-navigation .current-page {
+	color: rgb(0, 0, 0);
+}

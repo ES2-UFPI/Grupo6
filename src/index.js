@@ -5,9 +5,8 @@ import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import Reducer from './Reducers/Reducer';
 
-import App from './App';
 import RegisterProductPage from './Visualization/Components/Products/RegisterProductPage';
-import HomePageMockup from './Visualization/Components/Navigation/HomePageMockup';
+import HomePage from './Visualization/Components/Navigation/HomePage';
 import ProductPageMockup from './Visualization/Components/Products/ProductPageMockup';
 import CartPage from './Visualization/Components/Products/CartPage';
 import Header from './Visualization/Components/Main/Header';
@@ -16,9 +15,14 @@ import CategoryPage from './Visualization/Components/Navigation/CategoryPage';
 import ProductPage from './Visualization/Components/Products/ProductPage';
 import History from './Visualization/Components/Accounts/History';
 import NotificationPage from './Visualization/Components/Navigation/NotificationPage';
+import SearchPage from './Visualization/Components/Navigation/SearchPage';
 
 const store = createStore(
-	combineReducers({ user: Reducer.userReducer, cart: Reducer.cartReducer })
+	combineReducers({
+		user: Reducer.userReducer,
+		cart: Reducer.cartReducer,
+		chat: Reducer.chatReducer,
+	})
 );
 
 ReactDOM.render(
@@ -27,15 +31,15 @@ ReactDOM.render(
 			<BrowserRouter>
 				<Header />
 				<Switch>
+					<Route path="/product/search" component={SearchPage} />
 					<Route path="/product/category/:category" component={CategoryPage} />
 					<Route path="/product/add" component={RegisterProductPage} />
 					<Route path="/product/:productId" component={ProductPage} />
-					<Route path="/homepage" component={HomePageMockup} />
 					<Route path="/productMockup" component={ProductPageMockup} />
 					<Route path="/shoppingCart" component={CartPage} />
 					<Route path="/history" component={History} />
-					<Route path="/notification" component={NotificationPage} />
-					<Route path="/" component={App} />
+					<Route path="/notifications" component={NotificationPage} />
+					<Route path="/" component={HomePage} />
 				</Switch>
 				<FootBar />
 			</BrowserRouter>

@@ -17,6 +17,7 @@ const Header = () => {
 
 	const userSelector = useSelector((state) => state.user.userId);
 	const userInfoSelector = useSelector((state) => state.user.userInfo);
+	const openChatSelector = useSelector((state) => state.chat.talkingToSeller);
 
 	useEffect(() => {
 		const handleClickOutside = (e) => {
@@ -25,11 +26,12 @@ const Header = () => {
 				!messagesTab.current.contains(e.target)
 			) {
 				setIsMessagesTabOpen(false);
+				dispatch(Reducer.closeChat());
 			}
 		};
 
 		window.addEventListener('click', handleClickOutside, { capture: true });
-	}, []);
+	}, [dispatch]);
 
 	useEffect(() => {
 		dispatch(
@@ -44,9 +46,9 @@ const Header = () => {
 
 	const mainContent = (
 		<div className="header">
-			<div className="logo">
+			<Link to="/" className="logo">
 				<img src="https://i.imgur.com/cXCcFKH.jpg" alt="Brechonline" />
-			</div>
+			</Link>
 			<div className="menu">
 				<ul>
 					<li>
@@ -81,7 +83,7 @@ const Header = () => {
 			<div className="header-tabs">
 				<div className="notification">
 					<div className="icon">
-						<Link to="/notification">
+						<Link to="/notifications">
 							<img
 								src="https://i.imgur.com/pAPOaav.png"
 								alt="Notification Icon"
@@ -101,9 +103,15 @@ const Header = () => {
 				</div>
 				<div className="messages-tab-container" ref={messagesTab}>
 					<MessagesTab
+						newChat={openChatSelector}
 						loggedInUser={userSelector}
 						isOpen={isMessagesTabOpen}
-						toggleIsOpen={() => setIsMessagesTabOpen((previous) => !previous)}
+						toggleIsOpen={() => {
+							setIsMessagesTabOpen((previous) => !previous);
+							if (openChatSelector !== null) {
+								dispatch(Reducer.closeChat());
+							}
+						}}
 					/>
 				</div>
 			</div>
@@ -131,15 +139,7 @@ const Header = () => {
 		</div>
 	);
 
-	/*if (category !== '' && rota.pathname === '/') {
-		return (
-			<div className="home-page-mockup">
-				{mainContent}
-				<Results category={category} />
-			</div>
-		);
-	}*/
-	return <div className="home-page-mockup">{mainContent}</div>;
+	return mainContent;
 };
 
 export default Header;

@@ -76,3 +76,69 @@
 	background-color: transparent;
 	border: none;
 }
+
+.message-tab-icon .coupon-span {
+	position: relative;
+	padding: 0;
+	margin-left: 6px;
+	cursor: pointer;
+	background-color: transparent;
+	border: none;
+	color: rgb(50, 172, 2);
+}
+
+.message-tab-icon .coupon-span .generate-coupon-modal {
+	text-align: center;
+	font-size: 12px;
+	position: absolute;
+	padding: 10px;
+	width: 180px;
+	top: 20px;
+	left: -100px;
+	background-color: rgb(255, 255, 255);
+	box-shadow: -1px -1px 3px grey;
+}
+
+.message-tab-icon .coupon-span .generate-coupon-modal span {
+	font-weight: bold;
+	display: block;
+	margin-bottom: 5px;
+}
+
+.message-tab-icon .coupon-span .generate-coupon-modal span,
+.message-tab-icon .coupon-span .generate-coupon-modal label {
+	color: rgb(0, 0, 0);
+	text-transform: none;
+}
+
+.message-tab-icon .coupon-span .generate-coupon-modal label {
+	margin-right: 5px;
+}
+
+.message-tab-icon .coupon-span .generate-coupon-modal .value-row,
+.message-tab-icon .coupon-span .generate-coupon-modal .product-row {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.message-tab-icon .coupon-span .generate-coupon-modal input,
+.message-tab-icon .coupon-span .generate-coupon-modal select {
+	max-width: 70px;
+}
+
+.message-tab-icon .coupon-span .generate-new-coupon-button {
+	cursor: pointer;
+	margin-top: 10px;
+	background-color: transparent;
+	border: none;
+	color: rgb(1, 121, 1);
+}
+
+.message-tab-icon .coupon-span .generate-new-coupon-button:hover {
+	text-decoration: underline;
+}
+
+.message-tab-icon .coupon-span .hidden {
+	display: none;
+}

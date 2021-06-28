@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Merriweather+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap');
+
+.home-page {
+	display: block;
+	min-height: 80vh;
+}
+
+.home-page .product-grid {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	min-height: 60vh;
+	padding: 60px;
+}
+
+.home-page .product-grid .product-preview {
+	margin: 0 10px 10px 10px;
+}
+
+.home-page-category-section {
+	padding-left: 100px;
+}
+
+.home-page-category-section h2 {
+	text-transform: capitalize;
+}
