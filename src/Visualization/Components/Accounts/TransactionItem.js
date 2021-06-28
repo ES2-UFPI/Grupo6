@@ -12,28 +12,36 @@ const TransactionItem = (props) => {
 			</div>
 			<div className="transaction-item-right-section">
 				<span className="transaction-item-name">{props.productName}</span>
-				<Link
-					to={`/account/${props.sellerId}`}
-					className="seller-name-link"
-				>{`${props.sellerName}`}</Link>
+				<div className="seller-buyer-name">
+					<label htmlFor="seller-buyer-name">{props.isBuyer ? 'Comprado de ' : 'Vendido para'}</label>
+					<Link
+						to={`/account/${props.sellerId}`}
+						className="seller-name-link"
+						name="seller-buyer-name"
+					>{`${props.sellerName}`}</Link>
+				</div>
 				<div className="transation-item-info">
 					<div className="left">
 						<div className="info-row">
+							<label>Valor pago: </label>
+							<span>{`R$ ${props.valuePaid.toFixed(2)}`}</span>
+						</div>
+						{props.status !== 'Finalizada' ? <div className="info-row">
 							<label>Localizar: </label>
 							<span>{props.localizationCode}</span>
-						</div>
+						</div> : null}
 						<div className="info-row">
 							<label>Status: </label>
 							<span>{props.status}</span>
 						</div>
 					</div>
-					{
+					{props.status === 'Finalizada' && props.isBuyer ?
 						<Rating
 							rating={props.rating}
 							wouldBarterAgain={props.wouldBarterAgain}
 							update={props.update}
 						/>
-					}
+					: null}
 				</div>
 			</div>
 		</div>
@@ -52,6 +60,8 @@ TransactionItem.propTypes = {
 	rating: PropTypes.number,
 	wouldBarterAgain: PropTypes.bool,
 	update: PropTypes.func,
+	valuePaid: PropTypes.number,
+	isBuyer: PropTypes.bool,
 };
 
 export default TransactionItem;

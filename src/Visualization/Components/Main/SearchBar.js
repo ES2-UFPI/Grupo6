@@ -5,6 +5,7 @@ import ProductLogic from '../../../Logic/ProductLogic';
 import '../Styles/SearchBar.css';
 
 const SearchBar = () => {
+	const wrapperRef = useRef(null);
 	const history = useHistory();
 	const [inputText, setInputText] = useState('');
 	const [results, setResults] = useState([]);
@@ -38,26 +39,21 @@ const SearchBar = () => {
 		setInputText('');
 	}, [location]);
 
-	function useOutsideAlerter(ref) {
-		useEffect(() => {
-			function handleClickOutside(event) {
-				if (ref.current && !ref.current.contains(event.target)) {
-					setResults([]);
-				}
+	useEffect(() => {
+		function handleClickOutside(event) {
+			if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+				setResults([]);
 			}
+		}
 
-			document.addEventListener('mousedown', handleClickOutside);
-			return () => {
-				document.removeEventListener('mousedown', handleClickOutside);
-			};
-		}, [ref]);
-	}
-
-	const wrapperRef = useRef(null);
-	useOutsideAlerter(wrapperRef);
+		document.addEventListener('mousedown', handleClickOutside, { capture: true });
+		return () => {
+			document.removeEventListener('mousedown', handleClickOutside, { capture: true });
+		};
+	}, []);
 
 	return (
-		<div className="top-search-bar">
+		<div className="top-search-bar" ref={wrapperRef}>
 			<div
 				className="input-and-button-section"
 				onKeyDown={(e) => {
@@ -67,7 +63,6 @@ const SearchBar = () => {
 				}}
 			>
 				<input
-					ref={wrapperRef}
 					type="text"
 					value={inputText}
 					onChange={(e) => {

@@ -11,6 +11,7 @@ const ProductPage = ({ match }) => {
 	} = match;
 	const [isLoaded, setIsLoaded] = useState(false);
 	const [productInfo, setProductInfo] = useState({});
+	const [sellerInfo, setSellerInfo] = useState({});
 
 	const isItemInCartSelector = useSelector((state) =>
 		state.cart.cart.products.some((product) => product.id === productId)
@@ -30,10 +31,18 @@ const ProductPage = ({ match }) => {
 				).name,
 			};
 			setProductInfo(productInfo);
-			setIsLoaded(true);
 		};
+
+		const fetchSellerInfo = async () => {
+			if (productInfo.creatorId !== undefined) {
+				setSellerInfo(await UserLogic.getUser(productInfo.creatorId));
+				setIsLoaded(true);
+			}
+		};
+
 		fetchProductInfo();
-	}, [productId]);
+		fetchSellerInfo();
+	}, [productId, productInfo.creatorId]);
 
 	return isLoaded ? (
 		<div className="product-page">
@@ -48,44 +57,65 @@ const ProductPage = ({ match }) => {
 				</div>
 			</div>
 			<div className="right-section">
-				<div className="product-price-area">
-					<label htmlFor="product-price">Valor:</label>
-					<span className="product-price">
-						{'R$ ' + productInfo.price.toFixed(2).toString()}
-					</span>
+				<div className="buying-area">
+					<div className="product-price-area">
+						<label htmlFor="product-price">Valor:</label>
+						<span className="product-price">
+							{'R$ ' + productInfo.price.toFixed(2).toString()}
+						</span>
+					</div>
+					{!isItemInCartSelector ? (
+						<button
+							className="add-to-cart-button"
+							onClick={(_e) =>
+								dispatch(
+									Reducer.addItem({
+										id: productId,
+										...productInfo,
+									})
+								)
+							}
+						>
+							Adicionar ao carrinho
+						</button>
+					) : (
+						<button
+							className="remove-from-cart-button"
+							onClick={(_e) => dispatch(Reducer.removeItem(productId))}
+						>
+							Remover do carrinho
+						</button>
+					)}
 				</div>
-				{!isItemInCartSelector ? (
+				<div className="seller-area">
+					<div className="seller-area-top-section">
+						<img src={sellerInfo.profilePicture} alt={sellerInfo.name} />
+					</div>
+					<div className="seller-area-bottom-section">
+						<span className="seller-name-span">{sellerInfo.name + ' ' + sellerInfo.surname}</span>
+						<div className="seller-total-sales-area">
+							<label htmlFor="total-sales">Total de vendas: </label>
+							<span name="total-sales">{sellerInfo.numberOfSales}</span>
+						</div>
+						<div className="seller-rating-area">
+							<label htmlFor="rating">Avaliação média: </label>
+							<span name="rating">{sellerInfo.averageRating.toFixed(1)}</span>
+						</div>
+						<div className="seller-would-barter-again-area">
+							<span className="seller-would-barter-again-span">{`${sellerInfo.percentageWouldBarterAgain * 100}% dos compradores fariam negócio novamente`}</span>
+						</div>
+					</div>
 					<button
-						className="add-to-cart-button"
+						className="talk-to-seller-button"
 						onClick={(_e) =>
 							dispatch(
-								Reducer.addItem({
-									id: productId,
-									...productInfo,
-								})
+								Reducer.openChat(productInfo.sellerId, productInfo.sellerName)
 							)
 						}
 					>
-						Adicionar ao carrinho
+						Falar com o vendedor
 					</button>
-				) : (
-					<button
-						className="remove-from-cart-button"
-						onClick={(_e) => dispatch(Reducer.removeItem(productId))}
-					>
-						Remover do carrinho
-					</button>
-				)}
-				<button
-					className="talk-to-seller-button"
-					onClick={(_e) =>
-						dispatch(
-							Reducer.openChat(productInfo.sellerId, productInfo.sellerName)
-						)
-					}
-				>
-					Falar com o vendedor
-				</button>
+				</div>
 			</div>
 		</div>
 	) : null;

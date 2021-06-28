@@ -20,6 +20,10 @@
 	padding: 10px;
 }
 
+.transaction-item-right-section .seller-buyer-name a {
+	display: inline;
+}
+
 .transaction-item-right-section a,
 .transaction-item-right-section span {
 	display: block;

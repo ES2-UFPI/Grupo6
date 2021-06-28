@@ -1,4 +1,5 @@
 import Firebase from '../Data/Firebase';
+import TransactionLogic from './TransactionLogic';
 
 const UserLogic = (() => {
 	function containsNumber(str) {
@@ -50,8 +51,15 @@ const UserLogic = (() => {
 		return await Firebase.getAllUsers();
 	};
 
-	const getUser = async (userId) => {
-		return await Firebase.getUser(userId);
+	const getUser = async (userId, forProduct = false) => {
+		const user = await Firebase.getUser(userId);
+		const userTransactions = (await TransactionLogic.getUserTransactions(userId)).filter((transaction) => transaction.sellerId === userId);
+		return {
+			...user,
+			averageRating: userTransactions.reduce((previous, current) => previous + current.rating / userTransactions.length, 0),
+			percentageWouldBarterAgain: userTransactions.filter((transaction) => transaction.wouldBuyAgain).length / userTransactions.length,
+			numberOfSales: userTransactions.length,
+		};
 	};
 
 	const addCategory = async (userId, category) => {

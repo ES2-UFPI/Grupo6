@@ -18,21 +18,20 @@ const TransactionLogic = (() => {
 		await Firebase.setTransactionWouldBuyAgain(transactionId, wouldBuyAgain);
 	};
 
-	const getUserTransactions = async (userId) => {
-		return await Promise.all(
+	const getUserTransactions = async (userId, forProduct = false) => {
+		return (await Promise.all(
 			(
 				await Firebase.getAllTransactions()
 			)
-				.filter(
-					(transaction) =>
-						transaction.sellerId === userId || transaction.buyerId === userId
-				)
 				.map(async (transaction) => {
 					return {
 						...transaction,
-						sellerId: await getSellerId(transaction),
+						sellerId: !forProduct ? await getSellerId(transaction.id) : undefined,
 					};
 				})
+		)).filter(
+			(transaction) =>
+				transaction.sellerId === userId || transaction.buyerId === userId
 		);
 	};
 

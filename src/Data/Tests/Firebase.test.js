@@ -41,6 +41,8 @@ test('get function names being assigned correctly', () => {
 		expect.objectContaining({
 			getProduct: expect.any(Function),
 			getUser: expect.any(Function),
+			getTransaction: expect.any(Function),
+			getNotification: expect.any(Function),
 		})
 	);
 });
@@ -50,6 +52,8 @@ test('creation function names being assigned correctly', () => {
 		expect.objectContaining({
 			createProduct: expect.any(Function),
 			createUser: expect.any(Function),
+			createTransaction: expect.any(Function),
+			createNotification: expect.any(Function),
 		})
 	);
 });
@@ -59,6 +63,8 @@ test('delete function names being assigned correctly', () => {
 		expect.objectContaining({
 			deleteProduct: expect.any(Function),
 			deleteUser: expect.any(Function),
+			deleteTransaction: expect.any(Function),
+			deleteNotification: expect.any(Function),
 		})
 	);
 });
@@ -68,6 +74,8 @@ test('get all function names being assigned correctly', () => {
 		expect.objectContaining({
 			getAllProducts: expect.any(Function),
 			getAllUsers: expect.any(Function),
+			getAllTransactions: expect.any(Function),
+			getAllNotifications: expect.any(Function),
 		})
 	);
 });
