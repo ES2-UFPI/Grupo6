@@ -26,9 +26,7 @@ const SearchBar = () => {
 			} else {
 				setIsLoading(true);
 				setResults(
-					await ProductLogic.filterProducts((product) =>
-						product.name.toLowerCase().includes(inputText.toLowerCase())
-					)
+					await ProductLogic.getProducts(inputText)
 				);
 				setIsLoading(false);
 			}

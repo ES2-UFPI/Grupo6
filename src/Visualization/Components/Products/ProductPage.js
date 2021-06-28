@@ -25,7 +25,7 @@ const ProductPage = ({ match }) => {
 					await UserLogic.getUser(
 						(
 							await ProductLogic.getProductInfo(productId)
-						).sellerId
+						).creatorId
 					)
 				).name,
 			};
