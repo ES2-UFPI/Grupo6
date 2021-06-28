@@ -1,0 +1,144 @@
+.message-tab-icon {
+	position: relative;
+	cursor: pointer;
+	display: block;
+	width: 25px;
+	height: 25px;
+	color: white;
+	font-size: 25px;
+	margin: 0 20px;
+}
+
+.message-tab-icon.hidden > div {
+	display: none;
+}
+
+.message-tab-icon .overflow-content {
+	position: absolute;
+	right: 0;
+	background-color: rgb(255, 255, 255);
+	top: 55px;
+	width: 350px;
+}
+
+.message-tab-icon .overflow-content .message-tab-header {
+	cursor: default;
+	display: flex;
+	position: relative;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	background-color: rgb(207, 207, 207);
+	border-bottom: 1px solid rgb(146, 146, 146);
+	color: black;
+	font-family: 'Merriweather', sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 10px 0;
+	text-transform: uppercase;
+}
+
+.message-tab-icon .chat-navigation {
+	box-shadow: 0px 0px 3px rgb(129, 129, 129);
+	min-height: 20px;
+}
+
+.message-tab-icon .chat-navigation .chat-preview {
+	padding: 10px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	border-bottom: 1px solid rgb(177, 177, 177);
+}
+
+.message-tab-icon .chat-navigation .chat-preview:hover {
+	background-color: rgb(128, 128, 128);
+}
+
+.message-tab-icon .chat-navigation img {
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+}
+
+.message-tab-icon .chat-navigation .chat-preview .user-name-span {
+	font-family: 'Merriweather', sans-serif;
+	color: rgb(0, 0, 0);
+	font-size: 16px;
+	font-weight: bold;
+	margin-left: 20px;
+}
+
+.message-tab-icon .back-button {
+	cursor: pointer;
+	position: absolute;
+	left: 0;
+	background-color: transparent;
+	border: none;
+}
+
+.message-tab-icon .coupon-span {
+	position: relative;
+	padding: 0;
+	margin-left: 6px;
+	cursor: pointer;
+	background-color: transparent;
+	border: none;
+	color: rgb(50, 172, 2);
+}
+
+.message-tab-icon .coupon-span .generate-coupon-modal {
+	text-align: center;
+	font-size: 12px;
+	position: absolute;
+	padding: 10px;
+	width: 180px;
+	top: 20px;
+	left: -100px;
+	background-color: rgb(255, 255, 255);
+	box-shadow: -1px -1px 3px grey;
+}
+
+.message-tab-icon .coupon-span .generate-coupon-modal span {
+	font-weight: bold;
+	display: block;
+	margin-bottom: 5px;
+}
+
+.message-tab-icon .coupon-span .generate-coupon-modal span,
+.message-tab-icon .coupon-span .generate-coupon-modal label {
+	color: rgb(0, 0, 0);
+	text-transform: none;
+}
+
+.message-tab-icon .coupon-span .generate-coupon-modal label {
+	margin-right: 5px;
+}
+
+.message-tab-icon .coupon-span .generate-coupon-modal .value-row,
+.message-tab-icon .coupon-span .generate-coupon-modal .product-row {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.message-tab-icon .coupon-span .generate-coupon-modal input,
+.message-tab-icon .coupon-span .generate-coupon-modal select {
+	max-width: 70px;
+}
+
+.message-tab-icon .coupon-span .generate-new-coupon-button {
+	cursor: pointer;
+	margin-top: 10px;
+	background-color: transparent;
+	border: none;
+	color: rgb(1, 121, 1);
+}
+
+.message-tab-icon .coupon-span .generate-new-coupon-button:hover {
+	text-decoration: underline;
+}
+
+.message-tab-icon .coupon-span .hidden {
+	display: none;
+}

@@ -1,0 +1,55 @@
+.transaction-item {
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: row;
+	margin: 15px 100px;
+	border: 1px solid grey;
+	padding: 5px;
+	border-radius: 5px;
+}
+
+.transaction-item-left-section {
+	max-width: 20%;
+}
+
+.transaction-item-left-section img {
+	max-width: 100%;
+}
+
+.transaction-item-right-section {
+	padding: 10px;
+}
+
+.transaction-item-right-section .seller-buyer-name a {
+	display: inline;
+}
+
+.transaction-item-right-section a,
+.transaction-item-right-section span {
+	display: block;
+}
+
+.transaction-item-right-section .transaction-item-name {
+	font-weight: bold;
+	font-size: 30px;
+}
+
+.transaction-item-right-section a {
+	margin-top: 10px;
+	font-size: 17px;
+	color: green;
+}
+
+.transaction-item .info-row {
+	display: flex;
+	flex-direction: row;
+}
+
+.transaction-item .hidden {
+	visibility: hidden;
+}
+
+.transaction-item label {
+	font-weight: bold;
+	margin-right: 5px;
+}

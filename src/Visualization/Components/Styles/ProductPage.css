@@ -16,6 +16,7 @@
 .product-page .left-section img {
 	border: 1px solid rgb(173, 173, 173);
 	margin-right: 30px;
+	max-width: 40%;
 }
 
 .product-page .left-section h2 {
@@ -35,7 +36,8 @@
 }
 
 .product-page .add-to-cart-button,
-.product-page .remove-from-cart-button {
+.product-page .remove-from-cart-button,
+.product-page .talk-to-seller-button {
 	margin-top: 15px;
 	cursor: pointer;
 	width: 140px;
@@ -43,6 +45,8 @@
 	font-size: 16px;
 	border: 1px solid black;
 	border-radius: 2px;
+	margin-left: 2px;
+	margin-right: 2px;
 }
 
 .product-page .add-to-cart-button {
@@ -59,4 +63,32 @@
 
 .product-page .remove-from-cart-button:hover {
 	background-color: rgb(255, 93, 93);
+}
+
+.product-page .talk-to-seller-button {
+	background-color: rgb(146, 226, 27);
+}
+
+.product-page .talk-to-seller-button:hover {
+	background-color: rgb(106, 163, 19);
+}
+
+.product-page .seller-area {
+	margin-top: 30px;
+	text-align: center;
+	padding: 7px;
+	background-color: rgb(194, 194, 194);
+	border-radius: 3px;
+}
+
+.product-page .seller-area .seller-name-span {
+	display: block;
+	font-family: 'Merriweather', sans-serif;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.product-page .seller-area img {
+	max-width: 100px;
+	border-radius: 100%;
 }

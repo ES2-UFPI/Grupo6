@@ -10,8 +10,7 @@
 	margin-bottom: 10px;
 }
 
-.filters-bar button {
-	padding: 0;
+.filters-bar a {
 	text-align: left;
 	cursor: pointer;
 	border: none;
@@ -20,6 +19,6 @@
 	margin: 3px 0;
 }
 
-.filters-bar button:hover {
+.filters-bar a:hover {
 	text-decoration: underline;
 }

@@ -1,5 +1,6 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
+import 'firebase/database';
 
 const Firebase = (() => {
 	const firebaseConfig = {
@@ -7,6 +8,7 @@ const Firebase = (() => {
 		authDomain: 'brechonline-6119d.firebaseapp.com',
 		projectId: 'brechonline-6119d',
 		storageBucket: 'brechonline-6119d.appspot.com',
+		databaseURL: 'https://brechonline-6119d-default-rtdb.firebaseio.com/',
 		messagingSenderId: '1014908798356',
 		appId: '1:1014908798356:web:ceb80e1a5175ed49bb3b81',
 		measurementId: 'G-8GFNB7354C',
@@ -15,6 +17,7 @@ const Firebase = (() => {
 	firebase.initializeApp(firebaseConfig);
 
 	const database = firebase.firestore();
+	const realTimeDatabase = firebase.database();
 
 	const databaseStructure = {
 		products: [
@@ -25,6 +28,7 @@ const Firebase = (() => {
 			'price',
 			'publicationDate',
 			'description',
+			'creatorId',
 		],
 
 		users: [
@@ -41,7 +45,21 @@ const Firebase = (() => {
 			'categoryClicks',
 		],
 
-		chats: ['messages',]
+		transactions: [
+			'date',
+			'valuePaid',
+			'status',
+			'localizationCode',
+			'rating',
+			'comment',
+			'wouldBuyAgain',
+			'productId',
+			'buyerId',
+		],
+
+		notifications: ['type', 'content', 'isRead', 'userId'],
+
+		coupons: ['productId', 'userId', 'reduction'],
 	};
 
 	const convertToCamelCase = (...names) => {
@@ -126,7 +144,12 @@ const Firebase = (() => {
 
 	const generateGetAllMethod = (collection) => {
 		return async () => {
-			return await database.collection(collection).get();
+			return (await database.collection(collection).get()).docs.map((doc) => {
+				return {
+					id: doc.id,
+					...doc.data(),
+				};
+			});
 		};
 	};
 
@@ -175,6 +198,7 @@ const Firebase = (() => {
 				];
 			})
 		),
+		realTimeDatabase,
 	};
 })();
 

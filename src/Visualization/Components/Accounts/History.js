@@ -1,31 +1,90 @@
-import React, { useState } from 'react';
-
+import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import TransactionLogic from '../../../Logic/TransactionLogic';
+import ProductLogic from '../../../Logic/ProductLogic';
+import UserLogic from '../../../Logic/UserLogic';
 import '../Styles/History.css';
 import TransactionItem from './TransactionItem';
+import { useLocation } from 'react-router-dom';
+import PageNavigation from '../Main/PageNavigation';
+import Component_PageNavigationAdapter from '../Main/Adapters/Component_PageNavigationAdapter';
+import Logic_TransactionItemAdapter from './Adapters/Logic_TransactionItemAdapter';
 
 const History = () => {
-	const items = Array(5).fill({
-		id: '1234',
-		buyerId: '4321',
-		sellerId: '0123',
-		sellerName: 'Jô',
-		productName: 'produto',
-		localizationCode: 'localizationCode',
-		productPicture:
-			'https://images.pexels.com/photos/2520829/pexels-photo-2520829.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-		status: '¯|_(ツ)_/¯',
-		rating: '3.5',
-		wouldBarterAgain: 'y/n',
-	});
+	const query = new URLSearchParams(useLocation().search);
+	const page =
+		query.get('page') !== null && query.get('page') !== undefined
+			? query.get('page')
+			: '1';
+	const perPage = 10;
+	const [items, setItems] = useState([]);
+	const userSelector = useSelector((state) => state.user.userId);
+
+	useEffect(() => {
+		const updateItems = async () => {
+			if (userSelector !== null) {
+				const transactionItems = await TransactionLogic.getUserTransactions(
+					userSelector
+				);
+				setItems(
+					await Promise.all(
+						transactionItems.map(async (item) => {
+							const productInfo = await ProductLogic.getProductInfo(
+								item.productId
+							);
+							return {
+								...item,
+								productName: productInfo.name,
+								productPicture: productInfo.pictures[0],
+								sellerName: (await UserLogic.getUser(item.sellerId)).name,
+							};
+						})
+					)
+				);
+			}
+		};
+		updateItems();
+	}, [userSelector]);
+
+	const updateTransaction = async (transactionId, rating, wouldBarterAgain) => {
+		await TransactionLogic.rateProduct(transactionId, rating);
+		await TransactionLogic.answerWouldBuyFromSellerAgain(
+			transactionId,
+			wouldBarterAgain
+		);
+	};
 
 	return (
 		<div className="history-main">
 			<h2 className="history-title">Histórico de Transações</h2>
 			<div className="transation-items">
-				{items.map((i, index) => {
-					return <TransactionItem {...i} />;
-				})}
+				{items
+					.filter((_transaction, index) => {
+						return (
+							index >= (Number.parseInt(page) - 1) * perPage &&
+							index <= Number.parseInt(page) * perPage - 1
+						);
+					})
+					.map((i, index) => {
+						return (
+							<TransactionItem
+								key={index}
+								{...Logic_TransactionItemAdapter(i)}
+								update={updateTransaction}
+								isBuyer={userSelector === i.buyerId}
+							/>
+						);
+					})}
 			</div>
+			{items.length > perPage ? (
+				<PageNavigation
+					{...Component_PageNavigationAdapter({
+						currentPage: page,
+						numberOfPages: Math.ceil(items.length / perPage),
+						newPageLink: '/history?page=',
+					})}
+				/>
+			) : null}
 		</div>
 	);
 };
