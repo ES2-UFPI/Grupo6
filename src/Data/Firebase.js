@@ -64,6 +64,16 @@ const Firebase = (() => {
 		doubts: ['productId', 'userId', 'question', 'answer'],
 	};
 
+	const googleLogin = async () => {
+		const provider = new firebase.auth.GoogleAuthProvider()
+		return await firebase.auth().signInWithPopup(provider)
+	}
+
+	const fbLogin = async () => {
+		const provider = new firebase.auth.FacebookAuthProvider()
+		return await firebase.auth().signInWithPopup(provider)
+	}
+
 	const convertToCamelCase = (...names) => {
 		return (
 			names[0].toLowerCase() +
@@ -201,6 +211,8 @@ const Firebase = (() => {
 			})
 		),
 		realTimeDatabase,
+		googleLogin,
+		fbLogin,
 	};
 })();
 
