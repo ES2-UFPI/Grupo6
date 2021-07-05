@@ -133,7 +133,9 @@ const ProductPage = ({ match }) => {
 							{sellerInfo.numberOfSales > 0 ? (
 								<div className="seller-rating-area">
 									<label htmlFor="rating">Avaliação média: </label>
-									<span name="rating">{sellerInfo.averageRating.toFixed(1)}</span>
+									<span name="rating">
+										{sellerInfo.averageRating.toFixed(1)}
+									</span>
 								</div>
 							) : null}
 							{sellerInfo.numberOfSales > 0 ? (

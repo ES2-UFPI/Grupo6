@@ -10,6 +10,7 @@ const Header = () => {
 	const dispatch = useDispatch();
 	const messagesTab = useRef();
 	const [isMessagesTabOpen, setIsMessagesTabOpen] = useState(false);
+	const [notifications, setNotifications] = useState([]);
 
 	const numberOfItemsInCartSelector = useSelector(
 		(state) => state.cart.cart.products.length
@@ -43,6 +44,13 @@ const Header = () => {
 			})
 		);
 	}, [dispatch]);
+
+	useEffect(() => {
+		const getNotifications = async () => {
+			setNotifications([]);
+		};
+		getNotifications();
+	}, []);
 
 	const mainContent = (
 		<div className="header">
@@ -91,14 +99,18 @@ const Header = () => {
 						</Link>
 					</div>
 					<div className="notification-dropdown">
-						<a href="/"> Este é um exemplo de notificação ! </a>
-						<a href="/"> Você tem uma nova mensagem de Fulano. </a>
-						<a href="/">
-							{' '}
-							O seu produto está a caminho, acompanhe com o código
-							XSAI-ASXD-ASJD
-						</a>
-						<Link to="/notifications"> Mais notificações (3) </Link>
+						{notifications
+							.filter((_notification, index) => index < 3)
+							.map((notification) => {
+								return (
+									<Link to={notification.href}>{notification.content}</Link>
+								);
+							})}
+						{notifications.length > 3 ? (
+							<Link to="/notifications">{` Mais notificações (${
+								notifications.length - 3
+							})`}</Link>
+						) : null}
 					</div>
 				</div>
 				<div className="messages-tab-container" ref={messagesTab}>
