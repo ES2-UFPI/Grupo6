@@ -2,6 +2,7 @@
 
 .product-page {
 	min-height: 60vh;
+	max-height: fit-content;
 	padding: 60px;
 	display: flex;
 	flex-direction: row;
@@ -26,6 +27,7 @@
 
 .product-page .left-section p {
 	font-family: 'IBM Plex Sans', sans-serif;
+	margin-right: 25px;
 }
 
 .product-page .right-section .product-price-area .product-price {
@@ -51,6 +53,7 @@
 
 .product-page .add-to-cart-button {
 	background-color: rgb(248, 230, 69);
+	margin-bottom: 10px;
 }
 
 .product-page .add-to-cart-button:hover {
@@ -91,4 +94,5 @@
 .product-page .seller-area img {
 	max-width: 100px;
 	border-radius: 100%;
+	margin-bottom: 5px;
 }
