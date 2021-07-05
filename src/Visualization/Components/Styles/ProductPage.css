@@ -3,6 +3,9 @@
 .product-page {
 	min-height: 60vh;
 	padding: 60px;
+}
+
+.product-page .top-section {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
