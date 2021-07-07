@@ -157,7 +157,30 @@ const ProductPage = ({ match }) => {
 					</div>
 				</div>
 			</div>
-			<div className="bottom-section"></div>
+			<div className="bottom-section">
+				<div className="questions">
+					<label htmlFor="question-title">Campo de dúvidas:</label>
+					<input
+						type="text"
+						maxLength={1500}
+					></input>
+					<input
+						type="submit"
+						value="Enviar"
+						className="submit-button">
+					</input>
+				</div>
+				<div className="old-questions">
+					<div className="first-question">
+						<label htmlFor="user-question1"> Usuário 1 preguntou:</label>
+						<p>Isso faz isso ?</p>
+					</div>
+					<div className="second-question">
+						<label htmlFor="user-question2"> Usuário 2 preguntou:</label>
+						<p>Esse troço tá funcionando ?</p>
+					</div>
+				</div>
+			</div>
 		</div>
 	) : null;
 };
