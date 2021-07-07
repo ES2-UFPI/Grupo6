@@ -114,6 +114,11 @@ const UserLogic = (() => {
 		await Firebase.setUserCategoryClicks(account, []);
 	};
 
+	const socialAuth = async (user) =>{
+		await Firebase.setUserName(user.id, user.name);
+		await Firebase.setUserProfilePicture(user.id, user.photo);
+	}
+
 	return {
 		addPhoto,
 		updateData,
@@ -122,6 +127,7 @@ const UserLogic = (() => {
 		addCategory,
 		deleteAccount,
 		createAccount,
+		socialAuth,
 	};
 })();
 
