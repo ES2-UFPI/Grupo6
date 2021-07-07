@@ -141,6 +141,12 @@ const MessagesTab = (props) => {
 		}
 	}, [users, props.newChat]);
 
+	useEffect(() => {
+		if (openChat !== null) {
+			MessageLogic.readChatMessages(openChat.messages);
+		}
+	}, [openChat]);
+
 	const createAndSendCoupon = async () => {
 		if (selectedProduct.length > 0 && couponValueInput > 0) {
 			const couponId = await CouponsLogic.createCoupon(

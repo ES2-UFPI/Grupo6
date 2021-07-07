@@ -18,6 +18,7 @@ const MessageLogic = (() => {
 	};
 
 	const sendMessage = (senderId, receiverId, str) => {
+		// Trigger notification
 		return RealTimeDatabase.pushToMessages({
 			sender: senderId,
 			receiver: receiverId,
@@ -32,6 +33,7 @@ const MessageLogic = (() => {
 	};
 
 	const readChatMessages = (messageArray) => {
+		// Delete notifications for chat messages
 		messageArray.forEach((message) => {
 			RealTimeDatabase.updateMessage(message.id, { ...message, isRead: true });
 		});
