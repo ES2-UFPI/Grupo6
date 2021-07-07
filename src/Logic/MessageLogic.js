@@ -31,10 +31,17 @@ const MessageLogic = (() => {
 		RealTimeDatabase.deleteFromMessages(messageKey);
 	};
 
+	const readChatMessages = (messageArray) => {
+		messageArray.forEach((message) => {
+			RealTimeDatabase.updateMessage(message.id, { ...message, isRead: true });
+		});
+	};
+
 	return {
 		getMessagesForUser,
 		sendMessage,
 		deleteMessage,
+		readChatMessages,
 	};
 })();
 
