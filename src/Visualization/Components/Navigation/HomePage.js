@@ -4,6 +4,7 @@ import Logic_HomePageAdapter from './Adapters/Logic_HomePageAdapter';
 import Logic_ProductPreviewAdapter from './Adapters/Logic_ProductPreviewAdapter';
 import '../Styles/HomePage.css';
 import ProductPreview from './ProductPreview';
+import MainTemplate from '../Main/MainTemplate';
 
 const HomePage = () => {
 	const limit = 32;
@@ -32,27 +33,29 @@ const HomePage = () => {
 	}, [categories]);
 
 	return (
-		<div className="home-page">
-			{categories.map((category, categoryIndex) => {
-				return (
-					<div className="home-page-category-section" key={categoryIndex}>
-						<h2>{category}</h2>
-						<div className="product-grid">
-							{categoryProducts[categoryIndex]
-								.filter((_p, index) => index < limit)
-								.map((product, index) => {
-									return (
-										<ProductPreview
-											{...Logic_ProductPreviewAdapter(product)}
-											key={index}
-										/>
-									);
-								})}
+		<MainTemplate>
+			<div className="home-page">
+				{categories.map((category, categoryIndex) => {
+					return (
+						<div className="home-page-category-section" key={categoryIndex}>
+							<h2>{category}</h2>
+							<div className="product-grid">
+								{categoryProducts[categoryIndex]
+									.filter((_p, index) => index < limit)
+									.map((product, index) => {
+										return (
+											<ProductPreview
+												{...Logic_ProductPreviewAdapter(product)}
+												key={index}
+											/>
+										);
+									})}
+							</div>
 						</div>
-					</div>
-				);
-			})}
-		</div>
+					);
+				})}
+			</div>
+		</MainTemplate>
 	);
 };
 

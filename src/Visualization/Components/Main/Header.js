@@ -128,11 +128,17 @@ const Header = () => {
 						</li>
 					</ul>
 					<div className="profile-menu">
-						<a href="/"> Gerenciar Perfil </a>
-						<Link to="/shoppingCart">{`Carrinho (${numberOfItemsInCartSelector})`}</Link>
-						<Link to="/history"> Histórico </Link>
-						<Link to="/product/add"> Cadastrar Produto </Link>
-						<a href="/"> Sair </a>
+						{userSelector !== null ? <a href="/"> Gerenciar Perfil </a> : null}
+						{userSelector !== null ? (
+							<Link to="/shoppingCart">{`Carrinho (${numberOfItemsInCartSelector})`}</Link>
+						) : null}
+						{userSelector !== null ? (
+							<Link to="/history"> Histórico </Link>
+						) : null}
+						{userSelector !== null ? (
+							<Link to="/product/add"> Cadastrar Produto </Link>
+						) : null}
+						{userSelector !== null ? <a href="/"> Sair </a> : null}
 					</div>
 				</div>
 			</div>

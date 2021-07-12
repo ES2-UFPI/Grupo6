@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Component_PageNavigationAdapter from '../Main/Adapters/Component_PageNavigationAdapter';
+import MainTemplate from '../Main/MainTemplate';
 import PageNavigation from '../Main/PageNavigation';
 import '../Styles/NotificationPage.css';
 
@@ -67,7 +68,11 @@ const NotificationPage = () => {
 		</div>
 	);
 
-	return <div className="notificationpage">{mainContent}</div>;
+	return (
+		<MainTemplate>
+			<div className="notificationpage">{mainContent}</div>
+		</MainTemplate>
+	);
 };
 
 export default NotificationPage;

@@ -9,6 +9,7 @@ import { useLocation } from 'react-router-dom';
 import PageNavigation from '../Main/PageNavigation';
 import Component_PageNavigationAdapter from '../Main/Adapters/Component_PageNavigationAdapter';
 import Logic_TransactionItemAdapter from './Adapters/Logic_TransactionItemAdapter';
+import MainTemplate from '../Main/MainTemplate';
 
 const History = () => {
 	const query = new URLSearchParams(useLocation().search);
@@ -55,37 +56,39 @@ const History = () => {
 	};
 
 	return (
-		<div className="history-main">
-			<h2 className="history-title">Histórico de Transações</h2>
-			<div className="transation-items">
-				{items
-					.filter((_transaction, index) => {
-						return (
-							index >= (Number.parseInt(page) - 1) * perPage &&
-							index <= Number.parseInt(page) * perPage - 1
-						);
-					})
-					.map((i, index) => {
-						return (
-							<TransactionItem
-								key={index}
-								{...Logic_TransactionItemAdapter(i)}
-								update={updateTransaction}
-								isBuyer={userSelector === i.buyerId}
-							/>
-						);
-					})}
+		<MainTemplate>
+			<div className="history-main">
+				<h2 className="history-title">Histórico de Transações</h2>
+				<div className="transation-items">
+					{items
+						.filter((_transaction, index) => {
+							return (
+								index >= (Number.parseInt(page) - 1) * perPage &&
+								index <= Number.parseInt(page) * perPage - 1
+							);
+						})
+						.map((i, index) => {
+							return (
+								<TransactionItem
+									key={index}
+									{...Logic_TransactionItemAdapter(i)}
+									update={updateTransaction}
+									isBuyer={userSelector === i.buyerId}
+								/>
+							);
+						})}
+				</div>
+				{items.length > perPage ? (
+					<PageNavigation
+						{...Component_PageNavigationAdapter({
+							currentPage: page,
+							numberOfPages: Math.ceil(items.length / perPage),
+							newPageLink: '/history?page=',
+						})}
+					/>
+				) : null}
 			</div>
-			{items.length > perPage ? (
-				<PageNavigation
-					{...Component_PageNavigationAdapter({
-						currentPage: page,
-						numberOfPages: Math.ceil(items.length / perPage),
-						newPageLink: '/history?page=',
-					})}
-				/>
-			) : null}
-		</div>
+		</MainTemplate>
 	);
 };
 

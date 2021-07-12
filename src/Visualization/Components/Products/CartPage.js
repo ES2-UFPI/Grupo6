@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Reducer from '../../../Reducers/Reducer';
+import MainTemplate from '../Main/MainTemplate';
 
 import '../Styles/CartPage.css';
 
@@ -82,7 +83,11 @@ const CartPage = () => {
 		</div>
 	);
 
-	return <div className="cart-page">{mainContent}</div>;
+	return (
+		<MainTemplate>
+			<div className="cart-page">{mainContent}</div>
+		</MainTemplate>
+	);
 };
 
 export default CartPage;

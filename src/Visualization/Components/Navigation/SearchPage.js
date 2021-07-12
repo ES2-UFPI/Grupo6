@@ -6,6 +6,7 @@ import PageNavigation from '../Main/PageNavigation';
 import '../Styles/SearchPage.css';
 import Component_PageNavigationAdapter from '../Main/Adapters/Component_PageNavigationAdapter';
 import Logic_ProductPreviewAdapter from './Adapters/Logic_ProductPreviewAdapter';
+import MainTemplate from '../Main/MainTemplate';
 
 const SearchPage = () => {
 	const query = new URLSearchParams(useLocation().search);
@@ -23,34 +24,36 @@ const SearchPage = () => {
 	}, [searchTerm]);
 
 	return (
-		<div className="search-page">
-			<div className="product-grid">
-				{results
-					.filter((_result, index) => {
-						return (
-							index >= (Number.parseInt(page) - 1) * perPage &&
-							index <= Number.parseInt(page) * perPage - 1
-						);
-					})
-					.map((result, index) => {
-						return (
-							<ProductPreview
-								{...Logic_ProductPreviewAdapter(result)}
-								key={index}
-							/>
-						);
-					})}
+		<MainTemplate>
+			<div className="search-page">
+				<div className="product-grid">
+					{results
+						.filter((_result, index) => {
+							return (
+								index >= (Number.parseInt(page) - 1) * perPage &&
+								index <= Number.parseInt(page) * perPage - 1
+							);
+						})
+						.map((result, index) => {
+							return (
+								<ProductPreview
+									{...Logic_ProductPreviewAdapter(result)}
+									key={index}
+								/>
+							);
+						})}
+				</div>
+				{results.length > perPage ? (
+					<PageNavigation
+						{...Component_PageNavigationAdapter({
+							currentPage: page,
+							newPageLink: `/product/search?search_term=${searchTerm}&page=`,
+							numberOfPages: Math.ceil(results.length / perPage),
+						})}
+					/>
+				) : null}
 			</div>
-			{results.length > perPage ? (
-				<PageNavigation
-					{...Component_PageNavigationAdapter({
-						currentPage: page,
-						newPageLink: `/product/search?search_term=${searchTerm}&page=`,
-						numberOfPages: Math.ceil(results.length / perPage),
-					})}
-				/>
-			) : null}
-		</div>
+		</MainTemplate>
 	);
 };
 

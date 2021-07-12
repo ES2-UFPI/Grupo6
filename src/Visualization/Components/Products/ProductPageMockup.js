@@ -3,6 +3,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useState, useEffect } from 'react';
+import MainTemplate from '../Main/MainTemplate';
 import '../Styles/ProductPageMockup.css';
 
 const ProductPageMockup = () => {
@@ -81,7 +82,11 @@ const ProductPageMockup = () => {
 		</div>
 	);
 
-	return <div className="product-page-mockup">{mainContent}</div>;
+	return (
+		<MainTemplate>
+			<div className="product-page-mockup">{mainContent}</div>
+		</MainTemplate>
+	);
 };
 
 export default ProductPageMockup;

@@ -9,8 +9,6 @@ import RegisterProductPage from './Visualization/Components/Products/RegisterPro
 import HomePage from './Visualization/Components/Navigation/HomePage';
 import ProductPageMockup from './Visualization/Components/Products/ProductPageMockup';
 import CartPage from './Visualization/Components/Products/CartPage';
-import Header from './Visualization/Components/Main/Header';
-import FootBar from './Visualization/Components/Main/FootBar';
 import CategoryPage from './Visualization/Components/Navigation/CategoryPage';
 import ProductPage from './Visualization/Components/Products/ProductPage';
 import History from './Visualization/Components/Accounts/History';
@@ -29,7 +27,6 @@ ReactDOM.render(
 	<React.StrictMode>
 		<Provider store={store}>
 			<BrowserRouter>
-				<Header />
 				<Switch>
 					<Route path="/product/search" component={SearchPage} />
 					<Route path="/product/category/:category" component={CategoryPage} />
@@ -41,7 +38,6 @@ ReactDOM.render(
 					<Route path="/notifications" component={NotificationPage} />
 					<Route path="/" component={HomePage} />
 				</Switch>
-				<FootBar />
 			</BrowserRouter>
 		</Provider>
 	</React.StrictMode>,
