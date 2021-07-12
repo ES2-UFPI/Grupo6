@@ -16,6 +16,8 @@ import ProductPage from './Visualization/Components/Products/ProductPage';
 import History from './Visualization/Components/Accounts/History';
 import NotificationPage from './Visualization/Components/Navigation/NotificationPage';
 import SearchPage from './Visualization/Components/Navigation/SearchPage';
+import LoginPage from './Visualization/Components/Navigation/LoginPage';
+import RegisterUserPage from './Visualization/Components/Navigation/ResgisterUserPage';
 
 const store = createStore(
 	combineReducers({
@@ -39,6 +41,8 @@ ReactDOM.render(
 					<Route path="/shoppingCart" component={CartPage} />
 					<Route path="/history" component={History} />
 					<Route path="/notifications" component={NotificationPage} />
+					<Route path="/login" component={LoginPage} />
+					<Route path="/registerUser" component={RegisterUserPage} />
 					<Route path="/" component={HomePage} />
 				</Switch>
 				<FootBar />

@@ -13,3 +13,37 @@
 	margin-bottom: 0px;
 	padding-bottom: 15px;
 }
+
+.message-button button[type='message-user']{
+	padding: 1%;
+	font-family: 'Merriweather Sans', sans-serif;
+	border-radius: 3px;
+	background-color: #3cff87;
+	border: 1px solid transparent;
+	cursor: pointer;
+	height: 45px;
+	width: 165px;
+	font-weight: bold;
+	margin-top: 25px;
+}
+
+.cancel-button button[type='cancel-order']{
+	padding: 1%;
+	font-family: 'Merriweather Sans', sans-serif;
+	border-radius: 3px;
+	background-color: #ff442b;
+	border: 1px solid transparent;
+	cursor: pointer;
+	height: 43px;
+	width: 165px;
+	font-weight: bold;
+	margin-top: 2px;
+}
+
+.message-button button[type='message-user']:hover{
+	background-color: #67f39d;
+}
+
+.cancel-button button[type='cancel-order']:hover{
+	background-color: #fd634e;
+}

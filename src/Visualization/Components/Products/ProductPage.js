@@ -171,13 +171,20 @@ const ProductPage = ({ match }) => {
 					</input>
 				</div>
 				<div className="old-questions">
+					<div className="title">
+						<label>Perguntas Realizadas:</label>
+					</div>
 					<div className="first-question">
 						<label htmlFor="user-question1"> Usuário 1 preguntou:</label>
-						<p>Isso faz isso ?</p>
+						<p>- Isso faz isso ?</p>
 					</div>
 					<div className="second-question">
 						<label htmlFor="user-question2"> Usuário 2 preguntou:</label>
-						<p>Esse troço tá funcionando ?</p>
+						<p>- Esse troço tá funcionando ?</p>
+						<div className="response">
+							<label> Resposta do vendedor:</label>
+							<p>- Sim !!</p>
+						</div>
 					</div>
 				</div>
 			</div>
