@@ -14,7 +14,7 @@
 	padding-bottom: 15px;
 }
 
-.message-button button[type='message-user']{
+.message-button button[type='message-user'] {
 	padding: 1%;
 	font-family: 'Merriweather Sans', sans-serif;
 	border-radius: 3px;
@@ -27,7 +27,7 @@
 	margin-top: 25px;
 }
 
-.cancel-button button[type='cancel-order']{
+.cancel-button button[type='cancel-order'] {
 	padding: 1%;
 	font-family: 'Merriweather Sans', sans-serif;
 	border-radius: 3px;
@@ -40,10 +40,10 @@
 	margin-top: 2px;
 }
 
-.message-button button[type='message-user']:hover{
+.message-button button[type='message-user']:hover {
 	background-color: #67f39d;
 }
 
-.cancel-button button[type='cancel-order']:hover{
+.cancel-button button[type='cancel-order']:hover {
 	background-color: #fd634e;
 }

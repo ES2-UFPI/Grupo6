@@ -57,7 +57,7 @@ const Firebase = (() => {
 			'buyerId',
 		],
 
-		notifications: ['type', 'content', 'isRead', 'userId'],
+		notifications: ['type', 'content', 'isRead', 'userId', 'date'],
 
 		coupons: ['productId', 'userId', 'reduction'],
 	};

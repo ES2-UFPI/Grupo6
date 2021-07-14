@@ -133,7 +133,9 @@ const ProductPage = ({ match }) => {
 							{sellerInfo.numberOfSales > 0 ? (
 								<div className="seller-rating-area">
 									<label htmlFor="rating">Avaliação média: </label>
-									<span name="rating">{sellerInfo.averageRating.toFixed(1)}</span>
+									<span name="rating">
+										{sellerInfo.averageRating.toFixed(1)}
+									</span>
 								</div>
 							) : null}
 							{sellerInfo.numberOfSales > 0 ? (
@@ -160,15 +162,8 @@ const ProductPage = ({ match }) => {
 			<div className="bottom-section">
 				<div className="questions">
 					<label htmlFor="question-title">Campo de dúvidas:</label>
-					<input
-						type="text"
-						maxLength={1500}
-					></input>
-					<input
-						type="submit"
-						value="Enviar"
-						className="submit-button">
-					</input>
+					<input type="text" maxLength={1500}></input>
+					<input type="submit" value="Enviar" className="submit-button"></input>
 				</div>
 				<div className="old-questions">
 					<div className="title">
