@@ -3,6 +3,7 @@ import { Link, useHistory, useLocation } from 'react-router-dom';
 import magnifyingGlass from '../Images/lupa.png';
 import ProductLogic from '../../../Logic/ProductLogic';
 import '../Styles/SearchBar.css';
+import UserLogic from '../../../Logic/UserLogic';
 
 const SearchBar = () => {
 	const wrapperRef = useRef(null);
@@ -56,6 +57,10 @@ const SearchBar = () => {
 		};
 	}, []);
 
+	/*async function addCategory(category){
+		await UserLogic.addCategory(category)
+	}*/
+
 	return (
 		<div className="top-search-bar" ref={wrapperRef}>
 			<div
@@ -91,6 +96,7 @@ const SearchBar = () => {
 									className="result-preview"
 									to={`/product/${result.id}`}
 									key={index}
+									onClick={'addCategory(result.category)'}
 								>
 									<img
 										src={

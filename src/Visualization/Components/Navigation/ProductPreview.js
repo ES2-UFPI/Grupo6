@@ -1,11 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import UserLogic from '../../../Logic/UserLogic';
 import '../Styles/ProductPreview.css';
 
 const ProductPreview = (props) => {
+
+	/*async function addCategory(){
+		await UserLogic.addCategory(props.category)
+	}*/
+
 	return (
-		<Link to={`/product/${props.id}`} className="product-preview">
+		<Link to={`/product/${props.id}`} className="product-preview" onClick={''/*addCategory()*/}>
 			<div className="top-section">
 				<img src={props.picture} alt={props.name} />
 			</div>

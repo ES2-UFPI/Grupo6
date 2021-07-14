@@ -74,7 +74,7 @@ const UserLogic = (() => {
 
 	const addCategory = async (userId, category) => {
 		let categories = await Firebase.getUserCategoryClicks(userId);
-		categories.push(category);
+		categories[category] = categories[category] + 1;
 		await Firebase.setUserCategoryClicks(userId, categories);
 	};
 
@@ -111,7 +111,17 @@ const UserLogic = (() => {
 		await Firebase.setUserEmail(account, user.email);
 		await Firebase.setUserPassword(account, user.password);
 		await Firebase.setUserAccountCreateDate(account, user.date);
-		await Firebase.setUserCategoryClicks(account, []);
+		await Firebase.setUserCategoryClicks(
+			account,
+			{
+				vestuario: 0,
+				eletronicos: 0,
+				livros: 0,
+				eletrodomesticos: 0,
+				cosmeticos: 0,
+				esportivo: 0,
+				jogos: 0
+			});
 	};
 
 	const socialAuth = async (user) =>{
