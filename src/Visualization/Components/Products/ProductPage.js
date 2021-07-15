@@ -4,6 +4,7 @@ import CouponsLogic from '../../../Logic/CouponsLogic';
 import ProductLogic from '../../../Logic/ProductLogic';
 import UserLogic from '../../../Logic/UserLogic';
 import Reducer from '../../../Reducers/Reducer';
+import DoubtLogic from '../../../Logic/DoubtLogic';
 import '../Styles/ProductPage.css';
 
 const ProductPage = ({ match }) => {
@@ -15,6 +16,7 @@ const ProductPage = ({ match }) => {
 	const [sellerInfo, setSellerInfo] = useState({});
 	const [couponInput, setCouponInput] = useState('');
 	const [validCoupon, setValidCoupon] = useState(null);
+	const [inputText, setInputText] = useState('');
 
 	const isItemInCartSelector = useSelector((state) =>
 		state.cart.cart.products.some((product) => product.id === productId)
@@ -163,11 +165,19 @@ const ProductPage = ({ match }) => {
 					<input
 						type="text"
 						maxLength={1500}
+						value={inputText}
+						onChange={(e) => {
+							setInputText(e.target.value)
+						}}
 					></input>
 					<input
 						type="submit"
 						value="Enviar"
-						className="submit-button">
+						className="submit-button"
+						onClick={async () => {
+							await DoubtLogic.postDoubt(productId, userSelector, inputText)
+							setInputText('')
+						}}>
 					</input>
 				</div>
 				<div className="old-questions">

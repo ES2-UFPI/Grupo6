@@ -1,7 +1,7 @@
 import Firebase from "../Data/Firebase";
 
-const DoubtLogic = ((productId, userId, message) => {
-    const postDoubt = async () => {
+const DoubtLogic = (() => {
+    const postDoubt = async (productId, userId, message) => {
         const doubtId = await Firebase.createDoubt();
         await Firebase.setDoubtProductId(doubtId, productId);
         await Firebase.setDoubtUserId(doubtId, userId);
@@ -17,10 +17,20 @@ const DoubtLogic = ((productId, userId, message) => {
         await Firebase.setDoubtAnswer(doubtId, message);
     };
 
+    const getDoubts = async () => {
+        return await Firebase.getAllDoubts();
+    };
+
+    const deleteDoubt = async (doubtId) => {
+        Firebase.deleteDoubt(doubtId);
+    }
+
     return {
         postDoubt,
         answerDoubt,
         updateAnswer,
+        getDoubts,
+        deleteDoubt,
     };
 })();
 
