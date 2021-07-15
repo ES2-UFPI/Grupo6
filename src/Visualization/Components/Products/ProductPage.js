@@ -17,6 +17,15 @@ const ProductPage = ({ match }) => {
 	const [couponInput, setCouponInput] = useState('');
 	const [validCoupon, setValidCoupon] = useState(null);
 	const [inputText, setInputText] = useState('');
+	const [doubts, setDoubts] = useState([]);
+
+	useEffect(() => {
+		const load = async () => {
+			const aux = await DoubtLogic.getDoubts()
+			setDoubts(aux)
+		}
+		load()
+	}, [])
 
 	const isItemInCartSelector = useSelector((state) =>
 		state.cart.cart.products.some((product) => product.id === productId)
@@ -175,7 +184,9 @@ const ProductPage = ({ match }) => {
 						value="Enviar"
 						className="submit-button"
 						onClick={async () => {
-							await DoubtLogic.postDoubt(productId, userSelector, inputText)
+							const doubtId = await DoubtLogic.postDoubt(productId, '23', inputText)
+							const addDoubt = await DoubtLogic.getDoubts()
+							setDoubts(addDoubt)
 							setInputText('')
 						}}>
 					</input>
@@ -183,6 +194,15 @@ const ProductPage = ({ match }) => {
 				<div className="old-questions">
 					<div className="title">
 						<label>Perguntas Realizadas:</label>
+					</div>
+					<div>
+						{doubts.map((i) => {
+							if(i.productId === productId){
+								return(
+									<div>{i.question}</div>
+								)
+							}else return <div></div>
+						})}
 					</div>
 					<div className="first-question">
 						<label htmlFor="user-question1"> Usuário 1 preguntou:</label>

@@ -7,6 +7,7 @@ const DoubtLogic = (() => {
         await Firebase.setDoubtUserId(doubtId, userId);
         await Firebase.setDoubtQuestion(doubtId, message);
         await Firebase.setDoubtAnswer(doubtId, '');
+        return doubtId
     };
 
     const answerDoubt = async (doubtId, message) => {
@@ -21,9 +22,17 @@ const DoubtLogic = (() => {
         return await Firebase.getAllDoubts();
     };
 
+    const getDoubt = async (doubtId) => {
+        return await Firebase.getDoubt(doubtId)
+    };
+
     const deleteDoubt = async (doubtId) => {
-        Firebase.deleteDoubt(doubtId);
-    }
+        await Firebase.deleteDoubt(doubtId);
+    };
+
+    const deleteAll = async () => {
+        await Firebase.deleteAllDoubts();
+    };
 
     return {
         postDoubt,
@@ -31,6 +40,8 @@ const DoubtLogic = (() => {
         updateAnswer,
         getDoubts,
         deleteDoubt,
+        getDoubt,
+        deleteAll,
     };
 })();
 
