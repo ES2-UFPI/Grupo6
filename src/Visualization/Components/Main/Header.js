@@ -129,6 +129,8 @@ const Header = () => {
 					</ul>
 					<div className="profile-menu">
 						<a href="/"> Gerenciar Perfil </a>
+						<Link to="/login"> Login </Link>
+						<Link to="/registerUser"> Cadastrar-se </Link>
 						<Link to="/shoppingCart">{`Carrinho (${numberOfItemsInCartSelector})`}</Link>
 						<Link to="/history"> Histórico </Link>
 						<Link to="/product/add"> Cadastrar Produto </Link>
