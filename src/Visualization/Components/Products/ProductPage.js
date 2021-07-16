@@ -184,7 +184,7 @@ const ProductPage = ({ match }) => {
 						value="Enviar"
 						className="submit-button"
 						onClick={async () => {
-							const doubtId = await DoubtLogic.postDoubt(productId, '23', inputText)
+							await DoubtLogic.postDoubt(productId, '23', inputText)
 							const addDoubt = await DoubtLogic.getDoubts()
 							setDoubts(addDoubt)
 							setInputText('')
