@@ -73,7 +73,7 @@ const UserLogic = (() => {
 	};
 
 	const addCategory = async (userId, category) => {
-		let categories = await Firebase.getUserCategoryClicks(userId);
+		let categories = await Firebase.getUser(userId).CategoryClicks;
 		categories[category] = categories[category] + 1;
 		await Firebase.setUserCategoryClicks(userId, categories);
 	};
