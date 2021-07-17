@@ -6,9 +6,176 @@
 	margin-right: 150px;
 }
 
-.main .page-title {
+.main .form{
+	border: 2px solid #7dd359;
+	border-radius: 5px;
+	padding: 1%;
+	margin-bottom: 15px;
+}
+
+.main .page-title label{
+	position: absolute;
 	font-family: 'Lucida Console', 'Courier New', monospace;
     color: black;
 	width: 70%;
 	text-transform: uppercase;
+}
+
+.main .form .name-section {
+	font-family: 'Lucida Console', 'Courier New', monospace;
+	font-weight: bold;
+	word-spacing: -2px;
+	padding: 0.5%;
+	border: 2px solid #7dd359;
+	margin-bottom: 20px;
+	border-radius: 5px;
+	background-color: #c5c5c5;
+}
+
+.main .form .name-section input[type='text']{
+	width: 350px;
+	margin-left: 25px;
+}
+
+.main .form .profile-picture-section {
+	font-family: 'Lucida Console', 'Courier New', monospace;
+	font-weight: bold;
+	word-spacing: -2px;
+	padding: 0.5%;
+	border: 2px solid #7dd359;
+	margin-bottom: 20px;
+	border-radius: 5px;
+	background-color: #c5c5c5;
+}
+
+.main .form .profile-picture-section input[type='file']{
+	width: 350px;
+	margin-left: 40px;
+}
+
+.main .form .cpf-section {
+	font-family: 'Lucida Console', 'Courier New', monospace;
+	font-weight: bold;
+	word-spacing: -2px;
+	padding: 0.5%;
+	border: 2px solid #7dd359;
+	margin-bottom: 20px;
+	border-radius: 5px;
+	background-color: #c5c5c5;
+}
+
+.main .form .cpf-section input[type='text']{
+	width: 150px;
+	margin-left: 120px;
+}
+
+.main .form .adress-section {
+	font-family: 'Lucida Console', 'Courier New', monospace;
+	font-weight: bold;
+	word-spacing: -2px;
+	padding: 0.5%;
+	border: 2px solid #7dd359;
+	margin-bottom: 20px;
+	border-radius: 5px;
+	background-color: #c5c5c5;
+}
+
+.main .form .adress-section .rua input[type='text']{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	width: 550px;
+	margin-left: 102px;
+}
+
+.main .form .adress-section .numero input[type='text']{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	width: 70px;
+	margin-left: 73px;
+}
+
+.main .form .adress-section .complemento input[type='text']{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	width: 550px;
+	height: 50px;
+	margin-left: 40px;
+}
+
+.main .form .adress-section .cep input[type='text']{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	width: 100px;
+	margin-left: 102px;
+}
+
+.main .form .adress-section .cidade input[type='text']{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	width: 150px;
+	margin-left: 73px;
+}
+
+.main .form .adress-section .estado select{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	width: 160px;
+	margin-left: 73px;
+}
+
+.main .form .login-section {
+	font-family: 'Lucida Console', 'Courier New', monospace;
+	font-weight: bold;
+	word-spacing: -2px;
+	padding: 0.5%;
+	border: 2px solid #7dd359;
+	margin-bottom: 20px;
+	border-radius: 5px;
+	background-color: #c5c5c5;
+	height: 55px;
+}
+
+.main .form .login-section .login-buttons button[type='google']{
+	position: absolute;
+	top: 640px;
+	left: 360px;
+	padding: 0.25%;
+	font-family: 'Merriweather Sans', sans-serif;
+	border-radius: 3px;
+	background-color: #F65314;
+	color: white;
+	border: 1px solid transparent;
+	cursor: pointer;
+	height: 45px;
+	width: 250px;
+	margin-top: 25px;
+}
+
+.main .form .login-section .login-buttons button[type='google']:hover{
+	background-color: #f87a48;
+}
+
+.main .form .login-section .login-buttons .google-button img{
+	position: absolute;
+	top: 675px;
+	left: 372px;
+	height: 23px;
+	width: 23px;
+}
+
+.main .form  input[type='submit'] {
+	cursor: pointer;
+	font-family: 'Merriweather Sans', sans-serif;
+	padding: 8px;
+	border-radius: 3px;
+	background-color: #7dd359;
+	border: 1px solid transparent;
+	font-size: 25px;
+	font-weight: bold;
+	text-transform: uppercase;
+	width: 1568px;
+}
+
+.main .form  input[type='submit']:hover {
+	background-color: rgb(35, 216, 133);
 }
