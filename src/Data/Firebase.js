@@ -69,27 +69,6 @@ const Firebase = (() => {
 		return await firebase.auth().signInWithPopup(provider)
 	}
 
-	const fbLogin = async () => {
-		const provider = new firebase.auth.FacebookAuthProvider()
-		return await firebase.auth().signInWithPopup(provider)
-	}
-
-	/*const funcaoBotaoLogar = async () => {
-		let resultUser = await Firebase.googleLogin()
-		let resultUser = await Firebase.fbLogin()
-
-		if(resultUser){
-			user = {
-				id: resultUser.uid,
-				name: resultUser.displayName,
-				photo: resultUser.photoURL
-			}
-			UserLogic.socialAuth(user)
-		}else{
-			alert('Error')
-		}
-	}*/
-
 	const convertToCamelCase = (...names) => {
 		return (
 			names[0].toLowerCase() +
@@ -228,7 +207,6 @@ const Firebase = (() => {
 		),
 		realTimeDatabase,
 		googleLogin,
-		fbLogin,
 	};
 })();
 

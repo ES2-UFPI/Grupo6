@@ -1,7 +1,26 @@
 import React from 'react';
+import Firebase from '../../../Data/Firebase';
+import UserLogic from '../../../Logic/UserLogic';
 import '../Styles/LoginPage.css';
 
 const loginPage = () => {
+
+	const funcaoBotaoLogar = async () => {
+		let resultUser = await Firebase.googleLogin()
+
+		if(resultUser){
+			let user = {
+				id: resultUser.uid,
+				name: resultUser.displayName,
+				photo: resultUser.photoURL,
+				email: resultUser.email
+			}
+			UserLogic.socialAuth(user)
+		}else{
+			alert('Error')
+		}
+	}
+
 	return (
 		<div className="main-login">
 			<div className="title-login">
@@ -15,7 +34,7 @@ const loginPage = () => {
 			</div>
 			<div className="description-login">
 				<label>Realize seu login:</label>
-				<button type="google" className="g-btt" onClick="">
+				<button type="google" className="g-btt" onClick={funcaoBotaoLogar()}>
 					Logar com o Google
 				</button>
 			</div>
