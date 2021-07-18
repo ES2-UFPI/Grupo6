@@ -101,7 +101,17 @@ const Header = () => {
 				<div className="notification">
 					<div
 						className="icon"
-						onClick={() => NotificationLogic.readAllNotifications(userSelector)}
+						onClick={() => {
+							NotificationLogic.readAllNotifications(userSelector);
+							setNotifications((notifications) =>
+								notifications.map((notification) => {
+									return {
+										...notification,
+										isRead: true,
+									};
+								})
+							);
+						}}
 					>
 						{unreadNotificationsNumber > 0 ? (
 							<div className="notifications-number-container">
