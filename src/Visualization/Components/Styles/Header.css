@@ -195,3 +195,26 @@
 	flex-direction: row;
 	align-items: center;
 }
+
+.header-tabs .icon {
+	position: relative;
+}
+
+.header-tabs .notifications-number-container {
+	position: absolute;
+	top: 0;
+	right: 0;
+	background-color: #7dd359;
+	border-radius: 2px;
+	padding: 1px;
+	height: 15px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.header-tabs .notifications-number-container span {
+	font-family: 'Lucida Console', 'Courier New', monospace;
+	font-weight: bold;
+	font-size: 11px;
+}

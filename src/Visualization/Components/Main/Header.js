@@ -5,11 +5,13 @@ import Reducer from '../../../Reducers/Reducer';
 import SearchBar from './SearchBar';
 import MessagesTab from './MessagesTab';
 import '../Styles/Header.css';
+import NotificationLogic from '../../../Logic/NotificationLogic';
 
 const Header = () => {
 	const dispatch = useDispatch();
 	const messagesTab = useRef();
 	const [isMessagesTabOpen, setIsMessagesTabOpen] = useState(false);
+	const [notifications, setNotifications] = useState([]);
 
 	const numberOfItemsInCartSelector = useSelector(
 		(state) => state.cart.cart.products.length
@@ -35,14 +37,25 @@ const Header = () => {
 
 	useEffect(() => {
 		dispatch(
-			Reducer.login('LrQkwykN4dPWjm7VkNIB', {
-				name: 'Usuário 1',
-				surname: 'Sobrenome 1',
+			Reducer.login('5wyZnDBvrdH8YkJlqBSi', {
+				name: 'Vênus',
+				surname: 'Queijo',
 				profilePicture:
-					'https://cdn.pixabay.com/photo/2014/04/13/20/49/cat-323262__340.jpg',
+					'https://cdn.pixabay.com/photo/2019/05/08/21/21/cat-4189697__480.jpg',
 			})
 		);
 	}, [dispatch]);
+
+	useEffect(() => {
+		const getNotifications = async () => {
+			if (userSelector !== null) {
+				setNotifications(
+					await NotificationLogic.fetchUserNotifications(userSelector)
+				);
+			}
+		};
+		getNotifications();
+	}, [userSelector]);
 
 	const mainContent = (
 		<div className="header">
@@ -83,6 +96,11 @@ const Header = () => {
 			<div className="header-tabs">
 				<div className="notification">
 					<div className="icon">
+						<div className="notifications-number-container">
+							<span className="notifications-number-span">
+								{notifications.length}
+							</span>
+						</div>
 						<Link to="/notifications">
 							<img
 								src="https://i.imgur.com/pAPOaav.png"
@@ -91,14 +109,20 @@ const Header = () => {
 						</Link>
 					</div>
 					<div className="notification-dropdown">
-						<a href="/"> Este é um exemplo de notificação ! </a>
-						<a href="/"> Você tem uma nova mensagem de Fulano. </a>
-						<a href="/">
-							{' '}
-							O seu produto está a caminho, acompanhe com o código
-							XSAI-ASXD-ASJD
-						</a>
-						<Link to="/notifications"> Mais notificações (3) </Link>
+						{notifications
+							.filter((_n, index) => index < 3)
+							.map((notification, index) => {
+								return (
+									<Link to="/notifications" key={index}>
+										{notification.content}
+									</Link>
+								);
+							})}
+						{notifications.length > 3 ? (
+							<Link to="/notifications">{`Mais notificações (${
+								notifications.length - 3
+							})`}</Link>
+						) : null}
 					</div>
 				</div>
 				<div className="messages-tab-container" ref={messagesTab}>
