@@ -14,7 +14,6 @@
 }
 
 .main .page-title label {
-	position: absolute;
 	font-family: 'Lucida Console', 'Courier New', monospace;
 	color: black;
 	width: 70%;
@@ -136,31 +135,24 @@
 }
 
 .main .form .login-section .login-buttons button[type='google'] {
-	position: absolute;
-	top: 640px;
-	left: 360px;
-	padding: 0.25%;
+	width: 250px;
+	height: 35px;
+	background-image: url('https://i.imgur.com/4294vBC.png');
+	background-position: left;
+	background-position-x: 5px;
+	background-size: 15px 15px;
+	background-repeat: no-repeat;
 	font-family: 'Merriweather Sans', sans-serif;
 	border-radius: 3px;
 	background-color: #f65314;
 	color: white;
 	border: 1px solid transparent;
 	cursor: pointer;
-	height: 45px;
-	width: 250px;
-	margin-top: 25px;
+	margin-left: 20px;
 }
 
 .main .form .login-section .login-buttons button[type='google']:hover {
 	background-color: #f87a48;
-}
-
-.main .form .login-section .login-buttons .google-button img {
-	position: absolute;
-	top: 675px;
-	left: 372px;
-	height: 23px;
-	width: 23px;
 }
 
 .main .form input[type='submit'] {
@@ -173,9 +165,15 @@
 	font-size: 25px;
 	font-weight: bold;
 	text-transform: uppercase;
-	width: 1568px;
+	width: 100%;
 }
 
 .main .form input[type='submit']:hover {
 	background-color: rgb(35, 216, 133);
+}
+
+.main .login-section {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
 }

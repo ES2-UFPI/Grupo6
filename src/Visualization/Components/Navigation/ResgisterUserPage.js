@@ -99,12 +99,9 @@ const registerUserPage = () => {
 				<div className="login-section">
 					<label htmlFor="login-type">Tipo de Login * :</label>
 					<div className="login-buttons">
-						<div className="google-button">
-							<button type="google" className="g-btt" onClick="">
-								Logar com o Google
-							</button>
-							<img src="https://i.imgur.com/4294vBC.png" />
-						</div>
+						<button type="google" className="g-btt" onClick="">
+							Logar com o Google
+						</button>
 					</div>
 				</div>
 				<input
