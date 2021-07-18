@@ -1,9 +1,11 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import CouponsLogic from '../../../Logic/CouponsLogic';
 import ProductLogic from '../../../Logic/ProductLogic';
 import UserLogic from '../../../Logic/UserLogic';
 import Reducer from '../../../Reducers/Reducer';
+import DoubtLogic from '../../../Logic/DoubtLogic';
 import '../Styles/ProductPage.css';
 
 const ProductPage = ({ match }) => {
@@ -15,6 +17,16 @@ const ProductPage = ({ match }) => {
 	const [sellerInfo, setSellerInfo] = useState({});
 	const [couponInput, setCouponInput] = useState('');
 	const [validCoupon, setValidCoupon] = useState(null);
+	const [inputText, setInputText] = useState('');
+	const [doubts, setDoubts] = useState([]);
+
+	useEffect(() => {
+		const load = async () => {
+			const aux = await DoubtLogic.getDoubts()
+			setDoubts(aux)
+		}
+		load()
+	}, [])
 
 	const isItemInCartSelector = useSelector((state) =>
 		state.cart.cart.products.some((product) => product.id === productId)
@@ -163,16 +175,35 @@ const ProductPage = ({ match }) => {
 					<input
 						type="text"
 						maxLength={1500}
+						value={inputText}
+						onChange={(e) => {
+							setInputText(e.target.value)
+						}}
 					></input>
 					<input
 						type="submit"
 						value="Enviar"
-						className="submit-button">
+						className="submit-button"
+						onClick={async () => {
+							await DoubtLogic.postDoubt(productId, '23', inputText)
+							const addDoubt = await DoubtLogic.getDoubts()
+							setDoubts(addDoubt)
+							setInputText('')
+						}}>
 					</input>
 				</div>
 				<div className="old-questions">
 					<div className="title">
 						<label>Perguntas Realizadas:</label>
+					</div>
+					<div>
+						{doubts.map((i) => {
+							if(i.productId === productId){
+								return(
+									<div>{i.question}</div>
+								)
+							}else return <div></div>
+						})}
 					</div>
 					<div className="first-question">
 						<label htmlFor="user-question1"> Usuário 1 preguntou:</label>
@@ -184,6 +215,46 @@ const ProductPage = ({ match }) => {
 						<div className="response">
 							<label> Resposta do vendedor:</label>
 							<p>- Sim !!</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div className="recomendations-section">
+				<div className="product-page-showcase">
+					<label>Veja se mais algum desses produtos lhe agrada:</label>
+					<div className="product-showcase">
+						<div className="product1">
+							<img src="https://i.imgur.com/Ni6TMqg.jpg" />
+							<label> Camisa Amugus Aniversário</label>
+							<p>R$ 80.00</p>
+							<button
+								type="vejamais"
+								className="veja-mais-1"
+								onClick="" >
+								Veja Mais +
+							</button>
+						</div>
+						<div className="product2">
+							<img src="https://i.imgur.com/CFFkuxo.jpg" />
+							<label> Camisa ShAKIRA</label>
+							<p>R$ 120.37</p>
+							<button
+								type="vejamais"
+								className="veja-mais-2"
+								onClick="" >
+								Veja Mais +
+							</button>
+						</div>
+						<div className="product3">
+							<img src="https://i.imgur.com/0UbfMTv.jpg" />
+							<label> Mochila HarryPotter</label>
+							<p>R$ 500.00</p>
+							<button
+								type="vejamais"
+								className="veja-mais-3"
+								onClick="" >
+								Veja Mais +
+							</button>
 						</div>
 					</div>
 				</div>
