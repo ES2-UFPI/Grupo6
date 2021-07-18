@@ -1,32 +1,31 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import NotificationLogic from '../../../Logic/NotificationLogic';
 import Component_PageNavigationAdapter from '../Main/Adapters/Component_PageNavigationAdapter';
 import PageNavigation from '../Main/PageNavigation';
+import Logic_NotificationsAdapter from './Adapters/Logic_NotificationsAdapter';
 import '../Styles/NotificationPage.css';
 
 const NotificationPage = () => {
 	const query = new URLSearchParams(useLocation().search);
 	const page = query.get('page') !== null ? query.get('page') : '1';
 	const perPage = 15;
+	const [notifications, setNotifications] = useState([]);
+	const userSelector = useSelector((state) => state.user.userId);
 
-	const notifications = [
-		{
-			image: 'https://i.imgur.com/Np5JaD8.png',
-			content: '• Notificação do site.',
-			time: '13:20',
-		},
-		{
-			image: 'https://i.imgur.com/1T9L1rV.png',
-			content:
-				'• O seu produto está a caminho, acompanhe com o código XSAI-ASXD-ASJD.',
-			time: '10:43',
-		},
-		{
-			image: 'https://i.imgur.com/bPxZOaN.png',
-			content: '• Você tem uma nova mensagem de Fulano.',
-			time: '08:19',
-		},
-	];
+	useEffect(() => {
+		const getNotifications = async () => {
+			if (userSelector !== null) {
+				setNotifications(
+					Logic_NotificationsAdapter(
+						await NotificationLogic.fetchUserNotifications(userSelector)
+					)
+				);
+			}
+		};
+		getNotifications();
+	}, [userSelector]);
 
 	const mainContent = (
 		<div className="main">

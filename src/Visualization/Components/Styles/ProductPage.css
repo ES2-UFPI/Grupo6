@@ -100,7 +100,7 @@
 	margin-bottom: 5px;
 }
 
-.product-page .bottom-section{
+.product-page .bottom-section {
 	border: 1px solid #b6b6b6;
 	background-color: #e9e9e9;
 	border-radius: 5px;
@@ -108,11 +108,11 @@
 	padding: 1%;
 }
 
-.product-page .questions label{
+.product-page .questions label {
 	font-family: 'Merriweather', sans-serif;
 }
 
-.product-page .questions input[type='text']{
+.product-page .questions input[type='text'] {
 	height: 30px;
 	width: 1500px;
 	border-radius: 5px;
@@ -120,7 +120,7 @@
 	margin-right: 15px;
 }
 
-.product-page .questions input[type='submit']{
+.product-page .questions input[type='submit'] {
 	font-family: 'Merriweather Sans', sans-serif;
 	border-radius: 3px;
 	background-color: #7dd359;
@@ -148,28 +148,28 @@
 	font-family: 'Merriweather Sans', sans-serif;
 }
 
-.product-page .old-questions .first-question{
+.product-page .old-questions .first-question {
 	border: 2px solid black;
 	border-radius: 5px;
-	padding: 0.50%;
+	padding: 0.5%;
 	margin-bottom: 10px;
 }
 
-.product-page .old-questions .second-question{
+.product-page .old-questions .second-question {
 	border: 2px solid black;
 	border-radius: 5px;
-	padding: 0.50%;
+	padding: 0.5%;
 	margin-bottom: 10px;
 }
 
-.product-page .old-questions .first-question label{
+.product-page .old-questions .first-question label {
 	font-weight: bold;
-	border-bottom: 1px  solid black;
+	border-bottom: 1px solid black;
 }
 
-.product-page .old-questions .second-question label{
+.product-page .old-questions .second-question label {
 	font-weight: bold;
-	border-bottom: 1px  solid black;
+	border-bottom: 1px solid black;
 }
 
 .product-page .old-questions .second-question .response {
@@ -177,9 +177,9 @@
 	padding: 0.25%;
 }
 
-.product-page .recomendations-section .product-page-showcase label{
+.product-page .recomendations-section .product-page-showcase label {
 	font-family: 'Lucida Console', 'Courier New', monospace;
-    color: black;
+	color: black;
 	width: 70%;
 	text-transform: uppercase;
 	font-size: 25px;
@@ -190,11 +190,15 @@
 	margin-left: 100px;
 }
 
-.product-page .recomendations-section .product-page-showcase .product-showcase{
+.product-page .recomendations-section .product-page-showcase .product-showcase {
 	height: 245px;
 }
 
-.product-page .recomendations-section .product-page-showcase .product-showcase .product1{
+.product-page
+	.recomendations-section
+	.product-page-showcase
+	.product-showcase
+	.product1 {
 	padding: 0.5%;
 	border: 2px solid #7dd359;
 	margin-bottom: 20px;
@@ -207,17 +211,31 @@
 	left: 230px;
 }
 
-.product-page .recomendations-section .product-page-showcase .product-showcase .product1:hover{
+.product-page
+	.recomendations-section
+	.product-page-showcase
+	.product-showcase
+	.product1:hover {
 	background-color: #b1b1b1;
 	cursor: pointer;
 }
 
-.product-page .recomendations-section .product-page-showcase .product-showcase .product1 img{
+.product-page
+	.recomendations-section
+	.product-page-showcase
+	.product-showcase
+	.product1
+	img {
 	height: 200px;
 	width: 200px;
 }
 
-.product-page .recomendations-section .product-page-showcase .product-showcase .product1 label{
+.product-page
+	.recomendations-section
+	.product-page-showcase
+	.product-showcase
+	.product1
+	label {
 	font-family: 'Merriweather Sans', sans-serif;
 	font-size: medium;
 	position: absolute;
@@ -225,7 +243,12 @@
 	left: 118px;
 }
 
-.product-page .recomendations-section .product-page-showcase .product-showcase .product1 p{
+.product-page
+	.recomendations-section
+	.product-page-showcase
+	.product-showcase
+	.product1
+	p {
 	font-family: 'Merriweather Sans', sans-serif;
 	font-weight: lighter;
 	position: absolute;
@@ -233,7 +256,12 @@
 	left: 220px;
 }
 
-.product-page .recomendations-section .product-page-showcase .product-showcase .product1 button{
+.product-page
+	.recomendations-section
+	.product-page-showcase
+	.product-showcase
+	.product1
+	button {
 	padding: 2%;
 	font-family: 'Merriweather Sans', sans-serif;
 	border-radius: 4px;
@@ -244,12 +272,21 @@
 	left: 350px;
 }
 
-.product-page .recomendations-section .product-page-showcase .product-showcase .product1 button:hover{
+.product-page
+	.recomendations-section
+	.product-page-showcase
+	.product-showcase
+	.product1
+	button:hover {
 	background-color: rgb(35, 216, 133);
 	cursor: pointer;
 }
 
-.product-page .recomendations-section .product-page-showcase .product-showcase .product2{
+.product-page
+	.recomendations-section
+	.product-page-showcase
+	.product-showcase
+	.product2 {
 	padding: 0.5%;
 	border: 2px solid #7dd359;
 	margin-bottom: 20px;
@@ -262,22 +299,41 @@
 	left: 730px;
 }
 
-.product-page .recomendations-section .product-page-showcase .product-showcase .product2 img{
+.product-page
+	.recomendations-section
+	.product-page-showcase
+	.product-showcase
+	.product2
+	img {
 	height: 200px;
 	width: 200px;
 }
 
-.product-page .recomendations-section .product-page-showcase .product-showcase .product2:hover{
+.product-page
+	.recomendations-section
+	.product-page-showcase
+	.product-showcase
+	.product2:hover {
 	background-color: #b1b1b1;
 	cursor: pointer;
 }
 
-.product-page .recomendations-section .product-page-showcase .product-showcase .product2 img{
+.product-page
+	.recomendations-section
+	.product-page-showcase
+	.product-showcase
+	.product2
+	img {
 	height: 200px;
 	width: 200px;
 }
 
-.product-page .recomendations-section .product-page-showcase .product-showcase .product2 label{
+.product-page
+	.recomendations-section
+	.product-page-showcase
+	.product-showcase
+	.product2
+	label {
 	font-family: 'Merriweather Sans', sans-serif;
 	font-size: medium;
 	position: absolute;
@@ -285,7 +341,12 @@
 	left: 118px;
 }
 
-.product-page .recomendations-section .product-page-showcase .product-showcase .product2 p{
+.product-page
+	.recomendations-section
+	.product-page-showcase
+	.product-showcase
+	.product2
+	p {
 	font-family: 'Merriweather Sans', sans-serif;
 	font-weight: lighter;
 	position: absolute;
@@ -293,7 +354,12 @@
 	left: 220px;
 }
 
-.product-page .recomendations-section .product-page-showcase .product-showcase .product2 button{
+.product-page
+	.recomendations-section
+	.product-page-showcase
+	.product-showcase
+	.product2
+	button {
 	padding: 2%;
 	font-family: 'Merriweather Sans', sans-serif;
 	border-radius: 4px;
@@ -304,12 +370,21 @@
 	left: 350px;
 }
 
-.product-page .recomendations-section .product-page-showcase .product-showcase .product2 button:hover{
+.product-page
+	.recomendations-section
+	.product-page-showcase
+	.product-showcase
+	.product2
+	button:hover {
 	background-color: rgb(35, 216, 133);
 	cursor: pointer;
 }
 
-.product-page .recomendations-section .product-page-showcase .product-showcase .product3{
+.product-page
+	.recomendations-section
+	.product-page-showcase
+	.product-showcase
+	.product3 {
 	padding: 0.5%;
 	border: 2px solid #7dd359;
 	margin-bottom: 20px;
@@ -322,22 +397,41 @@
 	left: 1230px;
 }
 
-.product-page .recomendations-section .product-page-showcase .product-showcase .product3 img{
+.product-page
+	.recomendations-section
+	.product-page-showcase
+	.product-showcase
+	.product3
+	img {
 	height: 200px;
 	width: 200px;
 }
 
-.product-page .recomendations-section .product-page-showcase .product-showcase .product3:hover{
+.product-page
+	.recomendations-section
+	.product-page-showcase
+	.product-showcase
+	.product3:hover {
 	background-color: #b1b1b1;
 	cursor: pointer;
 }
 
-.product-page .recomendations-section .product-page-showcase .product-showcase .product3 img{
+.product-page
+	.recomendations-section
+	.product-page-showcase
+	.product-showcase
+	.product3
+	img {
 	height: 200px;
 	width: 200px;
 }
 
-.product-page .recomendations-section .product-page-showcase .product-showcase .product3 label{
+.product-page
+	.recomendations-section
+	.product-page-showcase
+	.product-showcase
+	.product3
+	label {
 	font-family: 'Merriweather Sans', sans-serif;
 	font-size: medium;
 	position: absolute;
@@ -345,7 +439,12 @@
 	left: 118px;
 }
 
-.product-page .recomendations-section .product-page-showcase .product-showcase .product3 p{
+.product-page
+	.recomendations-section
+	.product-page-showcase
+	.product-showcase
+	.product3
+	p {
 	font-family: 'Merriweather Sans', sans-serif;
 	font-weight: lighter;
 	position: absolute;
@@ -353,7 +452,12 @@
 	left: 220px;
 }
 
-.product-page .recomendations-section .product-page-showcase .product-showcase .product3 button{
+.product-page
+	.recomendations-section
+	.product-page-showcase
+	.product-showcase
+	.product3
+	button {
 	padding: 2%;
 	font-family: 'Merriweather Sans', sans-serif;
 	border-radius: 4px;
@@ -364,7 +468,12 @@
 	left: 350px;
 }
 
-.product-page .recomendations-section .product-page-showcase .product-showcase .product3 button:hover{
+.product-page
+	.recomendations-section
+	.product-page-showcase
+	.product-showcase
+	.product3
+	button:hover {
 	background-color: rgb(35, 216, 133);
 	cursor: pointer;
 }

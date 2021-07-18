@@ -115,8 +115,18 @@ const UserLogic = (() => {
 	};
 
 	const socialAuth = async (user) =>{
-		await Firebase.setUserName(user.id, user.name);
-		await Firebase.setUserProfilePicture(user.id, user.photo);
+		const users = await Firebase.getAllUsers()
+		let aux = users.filter((u)=>u.email === user.email)
+		if(aux){
+			return aux.id
+		}else{
+			const userId = await Firebase.createUser();
+			await Firebase.setUserName(userId, user.name);
+			await Firebase.setUserProfilePicture(userId, user.photo);
+			await Firebase.setUserEmail(userId, user.email);
+			await Firebase.setUserCategoryClicks(userId, []);
+			return userId;
+		}
 	}
 
 	return {

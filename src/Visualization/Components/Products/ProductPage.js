@@ -22,11 +22,11 @@ const ProductPage = ({ match }) => {
 
 	useEffect(() => {
 		const load = async () => {
-			const aux = await DoubtLogic.getDoubts()
-			setDoubts(aux)
-		}
-		load()
-	}, [])
+			const aux = await DoubtLogic.getDoubts();
+			setDoubts(aux);
+		};
+		load();
+	}, []);
 
 	const isItemInCartSelector = useSelector((state) =>
 		state.cart.cart.products.some((product) => product.id === productId)
@@ -145,7 +145,9 @@ const ProductPage = ({ match }) => {
 							{sellerInfo.numberOfSales > 0 ? (
 								<div className="seller-rating-area">
 									<label htmlFor="rating">Avaliação média: </label>
-									<span name="rating">{sellerInfo.averageRating.toFixed(1)}</span>
+									<span name="rating">
+										{sellerInfo.averageRating.toFixed(1)}
+									</span>
 								</div>
 							) : null}
 							{sellerInfo.numberOfSales > 0 ? (
@@ -177,7 +179,7 @@ const ProductPage = ({ match }) => {
 						maxLength={1500}
 						value={inputText}
 						onChange={(e) => {
-							setInputText(e.target.value)
+							setInputText(e.target.value);
 						}}
 					></input>
 					<input
@@ -185,12 +187,12 @@ const ProductPage = ({ match }) => {
 						value="Enviar"
 						className="submit-button"
 						onClick={async () => {
-							await DoubtLogic.postDoubt(productId, '23', inputText)
-							const addDoubt = await DoubtLogic.getDoubts()
-							setDoubts(addDoubt)
-							setInputText('')
-						}}>
-					</input>
+							await DoubtLogic.postDoubt(productId, '23', inputText);
+							const addDoubt = await DoubtLogic.getDoubts();
+							setDoubts(addDoubt);
+							setInputText('');
+						}}
+					></input>
 				</div>
 				<div className="old-questions">
 					<div className="title">
@@ -198,11 +200,9 @@ const ProductPage = ({ match }) => {
 					</div>
 					<div>
 						{doubts.map((i) => {
-							if(i.productId === productId){
-								return(
-									<div>{i.question}</div>
-								)
-							}else return <div></div>
+							if (i.productId === productId) {
+								return <div>{i.question}</div>;
+							} else return <div></div>;
 						})}
 					</div>
 					<div className="first-question">
@@ -227,10 +227,7 @@ const ProductPage = ({ match }) => {
 							<img src="https://i.imgur.com/Ni6TMqg.jpg" />
 							<label> Camisa Amugus Aniversário</label>
 							<p>R$ 80.00</p>
-							<button
-								type="vejamais"
-								className="veja-mais-1"
-								onClick="" >
+							<button type="vejamais" className="veja-mais-1" onClick="">
 								Veja Mais +
 							</button>
 						</div>
@@ -238,10 +235,7 @@ const ProductPage = ({ match }) => {
 							<img src="https://i.imgur.com/CFFkuxo.jpg" />
 							<label> Camisa ShAKIRA</label>
 							<p>R$ 120.37</p>
-							<button
-								type="vejamais"
-								className="veja-mais-2"
-								onClick="" >
+							<button type="vejamais" className="veja-mais-2" onClick="">
 								Veja Mais +
 							</button>
 						</div>
@@ -249,10 +243,7 @@ const ProductPage = ({ match }) => {
 							<img src="https://i.imgur.com/0UbfMTv.jpg" />
 							<label> Mochila HarryPotter</label>
 							<p>R$ 500.00</p>
-							<button
-								type="vejamais"
-								className="veja-mais-3"
-								onClick="" >
+							<button type="vejamais" className="veja-mais-3" onClick="">
 								Veja Mais +
 							</button>
 						</div>
