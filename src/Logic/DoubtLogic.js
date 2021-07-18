@@ -1,4 +1,7 @@
 import Firebase from '../Data/Firebase';
+import NotificationLogic from './NotificationLogic';
+import ProductLogic from './ProductLogic';
+import UserLogic from './UserLogic';
 
 const DoubtLogic = (() => {
 	const postDoubt = async (productId, userId, message) => {
@@ -7,11 +10,26 @@ const DoubtLogic = (() => {
 		await Firebase.setDoubtUserId(doubtId, userId);
 		await Firebase.setDoubtQuestion(doubtId, message);
 		await Firebase.setDoubtAnswer(doubtId, '');
+		const product = await ProductLogic.getProductInfo(productId);
+		const user = await UserLogic.getUser(userId);
+		await NotificationLogic.triggerNotification(
+			'doubt',
+			`${user.name} fez uma pergunta na página de ${product.name}`,
+			product.creatorId
+		);
 		return doubtId;
 	};
 
 	const answerDoubt = async (doubtId, message) => {
 		await Firebase.setDoubtAnswer(doubtId, message);
+		const doubt = await Firebase.getDoubt(doubtId);
+		const product = await ProductLogic.getProductInfo(doubt.productId);
+		const owner = await UserLogic.getUser(product.creatorId);
+		await NotificationLogic.triggerNotification(
+			'doubt',
+			`${owner.name} respondeu sua dúvida na página de ${product.name}`,
+			doubt.userId
+		);
 	};
 
 	const updateAnswer = async (doubtId, message) => {

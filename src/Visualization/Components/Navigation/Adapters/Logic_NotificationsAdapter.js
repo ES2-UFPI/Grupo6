@@ -7,9 +7,11 @@ const Logic_NotificationsAdapter = (notificationObject) => {
 				: 'https://i.imgur.com/Np5JaD8.png',
 		message: notificationObject.content,
 		isRead: notificationObject.isRead,
-		time: `${notificationObject.date
-			.toDate()
-			.getHours()}:${notificationObject.date.toDate().getMinutes()}`,
+		time: `${notificationObject.date.toDate().getHours()}:${
+			notificationObject.date.toDate().getMinutes() < 10
+				? '0' + notificationObject.date.toDate().getMinutes()
+				: notificationObject.date.toDate().getMinutes()
+		}`,
 	};
 };
 

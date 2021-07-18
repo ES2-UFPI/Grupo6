@@ -37,11 +37,11 @@ const Header = () => {
 
 	useEffect(() => {
 		dispatch(
-			Reducer.login('5wyZnDBvrdH8YkJlqBSi', {
-				name: 'Vênus',
-				surname: 'Queijo',
+			Reducer.login('LrQkwykN4dPWjm7VkNIB', {
+				name: 'Akiridion',
+				surname: 'Folha',
 				profilePicture:
-					'https://cdn.pixabay.com/photo/2019/05/08/21/21/cat-4189697__480.jpg',
+					'https://cdn.pixabay.com/photo/2014/04/13/20/49/cat-323262__340.jpg',
 			})
 		);
 	}, [dispatch]);

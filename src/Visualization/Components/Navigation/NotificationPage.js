@@ -50,7 +50,9 @@ const NotificationPage = () => {
 									</div>
 									<div className="content">
 										<Link to="/">{notification.message}</Link>
-										<h1>{notification.time}</h1>
+										<span className="notification-time-span">
+											{notification.time}
+										</span>
 									</div>
 								</div>
 							);
