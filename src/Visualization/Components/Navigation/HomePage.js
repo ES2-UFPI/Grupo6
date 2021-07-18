@@ -5,6 +5,7 @@ import Logic_HomePageAdapter from './Adapters/Logic_HomePageAdapter';
 import Logic_ProductPreviewAdapter from './Adapters/Logic_ProductPreviewAdapter';
 import '../Styles/HomePage.css';
 import ProductPreview from './ProductPreview';
+import AdRow from '../Main/AdRow';
 
 const HomePage = () => {
 	const limit = 32;
@@ -34,44 +35,7 @@ const HomePage = () => {
 
 	return (
 		<div className="home-page">
-			<div className="home-page-showcase">
-				<label>Produtos Recomendados para você:</label>
-				<div className="product-showcase">
-					<div className="product1">
-						<img src="https://i.imgur.com/Ni6TMqg.jpg" />
-						<label> Camisa Amugus Aniversário</label>
-						<p>R$ 80.00</p>
-						<button
-							type="vejamais"
-							className="veja-mais-1"
-							onClick="" >
-							Veja Mais +
-						</button>
-					</div>
-					<div className="product2">
-						<img src="https://i.imgur.com/CFFkuxo.jpg" />
-						<label> Camisa ShAKIRA</label>
-						<p>R$ 120.37</p>
-						<button
-							type="vejamais"
-							className="veja-mais-2"
-							onClick="" >
-							Veja Mais +
-						</button>
-					</div>
-					<div className="product3">
-						<img src="https://i.imgur.com/0UbfMTv.jpg" />
-						<label> Mochila HarryPotter</label>
-						<p>R$ 500.00</p>
-						<button
-							type="vejamais"
-							className="veja-mais-3"
-							onClick="" >
-							Veja Mais +
-						</button>
-					</div>
-				</div>
-			</div>
+			<AdRow />
 			{categories.map((category, categoryIndex) => {
 				return (
 					<div className="home-page-category-section" key={categoryIndex}>

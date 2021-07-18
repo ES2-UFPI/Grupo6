@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Message from './Message';
 import PropTypes from 'prop-types';
 import '../Styles/Chat.css';
 
 const Chat = (props) => {
 	const [messageInput, setMessageInput] = useState('');
+
+	useEffect(() => {
+		props.readAllMessages();
+	}, [props]);
 
 	return (
 		<div className="chat">
@@ -56,6 +60,7 @@ Chat.propTypes = {
 	),
 	sendMessage: PropTypes.func,
 	deleteMessage: PropTypes.func,
+	readAllMessages: PropTypes.func,
 };
 
 export default Chat;
