@@ -263,6 +263,13 @@ const MessagesTab = (props) => {
 								newMessage
 							)
 						}
+						readAllMessages={() =>
+							MessageLogic.readMessages(
+								props.loggedInUser,
+								openChat.id,
+								openChat.messages
+							)
+						}
 						deleteMessage={(messageId) => MessageLogic.deleteMessage(messageId)}
 					/>
 				)}

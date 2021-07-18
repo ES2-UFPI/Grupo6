@@ -122,7 +122,16 @@ const Header = () => {
 							.filter((_n, index) => index < 3)
 							.map((notification, index) => {
 								return (
-									<Link to="/notifications" key={index}>
+									<Link
+										to="/notifications"
+										key={index}
+										onClick={(e) => {
+											if (notification.type === 'message') {
+												e.preventDefault();
+												setIsMessagesTabOpen(true);
+											}
+										}}
+									>
 										{notification.content}
 									</Link>
 								);

@@ -22,6 +22,7 @@ const NotificationPage = () => {
 						Logic_NotificationsAdapter
 					)
 				);
+				await NotificationLogic.readAllNotifications(userSelector);
 			}
 		};
 		getNotifications();
