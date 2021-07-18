@@ -67,7 +67,11 @@ const Firebase = (() => {
 	const googleLogin = async () => {
 		const provider = new firebase.auth.GoogleAuthProvider()
 		return await firebase.auth().signInWithPopup(provider)
-	}
+	};
+
+	const googleLogout = async () => {
+		await firebase.auth().signOut()
+	};
 
 	const convertToCamelCase = (...names) => {
 		return (
@@ -207,6 +211,7 @@ const Firebase = (() => {
 		),
 		realTimeDatabase,
 		googleLogin,
+		googleLogout,
 	};
 })();
 

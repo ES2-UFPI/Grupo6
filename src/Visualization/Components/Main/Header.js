@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Reducer from '../../../Reducers/Reducer';
 import SearchBar from './SearchBar';
 import MessagesTab from './MessagesTab';
+import Firebase from '../../../Data/Firebase';
 import '../Styles/Header.css';
 
 const Header = () => {
@@ -134,7 +135,7 @@ const Header = () => {
 						<Link to="/shoppingCart">{`Carrinho (${numberOfItemsInCartSelector})`}</Link>
 						<Link to="/history"> Histórico </Link>
 						<Link to="/product/add"> Cadastrar Produto </Link>
-						<a href="/"> Sair </a>
+						<Link to="/" onClick={async () => await Firebase.googleLogout()}> Sair </Link>
 					</div>
 				</div>
 			</div>
