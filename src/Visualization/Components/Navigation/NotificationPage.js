@@ -18,10 +18,11 @@ const NotificationPage = () => {
 		const getNotifications = async () => {
 			if (userSelector !== null) {
 				setNotifications(
-					Logic_NotificationsAdapter(
-						await NotificationLogic.fetchUserNotifications(userSelector)
+					(await NotificationLogic.fetchUserNotifications(userSelector)).map(
+						Logic_NotificationsAdapter
 					)
 				);
+				await NotificationLogic.readAllNotifications(userSelector);
 			}
 		};
 		getNotifications();
@@ -32,28 +33,34 @@ const NotificationPage = () => {
 			<div className="page-title">
 				<h1>Notificações</h1>
 			</div>
-			<div className="notification-list">
-				{notifications
-					.filter((_notification, index) => {
-						return (
-							index >= (Number.parseInt(page) - 1) * perPage &&
-							index <= Number.parseInt(page) * perPage - 1
-						);
-					})
-					.map((notification, index) => {
-						return (
-							<div className="notification" key={index}>
-								<div className="alert">
-									<img src={notification.image} alt="Brechonline" />
+			{notifications.length > 0 ? (
+				<div className="notification-list">
+					{notifications
+						.filter((_notification, index) => {
+							return (
+								index >= (Number.parseInt(page) - 1) * perPage &&
+								index <= Number.parseInt(page) * perPage - 1
+							);
+						})
+						.map((notification, index) => {
+							return (
+								<div className="notification" key={index}>
+									<div className="alert">
+										<img src={notification.image} alt="Brechonline" />
+									</div>
+									<div className="content">
+										<Link to="/">{notification.message}</Link>
+										<span className="notification-time-span">
+											{notification.time}
+										</span>
+									</div>
 								</div>
-								<div className="content">
-									<Link to="/">{notification.content}</Link>
-									<h1>{notification.time}</h1>
-								</div>
-							</div>
-						);
-					})}
-			</div>
+							);
+						})}
+				</div>
+			) : (
+				<span className="no-notification-span">Não há notificações</span>
+			)}
 			{notifications.length > perPage ? (
 				<PageNavigation
 					{...Component_PageNavigationAdapter({

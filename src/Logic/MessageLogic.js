@@ -1,5 +1,6 @@
 import RealTimeDatabase from '../Data/RealTimeDatabase';
 import NotificationLogic from './NotificationLogic';
+import UserLogic from './UserLogic';
 
 const MessageLogic = (() => {
 	const getMessagesForUser = (userId, callback) => {
@@ -18,10 +19,10 @@ const MessageLogic = (() => {
 		});
 	};
 
-	const sendMessage = (senderId, receiverId, str) => {
+	const sendMessage = async (senderId, receiverId, str) => {
 		NotificationLogic.triggerNotification(
 			'message',
-			`Nova mensagem de ${senderId}`,
+			`Nova mensagem de ${(await UserLogic.getUser(senderId)).name}`,
 			receiverId
 		);
 		return RealTimeDatabase.pushToMessages({
@@ -37,10 +38,22 @@ const MessageLogic = (() => {
 		RealTimeDatabase.deleteFromMessages(messageKey);
 	};
 
+	const readMessages = (senderId, receiverId, messages) => {
+		if (messages.length > 0) {
+			NotificationLogic.deleteAllMessageNotifications(senderId, receiverId);
+			messages.forEach((message) => {
+				RealTimeDatabase.updateMessage(message.id, {
+					isRead: true,
+				});
+			});
+		}
+	};
+
 	return {
 		getMessagesForUser,
 		sendMessage,
 		deleteMessage,
+		readMessages,
 	};
 })();
 

@@ -12,6 +12,7 @@ test('function names being assigned correctly', () => {
 			listenToMessages: expect.any(Function),
 			pushToMessages: expect.any(Function),
 			deleteFromMessages: expect.any(Function),
+			updateMessage: expect.any(Function),
 		})
 	);
 });
