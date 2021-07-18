@@ -28,6 +28,7 @@
 .home-page .home-page-showcase .product-showcase-product {
 	position: relative;
 	display: flex;
+	justify-content: center;
 	flex-direction: row;
 	padding: 0.5%;
 	border: 2px solid #7dd359;
