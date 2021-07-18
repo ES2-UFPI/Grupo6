@@ -48,7 +48,7 @@ body,
 	padding: 5px;
 }
 
-.new-product-page-main-content .pictures-section{
+.new-product-page-main-content .pictures-section {
 	padding: 0.5%;
 	border: 1px solid #7dd359;
 	border-radius: 5px;
@@ -56,7 +56,7 @@ body,
 	background-color: #c5c5c5;
 }
 
-.new-product-page-main-content .pictures-previews-section{
+.new-product-page-main-content .pictures-previews-section {
 	margin-bottom: 10px;
 }
 
@@ -93,7 +93,6 @@ body,
 	height: 100px;
 	width: 350px;
 }
-
 
 .new-product-page-main-content .price-section {
 	border-radius: 5px;
@@ -160,7 +159,6 @@ body,
 	display: flex;
 	flex-direction: row;
 	margin-top: 30px;
-	
 }
 
 .new-product-page-main-content .tags-section .tags-editor {

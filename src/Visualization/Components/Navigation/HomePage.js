@@ -1,9 +1,11 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React, { useState, useEffect, useMemo } from 'react';
 import ProductLogic from '../../../Logic/ProductLogic';
 import Logic_HomePageAdapter from './Adapters/Logic_HomePageAdapter';
 import Logic_ProductPreviewAdapter from './Adapters/Logic_ProductPreviewAdapter';
 import '../Styles/HomePage.css';
 import ProductPreview from './ProductPreview';
+import AdRow from '../Main/AdRow';
 
 const HomePage = () => {
 	const limit = 32;
@@ -33,6 +35,7 @@ const HomePage = () => {
 
 	return (
 		<div className="home-page">
+			<AdRow />
 			{categories.map((category, categoryIndex) => {
 				return (
 					<div className="home-page-category-section" key={categoryIndex}>

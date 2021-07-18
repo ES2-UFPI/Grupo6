@@ -52,7 +52,8 @@ const TransactionItem = (props) => {
 								<button
 									type="message-user"
 									className="message-user-button"
-									onClick="" >
+									onClick=""
+								>
 									Conversar com Vendedor
 								</button>
 							</div>
@@ -60,19 +61,21 @@ const TransactionItem = (props) => {
 								<button
 									type="cancel-order"
 									className="cancel-order-button"
-									onClick="" >
+									onClick=""
+								>
 									Cancelar Pedido
 								</button>
 							</div>
 						</div>
 					) : null}
-					{props.status ==='Em andamento' && props.isBuyer ? (
+					{props.status === 'Em andamento' && props.isBuyer ? (
 						<div className="buttons">
 							<div className="message-button">
 								<button
 									type="message-user"
 									className="message-user-button"
-									onClick="" >
+									onClick=""
+								>
 									Conversar com Vendedor
 								</button>
 							</div>

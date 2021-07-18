@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import CouponsLogic from '../../../Logic/CouponsLogic';
@@ -5,6 +6,8 @@ import ProductLogic from '../../../Logic/ProductLogic';
 import UserLogic from '../../../Logic/UserLogic';
 import Reducer from '../../../Reducers/Reducer';
 import '../Styles/ProductPage.css';
+import AdRow from '../Main/AdRow';
+import QandA from './QandA';
 
 const ProductPage = ({ match }) => {
 	const {
@@ -133,7 +136,9 @@ const ProductPage = ({ match }) => {
 							{sellerInfo.numberOfSales > 0 ? (
 								<div className="seller-rating-area">
 									<label htmlFor="rating">Avaliação média: </label>
-									<span name="rating">{sellerInfo.averageRating.toFixed(1)}</span>
+									<span name="rating">
+										{sellerInfo.averageRating.toFixed(1)}
+									</span>
 								</div>
 							) : null}
 							{sellerInfo.numberOfSales > 0 ? (
@@ -158,36 +163,9 @@ const ProductPage = ({ match }) => {
 				</div>
 			</div>
 			<div className="bottom-section">
-				<div className="questions">
-					<label htmlFor="question-title">Campo de dúvidas:</label>
-					<input
-						type="text"
-						maxLength={1500}
-					></input>
-					<input
-						type="submit"
-						value="Enviar"
-						className="submit-button">
-					</input>
-				</div>
-				<div className="old-questions">
-					<div className="title">
-						<label>Perguntas Realizadas:</label>
-					</div>
-					<div className="first-question">
-						<label htmlFor="user-question1"> Usuário 1 preguntou:</label>
-						<p>- Isso faz isso ?</p>
-					</div>
-					<div className="second-question">
-						<label htmlFor="user-question2"> Usuário 2 preguntou:</label>
-						<p>- Esse troço tá funcionando ?</p>
-						<div className="response">
-							<label> Resposta do vendedor:</label>
-							<p>- Sim !!</p>
-						</div>
-					</div>
-				</div>
+				<QandA productId={productId} loggedInUser={userSelector} />
 			</div>
+			<AdRow />
 		</div>
 	) : null;
 };

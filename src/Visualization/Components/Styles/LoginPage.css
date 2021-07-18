@@ -1,15 +1,86 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Merriweather+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap');
 
-.main {
+.main-login {
 	min-height: 70vh;
-	margin-left: 150px;
-	margin-right: 150px;
+	padding: 0 150px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
 }
 
-.main .title-page label{
+.main-login .title-login label {
 	font-family: 'Lucida Console', 'Courier New', monospace;
-    color: black;
-	width: 70%;
+	color: black;
 	text-transform: uppercase;
-	border: 1px solid green;
+	font-weight: bold;
+	word-spacing: -15px;
+	font-size: 50px;
+	margin-right: 15px;
+}
+
+.main-login .title-login {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	margin-top: 50px;
+}
+
+.main-login .subtitle-login,
+.main-login .description-login,
+.main-login .register-login,
+.main-login .buttons-login {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+}
+
+.main-login .subtitle-login label {
+	font-family: 'Garamond', 'Helvetica', monospace;
+	color: black;
+	font-weight: bold;
+	font-size: 25px;
+	border-bottom: 1px solid black;
+}
+
+.main-login .description-login {
+	margin-top: 25px;
+}
+
+.main-login .description-login label {
+	font-family: 'Lucida Console', 'Courier New', monospace;
+	color: black;
+	font-weight: lighter;
+	font-size: 25px;
+}
+
+.main-login .description-login .g-btt {
+	width: 250px;
+	height: 35px;
+	background-image: url('https://i.imgur.com/4294vBC.png');
+	background-position: left;
+	background-position-x: 5px;
+	background-size: 15px 15px;
+	background-repeat: no-repeat;
+	font-family: 'Merriweather Sans', sans-serif;
+	border-radius: 3px;
+	background-color: #f65314;
+	color: white;
+	border: 1px solid transparent;
+	cursor: pointer;
+	margin-left: 20px;
+}
+
+.main-login .description-login .g-btt:hover {
+	background-color: #f87a48;
+}
+
+.main-login .register-login a {
+	font-family: 'Lucida Console', 'Courier New', monospace;
+	color: black;
+	font-weight: lighter;
+	font-size: 13px;
+	word-spacing: -3px;
+	cursor: pointer;
+	margin-top: 10px;
 }

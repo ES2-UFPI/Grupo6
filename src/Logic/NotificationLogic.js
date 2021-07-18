@@ -13,16 +13,39 @@ const NotificationLogic = (() => {
 
 	const triggerNotification = async (type, message, userId) => {
 		const notificationId = await Firebase.createNotification();
+		await Firebase.setNotificationDate(notificationId, new Date());
 		await Firebase.setNotificationType(notificationId, type);
 		await Firebase.setNotificationContent(notificationId, message);
 		await Firebase.setNotificationUserId(notificationId, userId);
 		await Firebase.setNotificationIsRead(notificationId, false);
 	};
 
+	const readAllNotifications = async (userId) => {
+		await Promise.all(
+			(
+				await fetchUserNotifications(userId)
+			).map(async (notification) => {
+				await setNotificationAsRead(notification.id);
+			})
+		);
+	};
+
+	const deleteAllMessageNotifications = async (senderId, receiverId) => {
+		const messageNotifications = (
+			await fetchUserNotifications(receiverId)
+		).filter((notification) => notification.senderId === senderId);
+		await Promise.all(
+			messageNotifications.map(async (notification) => {
+				await Firebase.deleteNotification(notification.id);
+			})
+		);
+	};
+
 	return {
 		fetchUserNotifications,
-		setNotificationAsRead,
+		readAllNotifications,
 		triggerNotification,
+		deleteAllMessageNotifications,
 	};
 })();
 
