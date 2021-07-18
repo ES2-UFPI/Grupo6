@@ -227,10 +227,7 @@ const ProductPage = ({ match }) => {
 							<img src="https://i.imgur.com/Ni6TMqg.jpg" />
 							<label> Camisa Amugus Aniversário</label>
 							<p>R$ 80.00</p>
-							<button
-								type="vejamais"
-								className="veja-mais-1"
-								onClick="" >
+							<button type="vejamais" className="veja-mais-1" onClick="">
 								Veja Mais +
 							</button>
 						</div>
@@ -238,10 +235,7 @@ const ProductPage = ({ match }) => {
 							<img src="https://i.imgur.com/CFFkuxo.jpg" />
 							<label> Camisa ShAKIRA</label>
 							<p>R$ 120.37</p>
-							<button
-								type="vejamais"
-								className="veja-mais-2"
-								onClick="" >
+							<button type="vejamais" className="veja-mais-2" onClick="">
 								Veja Mais +
 							</button>
 						</div>
@@ -249,10 +243,7 @@ const ProductPage = ({ match }) => {
 							<img src="https://i.imgur.com/0UbfMTv.jpg" />
 							<label> Mochila HarryPotter</label>
 							<p>R$ 500.00</p>
-							<button
-								type="vejamais"
-								className="veja-mais-3"
-								onClick="" >
+							<button type="vejamais" className="veja-mais-3" onClick="">
 								Veja Mais +
 							</button>
 						</div>
