@@ -1,6 +1,7 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/database';
+import 'firebase/firebase-auth';
 
 const Firebase = (() => {
 	const firebaseConfig = {
@@ -65,8 +66,8 @@ const Firebase = (() => {
 	};
 
 	const googleLogin = async () => {
-		const provider = new firebase.auth.GoogleAuthProvider()
-		return await firebase.auth().signInWithPopup(provider)
+		const provider = new firebase.auth.GoogleAuthProvider();
+		return await firebase.auth().signInWithPopup(provider);
 	};
 
 	const googleLogout = async () => {
