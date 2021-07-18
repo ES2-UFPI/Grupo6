@@ -57,6 +57,10 @@ const Header = () => {
 		getNotifications();
 	}, [userSelector]);
 
+	const unreadNotificationsNumber = notifications.filter(
+		(notification) => !notification.isRead
+	).length;
+
 	const mainContent = (
 		<div className="header">
 			<Link to="/" className="logo">
@@ -95,12 +99,17 @@ const Header = () => {
 			<SearchBar />
 			<div className="header-tabs">
 				<div className="notification">
-					<div className="icon">
-						<div className="notifications-number-container">
-							<span className="notifications-number-span">
-								{notifications.length}
-							</span>
-						</div>
+					<div
+						className="icon"
+						onClick={() => NotificationLogic.readAllNotifications(userSelector)}
+					>
+						{unreadNotificationsNumber > 0 ? (
+							<div className="notifications-number-container">
+								<span className="notifications-number-span">
+									{unreadNotificationsNumber}
+								</span>
+							</div>
+						) : null}
 						<Link to="/notifications">
 							<img
 								src="https://i.imgur.com/pAPOaav.png"

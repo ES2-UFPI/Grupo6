@@ -19,9 +19,19 @@ const NotificationLogic = (() => {
 		await Firebase.setNotificationIsRead(notificationId, false);
 	};
 
+	const readAllNotifications = async (userId) => {
+		await Promise.all(
+			(
+				await fetchUserNotifications(userId)
+			).map(async (notification) => {
+				await setNotificationAsRead(notification.id);
+			})
+		);
+	};
+
 	return {
 		fetchUserNotifications,
-		setNotificationAsRead,
+		readAllNotifications,
 		triggerNotification,
 	};
 })();
