@@ -1,4 +1,5 @@
 import RealTimeDatabase from '../Data/RealTimeDatabase';
+import NotificationLogic from './NotificationLogic';
 
 const MessageLogic = (() => {
 	const getMessagesForUser = (userId, callback) => {
@@ -18,6 +19,11 @@ const MessageLogic = (() => {
 	};
 
 	const sendMessage = (senderId, receiverId, str) => {
+		NotificationLogic.triggerNotification(
+			'message',
+			`Nova mensagem de ${senderId}`,
+			receiverId
+		);
 		return RealTimeDatabase.pushToMessages({
 			sender: senderId,
 			receiver: receiverId,
