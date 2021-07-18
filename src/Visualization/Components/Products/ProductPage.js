@@ -21,11 +21,11 @@ const ProductPage = ({ match }) => {
 
 	useEffect(() => {
 		const load = async () => {
-			const aux = await DoubtLogic.getDoubts()
-			setDoubts(aux)
-		}
-		load()
-	}, [])
+			const aux = await DoubtLogic.getDoubts();
+			setDoubts(aux);
+		};
+		load();
+	}, []);
 
 	const isItemInCartSelector = useSelector((state) =>
 		state.cart.cart.products.some((product) => product.id === productId)
@@ -178,7 +178,7 @@ const ProductPage = ({ match }) => {
 						maxLength={1500}
 						value={inputText}
 						onChange={(e) => {
-							setInputText(e.target.value)
+							setInputText(e.target.value);
 						}}
 					></input>
 					<input
@@ -186,12 +186,12 @@ const ProductPage = ({ match }) => {
 						value="Enviar"
 						className="submit-button"
 						onClick={async () => {
-							await DoubtLogic.postDoubt(productId, '23', inputText)
-							const addDoubt = await DoubtLogic.getDoubts()
-							setDoubts(addDoubt)
-							setInputText('')
-						}}>
-					</input>
+							await DoubtLogic.postDoubt(productId, '23', inputText);
+							const addDoubt = await DoubtLogic.getDoubts();
+							setDoubts(addDoubt);
+							setInputText('');
+						}}
+					></input>
 				</div>
 				<div className="old-questions">
 					<div className="title">
@@ -199,11 +199,9 @@ const ProductPage = ({ match }) => {
 					</div>
 					<div>
 						{doubts.map((i) => {
-							if(i.productId === productId){
-								return(
-									<div>{i.question}</div>
-								)
-							}else return <div></div>
+							if (i.productId === productId) {
+								return <div>{i.question}</div>;
+							} else return <div></div>;
 						})}
 					</div>
 					<div className="first-question">

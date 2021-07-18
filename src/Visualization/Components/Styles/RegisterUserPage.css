@@ -6,14 +6,14 @@
 	margin-right: 150px;
 }
 
-.main .form{
+.main .form {
 	border: 2px solid #7dd359;
 	border-radius: 5px;
 	padding: 1%;
 	margin-bottom: 15px;
 }
 
-.main .page-title label{
+.main .page-title label {
 	position: absolute;
 	font-family: 'Lucida Console', 'Courier New', monospace;
 	color: black;
@@ -32,7 +32,7 @@
 	background-color: #c5c5c5;
 }
 
-.main .form .name-section input[type='text']{
+.main .form .name-section input[type='text'] {
 	width: 350px;
 	margin-left: 25px;
 }
@@ -48,7 +48,7 @@
 	background-color: #c5c5c5;
 }
 
-.main .form .profile-picture-section input[type='file']{
+.main .form .profile-picture-section input[type='file'] {
 	width: 350px;
 	margin-left: 40px;
 }
@@ -64,7 +64,7 @@
 	background-color: #c5c5c5;
 }
 
-.main .form .cpf-section input[type='text']{
+.main .form .cpf-section input[type='text'] {
 	width: 150px;
 	margin-left: 120px;
 }
@@ -80,21 +80,21 @@
 	background-color: #c5c5c5;
 }
 
-.main .form .adress-section .rua input[type='text']{
+.main .form .adress-section .rua input[type='text'] {
 	margin-top: 5px;
 	margin-bottom: 5px;
 	width: 550px;
 	margin-left: 102px;
 }
 
-.main .form .adress-section .numero input[type='text']{
+.main .form .adress-section .numero input[type='text'] {
 	margin-top: 5px;
 	margin-bottom: 5px;
 	width: 70px;
 	margin-left: 73px;
 }
 
-.main .form .adress-section .complemento input[type='text']{
+.main .form .adress-section .complemento input[type='text'] {
 	margin-top: 5px;
 	margin-bottom: 5px;
 	width: 550px;
@@ -102,21 +102,21 @@
 	margin-left: 40px;
 }
 
-.main .form .adress-section .cep input[type='text']{
+.main .form .adress-section .cep input[type='text'] {
 	margin-top: 5px;
 	margin-bottom: 5px;
 	width: 100px;
 	margin-left: 102px;
 }
 
-.main .form .adress-section .cidade input[type='text']{
+.main .form .adress-section .cidade input[type='text'] {
 	margin-top: 5px;
 	margin-bottom: 5px;
 	width: 150px;
 	margin-left: 73px;
 }
 
-.main .form .adress-section .estado select{
+.main .form .adress-section .estado select {
 	margin-top: 5px;
 	margin-bottom: 5px;
 	width: 160px;
@@ -135,14 +135,14 @@
 	height: 55px;
 }
 
-.main .form .login-section .login-buttons button[type='google']{
+.main .form .login-section .login-buttons button[type='google'] {
 	position: absolute;
 	top: 640px;
 	left: 360px;
 	padding: 0.25%;
 	font-family: 'Merriweather Sans', sans-serif;
 	border-radius: 3px;
-	background-color: #F65314;
+	background-color: #f65314;
 	color: white;
 	border: 1px solid transparent;
 	cursor: pointer;
@@ -151,11 +151,11 @@
 	margin-top: 25px;
 }
 
-.main .form .login-section .login-buttons button[type='google']:hover{
+.main .form .login-section .login-buttons button[type='google']:hover {
 	background-color: #f87a48;
 }
 
-.main .form .login-section .login-buttons .google-button img{
+.main .form .login-section .login-buttons .google-button img {
 	position: absolute;
 	top: 675px;
 	left: 372px;
@@ -163,7 +163,7 @@
 	width: 23px;
 }
 
-.main .form  input[type='submit'] {
+.main .form input[type='submit'] {
 	cursor: pointer;
 	font-family: 'Merriweather Sans', sans-serif;
 	padding: 8px;
@@ -176,6 +176,6 @@
 	width: 1568px;
 }
 
-.main .form  input[type='submit']:hover {
+.main .form input[type='submit']:hover {
 	background-color: rgb(35, 216, 133);
 }

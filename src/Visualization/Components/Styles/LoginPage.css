@@ -6,9 +6,9 @@
 	margin-right: 150px;
 }
 
-.main-login .title-login label{
+.main-login .title-login label {
 	font-family: 'Lucida Console', 'Courier New', monospace;
-    color: black;
+	color: black;
 	text-transform: uppercase;
 	font-weight: bold;
 	word-spacing: -15px;
@@ -18,9 +18,9 @@
 	left: 525px;
 }
 
-.main-login .subtitle-login label{
+.main-login .subtitle-login label {
 	font-family: 'Garamond', 'Helvetica', monospace;
-    color: black;
+	color: black;
 	font-weight: bold;
 	font-size: 25px;
 	border-bottom: 1px solid black;
@@ -29,9 +29,9 @@
 	left: 1010px;
 }
 
-.main-login .description-login label{
+.main-login .description-login label {
 	font-family: 'Lucida Console', 'Courier New', monospace;
-    color: black;
+	color: black;
 	font-weight: lighter;
 	font-size: 25px;
 	position: absolute;
@@ -39,9 +39,9 @@
 	left: 810px;
 }
 
-.main-login .register-login a{
+.main-login .register-login a {
 	font-family: 'Lucida Console', 'Courier New', monospace;
-    color: black;
+	color: black;
 	font-weight: lighter;
 	font-size: 13px;
 	word-spacing: -3px;
@@ -51,27 +51,26 @@
 	left: 1131px;
 }
 
-.main-login .images-login .back-img{
+.main-login .images-login .back-img {
 	position: absolute;
 	top: 400px;
 	left: 231px;
 }
 
-.main-login .images-login .logo-img{
+.main-login .images-login .logo-img {
 	position: absolute;
 	top: 159px;
 	left: 887px;
 }
 
-
-.main-login .buttons-login button[type='google']{
+.main-login .buttons-login button[type='google'] {
 	position: absolute;
 	top: 295px;
 	left: 1125px;
 	padding: 0.25%;
 	font-family: 'Merriweather Sans', sans-serif;
 	border-radius: 3px;
-	background-color: #F65314;
+	background-color: #f65314;
 	color: white;
 	border: 1px solid transparent;
 	cursor: pointer;
@@ -80,11 +79,11 @@
 	margin-top: 25px;
 }
 
-.main-login .buttons-login button[type='google']:hover{
+.main-login .buttons-login button[type='google']:hover {
 	background-color: #f87a48;
 }
 
-.main-login .buttons-login .google-button img{
+.main-login .buttons-login .google-button img {
 	position: absolute;
 	top: 330px;
 	left: 1136px;
