@@ -59,7 +59,7 @@
 	font-weight: lighter;
 }
 
-.ad-row .product-showcase-product button {
+.ad-row .product-showcase-product .veja-mais-link {
 	position: absolute;
 	padding: 2%;
 	font-family: 'Merriweather Sans', sans-serif;
@@ -71,7 +71,7 @@
 	bottom: 2%;
 }
 
-.ad-row .product-showcase-product button:hover {
+.ad-row .product-showcase-product .veja-mais-link:hover {
 	background-color: rgb(35, 216, 133);
 	cursor: pointer;
 }
