@@ -46,31 +46,19 @@
 	font-family: 'Merriweather Sans', sans-serif;
 }
 
-.q-and-a .old-questions .first-question {
+.q-and-a .old-questions .question {
 	border: 2px solid black;
 	border-radius: 5px;
 	padding: 0.5%;
 	margin-bottom: 10px;
 }
 
-.q-and-a .old-questions .second-question {
-	border: 2px solid black;
-	border-radius: 5px;
-	padding: 0.5%;
-	margin-bottom: 10px;
-}
-
-.q-and-a .old-questions .first-question label {
+.q-and-a .old-questions .question label {
 	font-weight: bold;
 	border-bottom: 1px solid black;
 }
 
-.q-and-a .old-questions .second-question label {
-	font-weight: bold;
-	border-bottom: 1px solid black;
-}
-
-.q-and-a .old-questions .second-question .response {
+.q-and-a .old-questions .question .response {
 	border: 2px solid rgb(8, 137, 241);
 	padding: 0.25%;
 }

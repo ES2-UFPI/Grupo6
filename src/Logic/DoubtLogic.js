@@ -37,7 +37,20 @@ const DoubtLogic = (() => {
 	};
 
 	const getDoubts = async () => {
-		return await Firebase.getAllDoubts();
+		const rawDoubts = await Firebase.getAllDoubts();
+		return await Promise.all(
+			rawDoubts.map(async (doubt) => {
+				const user = await UserLogic.getUser(doubt.userId);
+				return {
+					...doubt,
+					userName: user.name,
+				};
+			})
+		);
+	};
+
+	const getDoubtsForProduct = async (productId) => {
+		return (await getDoubts()).filter((doubt) => doubt.productId === productId);
 	};
 
 	const getDoubt = async (doubtId) => {
@@ -56,7 +69,7 @@ const DoubtLogic = (() => {
 		postDoubt,
 		answerDoubt,
 		updateAnswer,
-		getDoubts,
+		getDoubtsForProduct,
 		deleteDoubt,
 		getDoubt,
 		deleteAll,
