@@ -1,8 +1,6 @@
 /**
  * @jest-environment node
  */
-
-import DoubtLogic from '../../Logic/DoubtLogic';
 import Firebase from '../Firebase';
 
 test('product set function names being assigned correctly', () => {
