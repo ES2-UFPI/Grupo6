@@ -100,7 +100,7 @@ const SearchBar = () => {
 									className="result-preview"
 									to={`/product/${result.id}`}
 									key={index}
-									onClick={() => addCategory(userSelector, result.category)}
+									onClick={() => addCategory(result.category)}
 								>
 									<img
 										src={
