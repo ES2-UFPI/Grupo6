@@ -92,7 +92,7 @@ const Header = () => {
 						<Link to="/product/category/esportivo">ESPORTIVO</Link>
 					</li>
 					<li>
-						<Link to="/product/category/esportivo">JOGOS</Link>
+						<Link to="/product/category/jogos">JOGOS</Link>
 					</li>
 				</ul>
 			</div>
