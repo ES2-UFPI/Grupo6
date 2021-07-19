@@ -65,14 +65,14 @@ const Firebase = (() => {
 	};
 
 	const googleLogin = async () => {
-		const provider = new firebase.auth.GoogleAuthProvider()
-		return await firebase.auth().signInWithPopup(provider)
-	}
+		const provider = new firebase.auth.GoogleAuthProvider();
+		return await firebase.auth().signInWithPopup(provider);
+	};
 
 	const fbLogin = async () => {
-		const provider = new firebase.auth.FacebookAuthProvider()
-		return await firebase.auth().signInWithPopup(provider)
-	}
+		const provider = new firebase.auth.FacebookAuthProvider();
+		return await firebase.auth().signInWithPopup(provider);
+	};
 
 	/*const funcaoBotaoLogar = async () => {
 		let resultUser = await Firebase.googleLogin()

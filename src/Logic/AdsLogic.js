@@ -13,7 +13,7 @@ const AdsLogic = (() => {
 		).reduce((previous, current) => previous.concat(current), []);
 		return Array(numberOfAds)
 			.fill(0)
-			.map((_v) => products[Math.ceil(Math.random() * products.length)])
+			.map((_v) => products[Math.ceil(Math.random() * (products.length - 1))])
 			.reduce(
 				(previous, current) =>
 					previous.includes(current) ? previous : previous.concat([current]),
@@ -35,7 +35,7 @@ const AdsLogic = (() => {
 		const products = await ProductLogic.getProducts('');
 		return Array(numberOfAds)
 			.fill(0)
-			.map((_v) => products[Math.ceil(Math.random() * products.length)])
+			.map((_v) => products[Math.ceil(Math.random() * (products.length - 1))])
 			.reduce(
 				(previous, current) =>
 					previous.includes(current) ? previous : previous.concat([current]),

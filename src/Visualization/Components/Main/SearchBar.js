@@ -13,7 +13,7 @@ const SearchBar = () => {
 	const [results, setResults] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
 
-	const userSelector = useSelector((state) => state.user.id);
+	const userSelector = useSelector((state) => state.user.userId);
 
 	/*
     results: [{
@@ -61,8 +61,8 @@ const SearchBar = () => {
 		};
 	}, []);
 
-	async function addCategory(category){
-		await UserLogic.addCategory(userSelector, category)
+	async function addCategory(category) {
+		await UserLogic.addCategory(userSelector, category);
 	}
 
 	return (
@@ -100,7 +100,7 @@ const SearchBar = () => {
 									className="result-preview"
 									to={`/product/${result.id}`}
 									key={index}
-									onClick={addCategory(result.category)}
+									onClick={() => addCategory(userSelector, result.category)}
 								>
 									<img
 										src={

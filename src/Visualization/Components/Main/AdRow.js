@@ -7,7 +7,7 @@ import Product_AdAdapter from './Adapters/Product_AdAdapter';
 
 const AdRow = () => {
 	const [ads, setAds] = useState([]);
-	const userSelector = useSelector((state) => state.user.id);
+	const userSelector = useSelector((state) => state.user.userId);
 
 	useEffect(() => {
 		const generateAds = async () => {

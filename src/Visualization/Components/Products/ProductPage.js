@@ -22,7 +22,7 @@ const ProductPage = ({ match }) => {
 	const isItemInCartSelector = useSelector((state) =>
 		state.cart.cart.products.some((product) => product.id === productId)
 	);
-	const userSelector = useSelector((state) => state.user.id);
+	const userSelector = useSelector((state) => state.user.userId);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
