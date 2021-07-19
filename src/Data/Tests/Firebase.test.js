@@ -2,6 +2,7 @@
  * @jest-environment node
  */
 
+import DoubtLogic from '../../Logic/DoubtLogic';
 import Firebase from '../Firebase';
 
 test('product set function names being assigned correctly', () => {
@@ -98,6 +99,7 @@ test('product functions working as intended', (done) => {
 			done(error);
 		}
 	};
+
 
 	const createProduct = async () => {
 		const productId = await Firebase.createProduct();
