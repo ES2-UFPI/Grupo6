@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Merriweather+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap');
+
+.main {
+	min-height: 70vh;
+	margin-left: 150px;
+	margin-right: 150px;
+}
+
+.main .form {
+	border: 2px solid #7dd359;
+	border-radius: 5px;
+	padding: 1%;
+	margin-bottom: 15px;
+}
+
+.main .page-title label {
+	font-family: 'Lucida Console', 'Courier New', monospace;
+	color: black;
+	width: 70%;
+	text-transform: uppercase;
+}
+
+.main .form .name-section {
+	font-family: 'Lucida Console', 'Courier New', monospace;
+	font-weight: bold;
+	word-spacing: -2px;
+	padding: 0.5%;
+	border: 2px solid #7dd359;
+	margin-bottom: 20px;
+	border-radius: 5px;
+	background-color: #c5c5c5;
+}
+
+.main .form .name-section input[type='text'] {
+	width: 350px;
+	margin-left: 25px;
+}
+
+.main .form .profile-picture-section {
+	font-family: 'Lucida Console', 'Courier New', monospace;
+	font-weight: bold;
+	word-spacing: -2px;
+	padding: 0.5%;
+	border: 2px solid #7dd359;
+	margin-bottom: 20px;
+	border-radius: 5px;
+	background-color: #c5c5c5;
+}
+
+.main .form .profile-picture-section input[type='file'] {
+	width: 350px;
+	margin-left: 40px;
+}
+
+.main .form .cpf-section {
+	font-family: 'Lucida Console', 'Courier New', monospace;
+	font-weight: bold;
+	word-spacing: -2px;
+	padding: 0.5%;
+	border: 2px solid #7dd359;
+	margin-bottom: 20px;
+	border-radius: 5px;
+	background-color: #c5c5c5;
+}
+
+.main .form .cpf-section input[type='text'] {
+	width: 150px;
+	margin-left: 120px;
+}
+
+.main .form .adress-section {
+	font-family: 'Lucida Console', 'Courier New', monospace;
+	font-weight: bold;
+	word-spacing: -2px;
+	padding: 0.5%;
+	border: 2px solid #7dd359;
+	margin-bottom: 20px;
+	border-radius: 5px;
+	background-color: #c5c5c5;
+}
+
+.main .form .adress-section .rua input[type='text'] {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	width: 550px;
+	margin-left: 102px;
+}
+
+.main .form .adress-section .numero input[type='text'] {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	width: 70px;
+	margin-left: 73px;
+}
+
+.main .form .adress-section .complemento input[type='text'] {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	width: 550px;
+	height: 50px;
+	margin-left: 40px;
+}
+
+.main .form .adress-section .cep input[type='text'] {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	width: 100px;
+	margin-left: 102px;
+}
+
+.main .form .adress-section .cidade input[type='text'] {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	width: 150px;
+	margin-left: 73px;
+}
+
+.main .form .adress-section .estado select {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	width: 160px;
+	margin-left: 73px;
+}
+
+.main .form .login-section {
+	font-family: 'Lucida Console', 'Courier New', monospace;
+	font-weight: bold;
+	word-spacing: -2px;
+	padding: 0.5%;
+	border: 2px solid #7dd359;
+	margin-bottom: 20px;
+	border-radius: 5px;
+	background-color: #c5c5c5;
+	height: 55px;
+}
+
+.main .form .login-section .login-buttons button[type='google'] {
+	width: 250px;
+	height: 35px;
+	background-image: url('https://i.imgur.com/4294vBC.png');
+	background-position: left;
+	background-position-x: 5px;
+	background-size: 15px 15px;
+	background-repeat: no-repeat;
+	font-family: 'Merriweather Sans', sans-serif;
+	border-radius: 3px;
+	background-color: #f65314;
+	color: white;
+	border: 1px solid transparent;
+	cursor: pointer;
+	margin-left: 20px;
+}
+
+.main .form .login-section .login-buttons button[type='google']:hover {
+	background-color: #f87a48;
+}
+
+.main .form input[type='submit'] {
+	cursor: pointer;
+	font-family: 'Merriweather Sans', sans-serif;
+	padding: 8px;
+	border-radius: 3px;
+	background-color: #7dd359;
+	border: 1px solid transparent;
+	font-size: 25px;
+	font-weight: bold;
+	text-transform: uppercase;
+	width: 100%;
+}
+
+.main .form input[type='submit']:hover {
+	background-color: rgb(35, 216, 133);
+}
+
+.main .login-section {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}

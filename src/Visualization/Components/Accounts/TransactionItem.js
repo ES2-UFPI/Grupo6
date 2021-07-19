@@ -46,6 +46,41 @@ const TransactionItem = (props) => {
 							update={props.update}
 						/>
 					) : null}
+					{props.status === 'Pendente' && props.isBuyer ? (
+						<div className="buttons">
+							<div className="message-button">
+								<button
+									type="message-user"
+									className="message-user-button"
+									onClick=""
+								>
+									Conversar com Vendedor
+								</button>
+							</div>
+							<div className="cancel-button">
+								<button
+									type="cancel-order"
+									className="cancel-order-button"
+									onClick=""
+								>
+									Cancelar Pedido
+								</button>
+							</div>
+						</div>
+					) : null}
+					{props.status === 'Em andamento' && props.isBuyer ? (
+						<div className="buttons">
+							<div className="message-button">
+								<button
+									type="message-user"
+									className="message-user-button"
+									onClick=""
+								>
+									Conversar com Vendedor
+								</button>
+							</div>
+						</div>
+					) : null}
 				</div>
 			</div>
 		</div>

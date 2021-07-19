@@ -1,7 +1,6 @@
 /**
  * @jest-environment node
  */
-
 import Firebase from '../Firebase';
 
 test('product set function names being assigned correctly', () => {

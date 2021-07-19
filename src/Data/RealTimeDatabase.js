@@ -26,7 +26,7 @@ const RealTimeDatabase = (() => {
 	};
 
 	const generateUpdateMethodName = (field) => {
-		return convertToCamelCase('update', field.slice(field.length - 1));
+		return convertToCamelCase('update', field.slice(0, field.length - 1));
 	};
 
 	const generateDeleteMethodName = (field) => {
@@ -65,7 +65,7 @@ const RealTimeDatabase = (() => {
 	const generateUpdateMethod = (field) => {
 		return (itemId, newValue) => {
 			const reference = database.ref(field + '/' + itemId);
-			reference.set(newValue);
+			reference.update(newValue);
 		};
 	};
 

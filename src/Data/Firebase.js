@@ -57,10 +57,38 @@ const Firebase = (() => {
 			'buyerId',
 		],
 
-		notifications: ['type', 'content', 'isRead', 'userId'],
+		notifications: ['type', 'content', 'isRead', 'userId', 'date'],
 
 		coupons: ['productId', 'userId', 'reduction'],
+
+		doubts: ['productId', 'userId', 'question', 'answer'],
 	};
+
+	const googleLogin = async () => {
+		const provider = new firebase.auth.GoogleAuthProvider();
+		return await firebase.auth().signInWithPopup(provider);
+	};
+
+	const fbLogin = async () => {
+		const provider = new firebase.auth.FacebookAuthProvider();
+		return await firebase.auth().signInWithPopup(provider);
+	};
+
+	/*const funcaoBotaoLogar = async () => {
+		let resultUser = await Firebase.googleLogin()
+		let resultUser = await Firebase.fbLogin()
+
+		if(resultUser){
+			user = {
+				id: resultUser.uid,
+				name: resultUser.displayName,
+				photo: resultUser.photoURL
+			}
+			UserLogic.socialAuth(user)
+		}else{
+			alert('Error')
+		}
+	}*/
 
 	const convertToCamelCase = (...names) => {
 		return (
@@ -199,6 +227,8 @@ const Firebase = (() => {
 			})
 		),
 		realTimeDatabase,
+		googleLogin,
+		fbLogin,
 	};
 })();
 

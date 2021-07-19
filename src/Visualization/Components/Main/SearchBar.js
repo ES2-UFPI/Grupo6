@@ -3,6 +3,8 @@ import { Link, useHistory, useLocation } from 'react-router-dom';
 import magnifyingGlass from '../Images/lupa.png';
 import ProductLogic from '../../../Logic/ProductLogic';
 import '../Styles/SearchBar.css';
+import UserLogic from '../../../Logic/UserLogic';
+import { useSelector } from 'react-redux';
 
 const SearchBar = () => {
 	const wrapperRef = useRef(null);
@@ -10,6 +12,9 @@ const SearchBar = () => {
 	const [inputText, setInputText] = useState('');
 	const [results, setResults] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
+
+	const userSelector = useSelector((state) => state.user.userId);
+
 	/*
     results: [{
         id,
@@ -56,6 +61,10 @@ const SearchBar = () => {
 		};
 	}, []);
 
+	async function addCategory(category) {
+		await UserLogic.addCategory(userSelector, category);
+	}
+
 	return (
 		<div className="top-search-bar" ref={wrapperRef}>
 			<div
@@ -91,6 +100,7 @@ const SearchBar = () => {
 									className="result-preview"
 									to={`/product/${result.id}`}
 									key={index}
+									onClick={() => addCategory(userSelector, result.category)}
 								>
 									<img
 										src={

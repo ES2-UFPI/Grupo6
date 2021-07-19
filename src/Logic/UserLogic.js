@@ -73,9 +73,12 @@ const UserLogic = (() => {
 	};
 
 	const addCategory = async (userId, category) => {
-		let categories = await Firebase.getUserCategoryClicks(userId);
-		categories.push(category);
-		await Firebase.setUserCategoryClicks(userId, categories);
+		if (userId !== null && userId !== undefined) {
+			const user = await Firebase.getUser(userId);
+			let categories = user.categoryClicks;
+			categories[category] = categories[category] + 1;
+			await Firebase.setUserCategoryClicks(userId, categories);
+		}
 	};
 
 	const deleteAccount = async (userId) => {
@@ -111,7 +114,50 @@ const UserLogic = (() => {
 		await Firebase.setUserEmail(account, user.email);
 		await Firebase.setUserPassword(account, user.password);
 		await Firebase.setUserAccountCreateDate(account, user.date);
-		await Firebase.setUserCategoryClicks(account, []);
+		await Firebase.setUserCategoryClicks(account, {
+			vestuario: 0,
+			eletronicos: 0,
+			livros: 0,
+			eletrodomesticos: 0,
+			cosmeticos: 0,
+			esportivo: 0,
+			jogos: 0,
+		});
+	};
+
+	const socialAuth = async (user) => {
+		await Firebase.setUserName(user.id, user.name);
+		await Firebase.setUserProfilePicture(user.id, user.photo);
+	};
+
+	const getFavoriteCategories = async (userId, limit = 3) => {
+		if (userId === null || userId === undefined) {
+			const users = await getUsers();
+			const categories = users.reduce(
+				(previous, current) => {
+					Object.keys(previous).forEach(
+						(key) => (previous[key] += current.categoryClicks[key])
+					);
+					return previous;
+				},
+				{
+					vestuario: 0,
+					eletronicos: 0,
+					livros: 0,
+					eletrodomesticos: 0,
+					cosmeticos: 0,
+					esportivo: 0,
+					jogos: 0,
+				}
+			);
+			return Object.keys(categories)
+				.sort((a, b) => categories[b] - categories[a])
+				.filter((_k, index) => index < limit);
+		}
+		const categories = (await Firebase.getUser(userId)).categoryClicks;
+		return Object.keys(categories)
+			.sort((a, b) => categories[b] - categories[a])
+			.filter((_k, index) => index < limit);
 	};
 
 	return {
@@ -122,6 +168,8 @@ const UserLogic = (() => {
 		addCategory,
 		deleteAccount,
 		createAccount,
+		socialAuth,
+		getFavoriteCategories,
 	};
 })();
 
