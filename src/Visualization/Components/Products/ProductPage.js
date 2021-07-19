@@ -153,7 +153,10 @@ const ProductPage = ({ match }) => {
 							className="talk-to-seller-button"
 							onClick={(_e) =>
 								dispatch(
-									Reducer.openChat(productInfo.sellerId, productInfo.sellerName)
+									Reducer.openChat(
+										productInfo.creatorId,
+										productInfo.sellerName
+									)
 								)
 							}
 						>
@@ -163,7 +166,11 @@ const ProductPage = ({ match }) => {
 				</div>
 			</div>
 			<div className="bottom-section">
-				<QandA productId={productId} loggedInUser={userSelector} />
+				<QandA
+					productId={productId}
+					productOwner={productInfo.creatorId}
+					loggedInUser={userSelector}
+				/>
 			</div>
 			<AdRow />
 		</div>
