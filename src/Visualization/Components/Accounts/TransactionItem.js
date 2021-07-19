@@ -52,7 +52,7 @@ const TransactionItem = (props) => {
 								<button
 									type="message-user"
 									className="message-user-button"
-									onClick=""
+									onClick={() => {}}
 								>
 									Conversar com Vendedor
 								</button>
@@ -61,7 +61,7 @@ const TransactionItem = (props) => {
 								<button
 									type="cancel-order"
 									className="cancel-order-button"
-									onClick=""
+									onClick={() => {}}
 								>
 									Cancelar Pedido
 								</button>
@@ -74,7 +74,7 @@ const TransactionItem = (props) => {
 								<button
 									type="message-user"
 									className="message-user-button"
-									onClick=""
+									onClick={() => {}}
 								>
 									Conversar com Vendedor
 								</button>

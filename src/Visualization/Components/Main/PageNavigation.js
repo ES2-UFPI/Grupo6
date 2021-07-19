@@ -27,6 +27,7 @@ const PageNavigation = (props) => {
 									? 'page-navigation-link disabled current-page'
 									: 'page-navigation-link'
 							}
+							key={index}
 						>
 							{index + 1}
 						</Link>
