@@ -98,7 +98,6 @@ test('product functions working as intended', (done) => {
 		}
 	};
 
-
 	const createProduct = async () => {
 		const productId = await Firebase.createProduct();
 		await Firebase.setProductName(productId, 'Cellphone');

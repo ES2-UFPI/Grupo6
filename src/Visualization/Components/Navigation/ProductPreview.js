@@ -6,15 +6,18 @@ import { useSelector } from 'react-redux';
 import '../Styles/ProductPreview.css';
 
 const ProductPreview = (props) => {
+	const userSelector = useSelector((state) => state.user.userId);
 
-	const userSelector = useSelector((state) => state.user.id);
-
-	async function addCategory(){
-		await UserLogic.addCategory(userSelector, props.category)
+	async function addCategory() {
+		await UserLogic.addCategory(userSelector, props.category);
 	}
 
 	return (
-		<Link to={`/product/${props.id}`} className="product-preview" onClick={addCategory()}>
+		<Link
+			to={`/product/${props.id}`}
+			className="product-preview"
+			onClick={addCategory}
+		>
 			<div className="top-section">
 				<img src={props.picture} alt={props.name} />
 			</div>

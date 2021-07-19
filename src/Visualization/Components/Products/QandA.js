@@ -48,10 +48,10 @@ const QandA = (props) => {
 					<label>Perguntas Realizadas:</label>
 				</div>
 				<div>
-					{doubts.map((i) => {
+					{doubts.map((i, index) => {
 						if (i.productId === props.productId) {
-							return <div>{i.question}</div>;
-						} else return <div></div>;
+							return <div key={index}>{i.question}</div>;
+						} else return <div key={index}></div>;
 					})}
 				</div>
 				<div className="first-question">
