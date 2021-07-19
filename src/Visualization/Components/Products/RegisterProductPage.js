@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ProductLogic from '../../../Logic/ProductLogic';
+import { useSelector } from 'react-redux';
 import '../Styles/RegisterProductPage.css';
 
 const NewProductPage = () => {
@@ -13,6 +14,8 @@ const NewProductPage = () => {
 	const [tagsInput, setTagsInput] = useState('');
 	const [tags, setTags] = useState([]);
 	const [pictures, setPictures] = useState([]);
+
+	const userSelector = useSelector((state) => state.user.userId);
 
 	useEffect(() => {
 		if (price.length === 0) {
@@ -102,13 +105,13 @@ const NewProductPage = () => {
 						onChange={(e) => setCategory(e.target.value)}
 					>
 						<option value="">{''}</option>
-						<option value={'Vestuário'}>Vestuário</option>
-						<option value={'Eletrônicos'}>Eletrônicos</option>
-						<option value={'Livros'}>Livros</option>
-						<option value={'Eletrodomésticos'}>Eletrodomésticos</option>
-						<option value={'Beleza'}>Beleza</option>
-						<option value={'Esporte'}>Esporte</option>
-						<option value={'Jogos'}>Jogos</option>
+						<option value={'vestuario'}>Vestuário</option>
+						<option value={'eletronicos'}>Eletrônicos</option>
+						<option value={'livros'}>Livros</option>
+						<option value={'eletrodomesticos'}>Eletrodomésticos</option>
+						<option value={'beleza'}>Beleza</option>
+						<option value={'esporte'}>Esporte</option>
+						<option value={'jogos'}>Jogos</option>
 					</select>
 					<span className="missing-category-span">
 						{missingCategoryMessage}
@@ -186,6 +189,7 @@ const NewProductPage = () => {
 								category,
 								tags: tags.map((tag) => tag.slice(1)),
 								pictures,
+								creatorId: userSelector,
 							});
 						}
 						if (productName.length === 0) {
